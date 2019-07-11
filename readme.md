@@ -1,5 +1,4 @@
 <h1>Welcome to group 1!</h1>
-<hr/>
 git clone the repo: <strong>git clone [pasted URL of repo] </strong>
 
 OUR GIT CYCLE:BRANCH > PUSH > PR(TO REPO) > PULL(TO YOUR LOCAL) {BACK TO BRANCH (A cycle! :D)} 
