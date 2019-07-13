@@ -11,5 +11,4 @@ please submit your ideas to this file. Be sure to practice the git flow! (notes 
 - dev pintrest spin off 
 
 
-
-Contributors: Matthew Sewell, Jared, Mandy, Abby Smith, brent
+Contributors: Matthew Sewell, Jared, Mandy, Abby Smith, Jacob mosteller, brent
