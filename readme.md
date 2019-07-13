@@ -11,4 +11,4 @@ please submit your ideas to this file. Be sure to practice the git flow! (notes 
 - dev pintrest spin off 
 
 
-Jared
+Contributor: Jared
