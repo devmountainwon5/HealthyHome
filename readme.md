@@ -10,9 +10,6 @@ please submit your ideas to this file. Be sure to practice the git flow! (notes 
 - blog platform 
 - dev pintrest spin off 
 
-<<<<<<< HEAD
--jacob mosteller
-=======
 
-Contributor: Matthew Sewell, brent
->>>>>>> d984258d0190dd7c44dab8b4f14fbaa223545a83
+Contributor: Matthew Sewell, brent, Jacob mosteller
+
