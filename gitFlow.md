@@ -27,3 +27,12 @@ git clone the repo: <strong>git clone [pasted URL of repo] </strong>
   this command pulls down any approved changes to the repo
   make sure you are on the main dev branch when you pull down.
 
+
+==========================================================================
+          git merge
+==========================================================================
+
+if you want to update your pre-existing branch and bring it up to date with the 'dev' branch
+hop on to your feature branch and type:
+
+git merge dev
