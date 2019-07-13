@@ -12,4 +12,4 @@ please submit your ideas to this file. Be sure to practice the git flow! (notes 
 
 
 
-Contributors: Matthew Sewell, Jared, Mandy, brent
+Contributors: Matthew Sewell, Jared, Mandy, Abby Smith, brent
