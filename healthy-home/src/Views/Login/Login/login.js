@@ -1,36 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default class login extends Component {
-    state = {
-        email: '',
-        password: '',
-        loggedIn: false
-    };
+export default function Login() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     
+    // const [loggedInStatus, setLoggedInStatus] = useState(false);
+    // const handleChange = e => {
+    //     e.target.name(e.target.value)
+    // }
 
-    render() {
-        return (
-            <div>
-                <div className='login-box'>
-                    Email
-                    <input
-                        type='text'
-                        placeholder='Email'
-                        name='email'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
-                    Password
-                    <input
-                        type='text'
-                        placeholder='Password'
-                        name='Password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                </div>
+    return (
+        <div>
+            <div className='login-box'>
+                Login
+                <hr/>
+                Email
+                <input
+                    type='text'
+                    placeholder='Email'
+                    name='setEmail'
+                    value={email}
+                    onChange={e=>setEmail(e.target.value)}
+                />
+                Password
+                <input
+                    type='password'
+                    placeholder='Password'
+                    name='setPassword'
+                    value={password}
+                    onChange={e=>setPassword(e.target.value)}
+                />
             </div>
-        )
-    }
+        </div>
+    )
 }
