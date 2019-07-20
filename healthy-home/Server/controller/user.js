@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const userService = require('../Services/user')
 
-router.post('/login', (req, res, next) => {
-    res.send(userService.login(req));
+router.post('/login', async (req, res, next) => {
+    res.send(await userService.login(req));
 })
 
-router.post('/register', (req, res, next) => {
-    res.send(userService.register(req));
+router.post('/register', async (req, res, next) => {
+    res.send(await userService.register(req));
 })
 
 router.post('/logout', (req, res, next) => {
