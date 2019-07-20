@@ -29,7 +29,7 @@ module.exports = {
                     firstName: catchUser.first_name,
                     lastName: catchUser.last_name,
                     email: catchUser.email,
-                    phoneNume: catchUser.phone_num,
+                    phoneNum: catchUser.phone_num,
                     userId: catchUser.user_id
                 };
 
@@ -76,7 +76,7 @@ module.exports = {
                     firstName: user.first_name,
                     lastName: user.last_name,
                     email: user.email,
-                    phoneNume: user.phone_num,
+                    phoneNum: user.phone_num,
                     userId: user.user_id
                 };
 
