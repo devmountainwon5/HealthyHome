@@ -4,7 +4,7 @@ import React from 'react';
 
 // Local components
 // import Calendar from './Views/Calendar/Calendar';
-// import Home from './Views/Home/Home';
+import Home from './Views/Home/Home';
 // import Login from './Views/Login/Login/login';
 // import Tips from './Views/Tips/Tips';
 
