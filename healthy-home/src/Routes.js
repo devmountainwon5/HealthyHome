@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import React from 'react';
 
 // Local components
+import Home from './Views/Home/Home';
 import Calendar from './Views/Calendar/Calendar';
-// import Home from './Views/Home/Home';
 // import Login from './Views/Login/Login/login';
 // import Tips from './Views/Tips/Tips';
 
@@ -14,6 +14,6 @@ export default (
         <Route path="/home" render={()=><div>Home</div>} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/tips" render={()=><div>Tips</div>} />
-        <Route path="/" render={()=><div>Login</div>} />
+        <Route path="/" component={Home} />
     </Switch>
 );
