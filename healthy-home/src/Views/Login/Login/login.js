@@ -1,15 +1,8 @@
 import React, { useState } from 'react'
 
 export default function Login() {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    
-    // const [loggedInStatus, setLoggedInStatus] = useState(false);
-    // const handleChange = e => {
-    //     e.target.name(e.target.value)
-    // }
 
     return (
         <div>
