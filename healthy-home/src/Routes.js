@@ -14,6 +14,6 @@ export default (
         <Route path="/home" render={()=><div>Home</div>} />
         <Route path="/calendar" render={()=><div>Calendar</div>} />
         <Route path="/tips" render={()=><div>Tips</div>} />
-        <Route path="/" render={()=><div>Login</div>} />
+        <Route path="/" component={Home} />
     </Switch>
 );
