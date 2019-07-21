@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import * as actions from '../../../Ducks/action_creator';
-import Quiz from '../Quiz/quiz';
+import Register from '../Register/register';
 
-export default function Login() {
+export default function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,8 +15,8 @@ export default function Login() {
         };
         axios.post('/auth/login', loginUser).then(({data}) => {
             if (data.success){
-                this.props.setUser(data.user);
-                this.props.history.push('/home')
+                props.setUser(data.user);
+                props.history.push('/home')
             }else{
                 alert('Username or password did not match our records')
             }
