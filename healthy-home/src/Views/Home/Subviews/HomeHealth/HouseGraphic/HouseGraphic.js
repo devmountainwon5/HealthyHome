@@ -1,25 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-//import the house photos?
+import niceHouse from './../../../../../Assets/Healthy House.png';
+import midHouse from './../../../../../Assets/Mid House.png';
+import grossHouse from './../../../../../Assets/Gross House.png';
 
 
-class HouseGraphic extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            pic : 'this will be whatever picture of the house fits their user score (bad house, good house, etc.)'
-        }
-    }
+function HouseGraphic(){
+    const [pic, setPIc] = useState(niceHouse)
 
-    render(){
         return(
             <div>
                 <h1>How's your house doing?</h1>
-                {this.state.pic}
+                {state.pic}  {/*I think this is how you write this?*/}
                 {/* If their house score is bad, we want the picture of the bad house to render from state. if good, the good house pic, etc. */}
             </div>
         )
-    }
+
 }
 
 export default HouseGraphic;
