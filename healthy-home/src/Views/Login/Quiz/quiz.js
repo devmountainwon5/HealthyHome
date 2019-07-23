@@ -19,7 +19,7 @@ class Quiz extends Component {
 
     render() {
 		const quizItems = this.props.quizItems.map((e)=>{
-			return <QuizItem key={e.id} removeFromCart={this.removeFromCart} id={e.id} image_url={e.image_url} price={e.price} name={e.name} />
+			return <QuizItem key={e.id} name={e.name} />
 		})
 		return (
 			<div className="quiz">
