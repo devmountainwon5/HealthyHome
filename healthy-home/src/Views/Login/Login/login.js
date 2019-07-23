@@ -49,10 +49,10 @@ export default function Login(props) {
 }
 
 function doTheColorThing() {
-	if (color == "blue") {
+	if (color == "green") {
 		color = "red"
 	} else {
-		color = "blue"
+		color = "green"
 	}
 	document.getElementById("root").style.background = color
 }
