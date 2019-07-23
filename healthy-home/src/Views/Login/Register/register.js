@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import * as actions from '../../../Ducks/action_creator';
 
 export default function Register(props) {
     const [firstName, setFirstName] = useState('');
@@ -15,9 +14,8 @@ export default function Register(props) {
     const [state, setState] = useState(''); 
     const [zip, setZip] = useState(''); 
 
-
-
     const register = () => {
+        debugger; 
         const registerUser = {
             firstName: firstName,
             lastName: lastName,
@@ -30,9 +28,12 @@ export default function Register(props) {
             state: state,
             zip: zip
         }
-        axios.post('/auth/user', registerUser).then(({data}) => {
-            if(data.success){
-                props.setUser(data.user);
+        axios.post('/api/register', registerUser).then(({data}) => {
+            debugger; 
+            if(data){
+                debugger; 
+                props.setUser(data.users);
+                props.setAddress(data.address); 
                 props.history.push('/quiz')
             }else{
                 alert('Invalid credentials')

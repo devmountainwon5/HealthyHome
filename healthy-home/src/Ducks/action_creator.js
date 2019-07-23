@@ -1,6 +1,13 @@
-export const setUser = (user) => {
+export const setUser = (users) => {
     return {
         type: 'set_user',
-        payload: user
+        payload: users
+    }
+}
+
+export const setAddress = (address) => {
+    return {
+        type: 'set_address',
+        payload: address
     }
 }

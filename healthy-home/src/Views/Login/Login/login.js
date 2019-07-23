@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
-import * as actions from "../../../Ducks/action_creator"
-import Register from "../Register/register"
+// import Register from "../Register/register"
 
 let color = "blue"
 export default function Login(props) {
@@ -49,7 +48,7 @@ export default function Login(props) {
 }
 
 function doTheColorThing() {
-	if (color == "blue") {
+	if (color === "blue") {
 		color = "red"
 	} else {
 		color = "blue"
