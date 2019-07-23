@@ -1,8 +1,8 @@
 import React from 'react';
 
-import niceHouse from './../../../../../Assets/Healthy House.png';
-import midHouse from './../../../../../Assets/Mid House.png';
-import grossHouse from './../../../../../Assets/Gross House.png';
+import niceHouse from './../../../../../Assets/HealthyHouse.png';
+import midHouse from './../../../../../Assets/MidHouse.png';
+import grossHouse from './../../../../../Assets/GrossHouse.png';
 
 
 function HouseGraphic(){
