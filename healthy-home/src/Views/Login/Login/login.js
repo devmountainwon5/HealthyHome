@@ -16,7 +16,7 @@ export default function Login(props) {
 			window.removeEventListener("resize", doTheColorThing)
 		}
 	}, [])
-
+  
 	useEffect(() => {
 		document.title = title
 	}, [title])
