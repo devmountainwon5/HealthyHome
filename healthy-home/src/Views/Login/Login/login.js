@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux';
 import * as Actions from "../../../Ducks/action_creator"
+import './login.css'; 
 
  function Login(props) {
 	const [email, setEmail] = useState("")
@@ -26,19 +27,17 @@ import * as Actions from "../../../Ducks/action_creator"
 	}
 
 	return (
-		<div>
-			<div className='login-box'>
-				<hr />
-				Login
-				<hr />
-				Email
+		<div className='login-box'>
+			<h1 className='login-title'>
+				Healthy Homes
+			</h1>
+			<div className='login-values'>
 				<input 
 					type='text' 
 					placeholder='Email' 
 					name='setEmail' 
 					value={email} 
 					onChange={e => setEmail(e.target.value)} />
-				Password
 				<input
 					type='password'
 					placeholder='Password'
@@ -49,7 +48,7 @@ import * as Actions from "../../../Ducks/action_creator"
 				<button type='submit' onClick={()=>logUserIn(email, password)}>
 					Login
 				</button>
-				<Link to='/register'>Register</Link>
+				<Link className='link' to='/register'>Register</Link>
 			</div>
 		</div>
 	)
