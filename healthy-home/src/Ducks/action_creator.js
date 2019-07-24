@@ -4,3 +4,10 @@ export const setUser = (user) => {
         payload: user
     }
 }
+
+export const setAddress = (address) => {
+    return {
+        type: 'set_address',
+        payload: address
+    }
+}
