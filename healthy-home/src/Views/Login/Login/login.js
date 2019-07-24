@@ -1,36 +1,43 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
-import * as actions from "../../../Ducks/action_creator"
-import Register from "../Register/register"
+import { connect } from 'react-redux';
+import * as Actions from "../../../Ducks/action_creator"
 
-let color = "blue"
-export default function Login(props) {
+ function Login(props) {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	const [title, setTitle] = useState("Login")
 
-	useEffect(() => {
-		window.addEventListener("resize", doTheColorThing)
-		return () => {
-			window.removeEventListener("resize", doTheColorThing)
+	function logUserIn(email, password) {
+		debugger; 
+		const loginUser = {
+			email,
+			password
 		}
-	}, [])
-  
-	useEffect(() => {
-		document.title = title
-	}, [title])
+		axios.post("/auth/login", loginUser).then(({ data }) => {
+			debugger; 
+			if (data.success) {
+				props.setUser(data.user)
+				props.history.push("/home")
+			} else {
+				alert("Username or password did not match our records")
+			}
+		})
+	}
 
 	return (
 		<div>
 			<div className='login-box'>
-				<input type='text' value={title} name='title' onChange={e => setTitle(e.target.value)} />
-				<Link to='/home'>go home</Link>
 				<hr />
 				Login
 				<hr />
 				Email
-				<input type='text' placeholder='Email' name='setEmail' value={email} onChange={e => setEmail(e.target.value)} />
+				<input 
+					type='text' 
+					placeholder='Email' 
+					name='setEmail' 
+					value={email} 
+					onChange={e => setEmail(e.target.value)} />
 				Password
 				<input
 					type='password'
@@ -48,26 +55,27 @@ export default function Login(props) {
 	)
 }
 
-function doTheColorThing() {
-	if (color == "blue") {
-		color = "red"
-	} else {
-		color = "blue"
-	}
-	document.getElementById("root").style.background = color
-}
+// let color = "blue"
 
-function logUserIn(email, password) {
-	const loginUser = {
-		email,
-		password
-	}
-	axios.post("/auth/login", loginUser).then(({ data }) => {
-		if (data.success) {
-			// props.setUser(data.user)
-			// props.history.push("/home")
-		} else {
-			alert("Username or password did not match our records")
-		}
-	})
-}
+// function doTheColorThing() {
+// 	if (color == "blue") {
+// 		color = "red"
+// 	} else {
+// 		color = "blue"
+// 	}
+// 	document.getElementById("root").style.background = color
+// }
+
+// useEffect(() => {
+// 	window.addEventListener("resize", doTheColorThing)
+// 	return () => {
+// 		window.removeEventListener("resize", doTheColorThing)
+// 	}
+// }, [])
+  
+// useEffect(() => {
+// 	document.title = title
+// }, [title])
+
+
+export default connect(null, Actions)(Login); 
