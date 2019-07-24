@@ -8,7 +8,7 @@ class Quiz extends Component {
 		axios.get('/api/quiz/questions')
 		.then(({data})=>{
 			if (data.success) {
-				this.props.setCart(data.cartItems);
+				this.props.setquiz(data.quizItems);
 			} else if (!data.isLoggedIn) {
 				this.props.history.push('/');
 			} else {
