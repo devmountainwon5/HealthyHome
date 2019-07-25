@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
 import Tips from './Tips/Tips';
 import HouseGraphic from './HouseGraphic/HouseGraphic'
-import './HomeHealth.css'
+import './Homehealth.css'
 
 
 
@@ -21,7 +21,7 @@ class HomeHealth extends Component {
             <div>
                 <div className="navbar">
                     <ul>
-                    <li><a>Home</a></li>
+                    <li className='active'><a>Home</a></li>
                     <li><a>Healthy Home</a></li>
                     <li><a>Calendar</a></li>
                     <li><a>How to</a></li>

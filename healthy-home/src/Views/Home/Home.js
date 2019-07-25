@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 import './Home.css'
 
 class Home extends Component {
+    constructor(props){
+        super()
+    }
+    test=()=>{
+        this.props.history.push('/loggedin')
+    }
+
     render() {
         return (
             <div>
                 <div className="navbar">
                     <ul>
-                    <li><a>Quiz</a></li>
+                    <li onClick={this.test}><a>Quiz</a></li>
                     <li><a>About</a></li>
                     <li style={{float:'right'}}><a>Profile</a></li>
                     </ul>
