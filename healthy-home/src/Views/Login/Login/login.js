@@ -10,13 +10,13 @@ import './login.css';
 	const [password, setPassword] = useState("")
 
 	function logUserIn(email, password) {
-		debugger; 
+		// debugger; 
 		const loginUser = {
 			email,
 			password
 		}
 		axios.post("/auth/login", loginUser).then(({ data }) => {
-			debugger; 
+			// debugger; 
 			if (data.success) {
 				props.setUser(data.user)
 				props.history.push("/home")
