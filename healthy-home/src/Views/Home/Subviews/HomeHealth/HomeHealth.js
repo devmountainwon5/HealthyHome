@@ -15,6 +15,9 @@ class HomeHealth extends Component {
 
         }
     }
+    profile=()=>{
+        this.props.history.push('/')
+    }
 
     render() {
         return (
@@ -25,7 +28,7 @@ class HomeHealth extends Component {
                     <li><a>Healthy Home</a></li>
                     <li><a>Calendar</a></li>
                     <li><a>How to</a></li>
-                    <li style={{float:'right'}}><a>Profile</a></li>
+                    <li onClick={this.profile} style={{float:'right'}}><a>Profile</a></li>
                     </ul>
                 </div>
                 Healthy home

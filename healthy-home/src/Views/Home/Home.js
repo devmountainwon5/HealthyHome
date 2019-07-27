@@ -8,6 +8,9 @@ class Home extends Component {
     test=()=>{
         this.props.history.push('/loggedin')
     }
+    profile=()=>{
+        this.props.push('/')
+    }
 
     render() {
         return (
@@ -16,7 +19,7 @@ class Home extends Component {
                     <ul>
                     <li onClick={this.test}><a>Quiz</a></li>
                     <li><a>About</a></li>
-                    <li style={{float:'right'}}><a>Profile</a></li>
+                    <li onClick={this.profile} style={{float:'right'}}><a>Profile</a></li>
                     </ul>
                 </div>
 
