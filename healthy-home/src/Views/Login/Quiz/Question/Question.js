@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { answerHelper } from "../helpers/dbHelper";
 
 function Question(props) {
     const { question, answers, allowMultiple } = props;
