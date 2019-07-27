@@ -10,13 +10,13 @@ import './login.css';
 	const [password, setPassword] = useState("")
 
 	function logUserIn(email, password) {
-		debugger; 
+		// debugger; 
 		const loginUser = {
 			email,
 			password
 		}
 		axios.post("/auth/login", loginUser).then(({ data }) => {
-			debugger; 
+			// debugger; 
 			if (data.success) {
 				props.setUser(data.user)
 				props.history.push("/home")
@@ -53,28 +53,5 @@ import './login.css';
 		</div>
 	)
 }
-
-// let color = "blue"
-
-// function doTheColorThing() {
-// 	if (color == "blue") {
-// 		color = "red"
-// 	} else {
-// 		color = "blue"
-// 	}
-// 	document.getElementById("root").style.background = color
-// }
-
-// useEffect(() => {
-// 	window.addEventListener("resize", doTheColorThing)
-// 	return () => {
-// 		window.removeEventListener("resize", doTheColorThing)
-// 	}
-// }, [])
-  
-// useEffect(() => {
-// 	document.title = title
-// }, [title])
-
 
 export default connect(null, Actions)(Login); 

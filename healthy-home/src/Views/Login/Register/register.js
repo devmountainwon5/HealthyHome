@@ -18,7 +18,7 @@ import './register.css';
     const [zip, setZip] = useState(''); 
 
     const register = () => {
-        debugger; 
+        // debugger; 
         const registerUser = {
             firstName: firstName,
             lastName: lastName,
@@ -32,7 +32,7 @@ import './register.css';
             zip: zip
         }
         axios.post('/auth/register', registerUser).then(({data}) => {
-            debugger; 
+            // debugger; 
             if(data.success){
                 props.setUser(data.user);
                 props.setAddress(data.address); 
