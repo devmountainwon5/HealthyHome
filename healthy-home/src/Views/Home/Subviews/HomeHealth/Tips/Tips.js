@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NavBar from '../../../NavBar/NavBar';
 
 class Tips extends Component{
     constructor(props){
@@ -11,6 +12,7 @@ class Tips extends Component{
     render(){
         return(
             <div>
+                <NavBar/>
                 <h1>Cleaning Tips</h1>
                 {this.state.string}
             </div>

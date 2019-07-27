@@ -7,8 +7,8 @@ import Home from './Views/Home/Home';
 import Calendar from './Views/Calendar/Calendar';
 import Login from './Views/Login/Login/login';
 import Register from './Views/Login/Register/register';
-import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
-// import NavBar from './Views/Home/NavBar/NavBar';
+import Homehealth from './Views/Home/Subviews/HomeHealth/HomeHealth'
+import Tips from './Views/Home/Subviews/HomeHealth/Tips/Tips';
 // import Tips from './Views/Tips/Tips';
 
 export default (

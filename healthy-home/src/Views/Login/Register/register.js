@@ -134,7 +134,7 @@ import './register.css';
             </div>
             <div className='is-registered'>
                 Already registered?
-                <Link className='link' to='/login'>Login</Link>
+                <Link className='link' to='/'>Login</Link>
             </div>
         </div>
     )
