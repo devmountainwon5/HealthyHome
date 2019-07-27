@@ -22,7 +22,6 @@ class HomeHealth extends Component {
                 <NavBar/>
                 Healthy home
                 <UpcomingEvents />
-                <Tips />
                 <HouseGraphic />
             </div>
         )
