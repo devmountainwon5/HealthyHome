@@ -35,8 +35,10 @@ module.exports = {
 
                 return {
                     success: true,
-                    firstName: catchUser.first_name,
-                    lastName: catchUser.last_name
+                    user: {
+                        firstName: catchUser.first_name,
+                        lastName: catchUser.last_name
+                         }
                 }
             })
             .catch(err => {
@@ -106,8 +108,11 @@ module.exports = {
                 // debugger;
                 return {
                     success: true,
-                    firstName: req.session.user.first_name,
-                    lastName: req.session.user.last_name
+                    address,
+                    user: {
+                        firstName: req.session.user.firstName,
+                        lastName: req.session.user.lastName
+                    }
                 }
             })
             .catch(err => {
