@@ -16,13 +16,8 @@ export default (
     <Switch>
         {/* <NavBar /> */}
         {/* Replace with proper component={} things later */}
-<<<<<<< HEAD
         <Route path="/loggedin" component={Homehealth} />
         <Route path="/home" component={Home} />
-=======
-        <Route path="/home" component={Home} />
-        <Route path="/homehealth" component={HomeHealth} />
->>>>>>> 2ef3af525293372e383ee45cf5afcfde013c8833
         <Route path="/calendar" component={Calendar} />
         <Route path="/tips" render={()=><div>Tips</div>} />
         <Route path="/register" component={Register}/>
