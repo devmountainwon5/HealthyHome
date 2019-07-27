@@ -7,9 +7,9 @@ import NavBar from '../Home/NavBar/NavBar';
 function Calendar() {
     return (
         <div className="Calendar">
-            <div>
+
                 <NavBar/>
-            </div>
+
             
             <ReactCalendar />
         </div>
