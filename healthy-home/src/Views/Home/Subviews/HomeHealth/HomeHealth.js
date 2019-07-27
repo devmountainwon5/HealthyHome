@@ -22,7 +22,7 @@ class HomeHealth extends Component {
     render() {
         return (
             <div>
-                <div className="navbar">
+                {/* <div className="navbar">
                     <ul>
                     <li className='active'><a>Home</a></li>
                     <li><a>Healthy Home</a></li>
@@ -30,7 +30,7 @@ class HomeHealth extends Component {
                     <li><a>How to</a></li>
                     <li onClick={this.profile} style={{float:'right'}}><a>Profile</a></li>
                     </ul>
-                </div>
+                </div> */}
                 Healthy home
                 <UpcomingEvents />
                 <Tips />

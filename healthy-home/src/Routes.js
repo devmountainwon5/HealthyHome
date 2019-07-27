@@ -12,12 +12,14 @@ import Homehealth from './Views/Home/Subviews/HomeHealth/HomeHealth'
 
 export default (
     <Switch>
+        {/* <NavBar /> */}
         {/* Replace with proper component={} things later */}
         <Route path="/loggedin" component={Homehealth} />
         <Route path="/home" component={Home} />
+        <Route path="/homehealth" component={HomeHealth} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/tips" render={()=><div>Tips</div>} />
-        <Route path="/" component={Login} />
         <Route path="/register" component={Register}/>
+        <Route exact path="/" component={Login} />
     </Switch>
 );
