@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
-import Tips from './Tips/Tips';
 import HouseGraphic from './HouseGraphic/HouseGraphic'
 import './HomeHealth.css'
 
@@ -30,7 +29,6 @@ class HomeHealth extends Component {
                 </div> */}
                 Healthy home
                 <UpcomingEvents />
-                <Tips />
                 <HouseGraphic />
             </div>
         )

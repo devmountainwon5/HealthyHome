@@ -9,7 +9,7 @@ import Login from './Views/Login/Login/login';
 import Register from './Views/Login/Register/register';
 import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
 // import NavBar from './Views/Home/NavBar/NavBar';
-// import Tips from './Views/Tips/Tips';
+import Tips from './Views/Tips/Tips';
 
 export default (
     <Switch>
@@ -18,7 +18,7 @@ export default (
         <Route path="/home" component={Home} />
         <Route path="/homehealth" component={HomeHealth} />
         <Route path="/calendar" component={Calendar} />
-        <Route path="/tips" render={()=><div>Tips</div>} />
+        <Route path="/tips" component={Tips} />
         <Route path="/register" component={Register}/>
         <Route exact path="/" component={Login} />
     </Switch>
