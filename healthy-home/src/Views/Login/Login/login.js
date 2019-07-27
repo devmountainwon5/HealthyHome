@@ -54,27 +54,4 @@ import './login.css';
 	)
 }
 
-// let color = "blue"
-
-// function doTheColorThing() {
-// 	if (color == "blue") {
-// 		color = "red"
-// 	} else {
-// 		color = "blue"
-// 	}
-// 	document.getElementById("root").style.background = color
-// }
-
-// useEffect(() => {
-// 	window.addEventListener("resize", doTheColorThing)
-// 	return () => {
-// 		window.removeEventListener("resize", doTheColorThing)
-// 	}
-// }, [])
-  
-// useEffect(() => {
-// 	document.title = title
-// }, [title])
-
-
 export default connect(null, Actions)(Login); 
