@@ -1,12 +1,15 @@
-// import React, { useState } from 'react';
-import React from 'react'
+import React, { useState } from 'react';
 import ReactCalendar from 'react-calendar';
-
 import './Calendar.css';
+import NavBar from '../Home/NavBar/NavBar';
 
 function Calendar() {
     return (
-        <div className="Calendar">
+        <div>
+
+                <NavBar/>
+
+            
             <ReactCalendar />
         </div>
     );
