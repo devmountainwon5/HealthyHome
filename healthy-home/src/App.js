@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="healthy-home">
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         {routes}
       </Router>
     </div>
