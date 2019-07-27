@@ -6,7 +6,7 @@ function NavBar(){
     return(
         <div className="navbar">
                     <ul>
-                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/loggedin">Home</Link></li>
                     <li><Link to="/">Healthy Home</Link></li>
                     <li><Link to="/calendar">Calendar</Link></li>
                     <li><Link to="/tips">Tips</Link></li>
