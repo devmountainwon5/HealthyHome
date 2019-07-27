@@ -8,8 +8,6 @@ import Calendar from './Views/Calendar/Calendar';
 import Login from './Views/Login/Login/login';
 import Register from './Views/Login/Register/register';
 import Homehealth from './Views/Home/Subviews/HomeHealth/HomeHealth'
-import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
-// import NavBar from './Views/Home/NavBar/NavBar';
 // import Tips from './Views/Tips/Tips';
 
 export default (
