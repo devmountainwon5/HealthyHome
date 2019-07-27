@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as Actions from "../../../Ducks/action_creator"
+import * as Actions from "../../../Ducks/action_creator";
+import './register.css';
 
  function Register(props) {
     const [firstName, setFirstName] = useState('');
@@ -43,10 +44,11 @@ import * as Actions from "../../../Ducks/action_creator"
     }
 
     return (
-        <div>
-            <div className='register-box'>
-                Register
-                <hr/>
+        <div className='register-box'>
+            <h1 className='register-title'>
+            Register
+            </h1>
+            <div className='register-values'>
                 First Name
                 <input
                     type='text'
@@ -128,8 +130,11 @@ import * as Actions from "../../../Ducks/action_creator"
                     onChange={e=>setPassword(e.target.value)}
                 />
                 <button type='submit' onClick={register}>Register</button>
+                
+            </div>
+            <div className='is-registered'>
                 Already registered?
-                <Link to='/login'>Login</Link>
+                <Link className='link' to='/login'>Login</Link>
             </div>
         </div>
     )
