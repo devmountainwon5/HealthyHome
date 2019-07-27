@@ -19,6 +19,7 @@ class HomeHealth extends Component {
     render() {
         return (
             <div>
+                
                 <NavBar/>
                 Healthy home
                 <UpcomingEvents />
