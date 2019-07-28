@@ -29,8 +29,10 @@ function Tips(props) {
 
     return (
         <div>
-            <h1>Tips</h1>
+            <h1 className="tips-title">Tips</h1>
+            <div className="all-tips">
             {loopTips}
+            </div>
         </div>
     )
 }
