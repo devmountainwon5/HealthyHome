@@ -1,12 +1,17 @@
 import React from 'react'
+import './Tip.css'; 
 
 export default function Tip(props) {
     return (
         <div>
-            <h1>
-                {props.tip.tip_name}
-            </h1>
-            {/* <a></a>  */}
+            <div className='singleTips'>
+                <a href={props.tip.blog_link} target="_blank">
+                    <h2>
+                        {props.tip.tip_name}
+                    </h2>
+                    <img className='tipPicture' src={props.tip.tip_picture} alt="tip picture"/>
+                </a>
+            </div>
         </div>
     )
 }
