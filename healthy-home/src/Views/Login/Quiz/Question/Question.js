@@ -1,45 +1,50 @@
 import React, { useState } from 'react';
-import { answerHelper } from "../helpers/dbHelper";
+import { answerHelpers } from '../../../../shared/helpers/database/quizDb';
 
 function Question(props) {
-    const { question, answers, allowMultiple } = props;
-
+    const { questionId, questionText, onSubmit } = props;
+    const answerHelper = answerHelpers ? answerHelpers.findById(questionId) : null;
+    // console.log(answerHelper);
+    const { allowMultiple, answers } = answerHelper ? answerHelper : { allowMultiple: false, answers: {} };
     const setupState = () => {
-        return answers.reduce((r, e) => {
-            r[e.id] = false;
-            return r;
-        }, {});
+        const out = {};
+        for (const key in answers) {
+            out[key] = false;
+        }
+        return out;
     }
 
     const [userAnswers, changeAnswers] = useState(setupState());
 
     const onChange = (e) => {
-        console.log(e.target.value, e.target.name, e.target.checked);
+        // console.log(e.target.value, e.target.name, e.target.checked);
         const newState = {};
-        for(const key in userAnswers) {
+        for (const key in userAnswers) {
             if (e.target.value == key)
                 newState[key] = Boolean(e.target.checked);
             else
                 newState[key] = allowMultiple ? userAnswers[key] : false;
         }
-        console.dir(newState);
+        // console.dir(newState);
         changeAnswers(newState);
     }
 
     const inputType = allowMultiple ? "checkbox" : "radio";
 
-    const answerMap = answers.map(e => {
-        return <div>
-            <input type={inputType} name={question.id} value={e.id} onChange={onChange} />
-            {e.text}
-        </div>
-    })
+    const answerArr = [];
+    for (const key in answers) {
+        answerArr.push(<div>
+            <input type={inputType} name={questionId} value={key} onChange={onChange} />
+            {answers[key].displayText}
+        </div>)
+    }
 
     return (<div>
-        <h1>Question</h1>
+        <h1>{questionText}</h1>
         <div>
-            {answerMap}
+            {answerArr}
         </div>
+        <button>Submit</button>
     </div>);
 }
 
