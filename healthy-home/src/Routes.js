@@ -9,6 +9,7 @@ import Login from './Views/Login/Login/login';
 import Register from './Views/Login/Register/register';
 import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
 import Tips from './Views/Tips/Tips';
+import ToDos from './Views/Home/Subviews/ToDos/ToDos';
 // import Quiz from './Views/Login/Quiz/quiz'
 
 export default (
@@ -16,8 +17,7 @@ export default (
         {/* <NavBar /> */}
         {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
-        {/* <Route path="/subscribe" component={Todo} /> */}
-
+        <Route path="/subscribe" component={ToDos} />
         {/* <Route path="/quiz" component={Quiz} /> */}
         <Route path="/homehealth" component={HomeHealth} />
         <Route path="/tips" component={Tips} />
