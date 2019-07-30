@@ -34,12 +34,37 @@ function Question(props) {
         </div>
     })
 
-    return (<div>
-        <h1>Question</h1>
-        <div>
-            {answerMap}
+    return (
+        <div className="quiz">
+            <h1>What Kind Of Home Do You Live In?</h1>
+            <form id="question1">
+                <input type="radio" name="choice" value="Apartment"> Apartment
+                <input type="radio" name="choice" value="House"> House
+                <input type="radio" name="choice" value="Condo"> Condo
+                <input type="radio" name="choice" value="Trailer"> Trailer
+                <input type="radio" name="choice" value="Townhouse"> Townhouse
+                <br/>
+                <input type="submit" value="Submit" onClick=""/>
+            </form>
+            <h1>Are You Responsible For Your Yard Care?</h1>
+            <form id="question2">
+                <input type="radio" name="choice" value="Yes"> Yes
+                <input type="radio" name="choice" value="No"> No
+                <br/>
+                <input type="submit" value="Submit" onClick=""/>
+            </form>
+            <h1>How Would You Like To Be Reminded Of Upcoming Tasks?</h1>
+            <form id="question3">
+                <input type="radio" name="choice" value="Text"/>
+                <input type="radio" name="choice" value="Email"/>
+                <input type="radio" name="choice" value="Pop-Ups"/>
+                <br/>
+                <input type="submit" value="Submit" onClick=" "/> 
+
+            </form>
+            <Header />
+            {quizItems}
         </div>
-    </div>);
 }
 
 export default Question; 
