@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as Actions from "../../Ducks/action_creator";
 import './Tips.css';
 import Tip from './Tip'; 
+import NavBar from '../Home/NavBar/NavBar';
 
 
 function Tips(props) {
@@ -29,8 +30,12 @@ function Tips(props) {
 
     return (
         <div>
-            <h1>Tips</h1>
+            <NavBar/>
+            <h1 className="tips-title">Tips</h1>
+            <div className="all-tips">
             {loopTips}
+            </div>
+            
         </div>
     )
 }
