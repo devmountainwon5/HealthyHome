@@ -4,16 +4,24 @@ import React from 'react';
 
 // Local components
 // import Calendar from './Views/Calendar/Calendar';
-// import Home from './Views/Home/Home';
-// import Login from './Views/Login/Login/login';
-// import Tips from './Views/Tips/Tips';
+// import NavBar from './Views/Home/NavBar/NavBar';
+import Login from './Views/Login/Login/login';
+import Register from './Views/Login/Register/register';
+import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
+import Tips from './Views/Tips/Tips';
+import ToDos from './Views/Home/Subviews/ToDos/ToDos';
+// import Quiz from './Views/Login/Quiz/quiz'
 
 export default (
     <Switch>
+        {/* <NavBar /> */}
+        {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
-        <Route path="/home" render={()=><div>Home</div>} />
-        <Route path="/calendar" render={()=><div>Calendar</div>} />
-        <Route path="/tips" render={()=><div>Tips</div>} />
-        <Route path="/" render={()=><div>Login</div>} />
+        <Route path="/subscribe" component={ToDos} />
+        {/* <Route path="/quiz" component={Quiz} /> */}
+        <Route path="/homehealth" component={HomeHealth} />
+        <Route path="/tips" component={Tips} />
+        <Route path="/register" component={Register}/>
+        <Route exact path="/" component={Login} />
     </Switch>
 );
