@@ -40,6 +40,13 @@ class AnswerManager {
             writable: false
         });
 
+        for (const key in answerObj) {
+            Object.defineProperty(answerObj[key], "key", {
+                value: key,
+                writable: false
+            });
+        }
+
         Object.defineProperty(this, "answers", {
             value: answerObj,
             writable: false
