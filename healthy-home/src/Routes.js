@@ -3,21 +3,24 @@ import { Switch, Route } from 'react-router-dom';
 import React from 'react';
 
 // Local components
-import Home from './Views/Home/Home';
-import Calendar from './Views/Calendar/Calendar';
+// import Calendar from './Views/Calendar/Calendar';
+// import NavBar from './Views/Home/NavBar/NavBar';
 import Login from './Views/Login/Login/login';
 import Register from './Views/Login/Register/register';
-import Homehealth from './Views/Home/Subviews/HomeHealth/HomeHealth'
-// import Tips from './Views/Tips/Tips';
+import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
+import Tips from './Views/Tips/Tips';
+import ToDos from './Views/Home/Subviews/ToDos/ToDos';
+// import Quiz from './Views/Login/Quiz/quiz'
 
 export default (
     <Switch>
         {/* <NavBar /> */}
+        {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
-        <Route path="/loggedin" component={Homehealth} />
-        <Route path="/home" component={Home} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/tips" render={()=><div>Tips</div>} />
+        <Route path="/subscribe" component={ToDos} />
+        {/* <Route path="/quiz" component={Quiz} /> */}
+        <Route path="/homehealth" component={HomeHealth} />
+        <Route path="/tips" component={Tips} />
         <Route path="/register" component={Register}/>
         <Route exact path="/" component={Login} />
     </Switch>

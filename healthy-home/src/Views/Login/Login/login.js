@@ -19,7 +19,7 @@ import './login.css';
 			// debugger; 
 			if (data.success) {
 				props.setUser(data.user)
-				props.history.push("/home")
+				props.history.push("/homehealth")
 			} else {
 				alert("Username or password did not match our records")
 			}

@@ -1,0 +1,16 @@
+.singleTips {
+    width: 300px;
+    margin: 25px;
+}
+
+.tip-name{
+    text-decoration: none;
+    color: #5897a5;
+    display: block;
+    text-align: center;
+    font-size: .9em;
+}
+
+.tipPicture {
+    width: 300px; 
+}
