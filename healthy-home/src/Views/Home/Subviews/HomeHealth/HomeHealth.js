@@ -24,7 +24,6 @@ class HomeHealth extends Component {
         return (
             <div>
                 <NavBar/>
-                Healthy home
                 <UpcomingEvents />
                 <HouseGraphic />
                 <RandomTip/>
