@@ -1,5 +1,5 @@
 import React from 'react'
-import './Tip.css'; 
+import './../../../../Tips/Tip.css'; 
 
 export default function Tip(props) {
     return (
@@ -15,4 +15,3 @@ export default function Tip(props) {
         </div>
     )
 }
-

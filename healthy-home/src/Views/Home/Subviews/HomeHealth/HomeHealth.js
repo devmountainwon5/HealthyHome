@@ -21,14 +21,13 @@ class HomeHealth extends Component {
 
 
     render() {
-        const randomTip = Math
         return (
             <div>
                 <NavBar/>
                 Healthy home
                 <UpcomingEvents />
                 <HouseGraphic />
-                {/* {RandomTip} */}
+                <RandomTip/>
             </div>
         )
     }
