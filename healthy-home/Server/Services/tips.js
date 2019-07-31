@@ -15,12 +15,15 @@ module.exports = {
     },
     getOne: (req, res, next) => {
         const db = req.app.get('db');
-        db.home_tips_table.Math.floor(Math.random() * {home_tips_id: Number(req.params.home_tips_id)})
-            .then((tip) => {
-                res.send({success: true, tip})
+       return db.random_tip()
+            .then((random) => {
+                return {
+                    success: true, 
+                    random 
+                }
             })
-            .catch((err) => {
-                res.send({success: false, err})
-            })
+            .catch(err => {
+                return { success: false, msg: err };
+            });
     }
 }
