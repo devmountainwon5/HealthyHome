@@ -10,7 +10,7 @@ import Register from './Views/Login/Register/register';
 import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
 import Tips from './Views/Tips/Tips';
 import ToDos from './Views/Home/Subviews/ToDos/ToDos';
-// import Quiz from './Views/Login/Quiz/quiz'
+import Quiz from './Views/Login/Quiz/quiz'
 
 export default (
     <Switch>
@@ -18,7 +18,7 @@ export default (
         {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
         <Route path="/subscribe" component={ToDos} />
-        {/* <Route path="/quiz" component={Quiz} /> */}
+        <Route path="/quiz" component={Quiz} />
         <Route path="/homehealth" component={HomeHealth} />
         <Route path="/tips" component={Tips} />
         <Route path="/register" component={Register}/>
