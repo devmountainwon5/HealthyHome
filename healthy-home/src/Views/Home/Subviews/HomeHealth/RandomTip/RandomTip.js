@@ -4,18 +4,17 @@ import {connect} from 'react-redux';
 import Random from './Random'; 
 import * as Actions from '../../../../../Ducks/action_creator';
 
+import './RandomTip.css';
 
 function RandomTip(props) {
     const [random, setRandom] = useState([])
     
     useEffect(() => {
         getRandomTip(); 
-    });
+    }, []);
 
     function getRandomTip() {
-        debugger; 
         axios.get("/tips/getOne", getRandomTip).then(({ data }) => {
-            debugger; 
             if (data.success) {
                 setRandom(data.random);
             } else {
@@ -31,6 +30,7 @@ function RandomTip(props) {
     return (
         <div>
             <div className="all-tips">
+                
             {splitRandom}
             </div>
         </div>

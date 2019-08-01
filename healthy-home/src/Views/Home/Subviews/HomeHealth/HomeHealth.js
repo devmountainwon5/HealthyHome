@@ -7,24 +7,32 @@ import RandomTip from './RandomTip/RandomTip';
 import Axios from 'axios';
 
 class HomeHealth extends Component {
-   constructor(props){
-       super(props);
-       this.state={
-       }
-   }
-   render() {
-       return (
-           <div>
-               <NavBar/>
-               <div className="DashboardMain">
-                   <UpcomingEvents />
-                   <div className="DashboardSecondary">
-                       <RandomTip/>
-                       <HouseGraphic />
-                   </div>
-               </div>
-           </div>
-       )
-   }
+
+    constructor(props){
+        super(props);
+
+        this.state={
+            
+        }
+    }
+
+
+
+    render() {
+        return (
+            <div>
+                <NavBar/> 
+                <div className="DashboardMain">
+                    <UpcomingEvents />
+                    <div className="DashboardSecondary">
+                        <RandomTip/>
+                        <HouseGraphic />
+                    </div>
+                </div>
+                
+                
+            </div>
+        )
+    }
 }
 export default HomeHealth;
