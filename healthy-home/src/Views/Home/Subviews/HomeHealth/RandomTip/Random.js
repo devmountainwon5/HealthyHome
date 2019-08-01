@@ -1,6 +1,7 @@
 import React from 'react'
 import './../../../../Tips/Tip.css'; 
 
+import './Random.css'
 export default function Tip(props) {
     return (
         <div>

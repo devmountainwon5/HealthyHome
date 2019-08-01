@@ -33,3 +33,13 @@ ul {
 .active{
   background-color: rgb(121, 233, 171)
 }
+
+.DashboardMain {
+  display: flex;
+  align-items: flex-start;
+}
+
+.DashboardSecondary {
+  display: flex;
+  flex-direction: column;
+}

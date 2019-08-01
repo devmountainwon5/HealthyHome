@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Random from './Random'; 
 import * as Actions from '../../../../../Ducks/action_creator';
 
+import './RandomTip.css';
 
 function RandomTip(props) {
     const [random, setRandom] = useState([])
@@ -29,6 +30,7 @@ function RandomTip(props) {
     return (
         <div>
             <div className="all-tips">
+                
             {splitRandom}
             </div>
         </div>
