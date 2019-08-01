@@ -7,10 +7,16 @@ export const questionIds = Object.freeze({
     reminders: 3
 });
 
+export const todoTypes = Object.freeze({
+    home: 1,
+    yard: 2,
+    custom: 3
+});
+
 // Simple class meant to contain the two main parts of a single answer
 // -- The text to display and what to string its mapped to in the database
 class Answer {
-    constructor(displayText, dbString) {
+    constructor(displayText, dbString, impliedTypes = []) {
         Object.defineProperty(this, "displayText", {
             value: displayText,
             writable: false
@@ -18,6 +24,12 @@ class Answer {
 
         Object.defineProperty(this, "dbString", {
             value: dbString.toUpperCase(),
+            writable: false
+        });
+
+        // Array of numbers
+        Object.defineProperty(this, "impliedTypes", {
+            value: impliedTypes,
             writable: false
         });
     }
@@ -80,19 +92,41 @@ class AnswerManager {
         // console.log("Matches test", id, this.questionId);
         return id === this.questionId;
     };
+
+    getKeysFromDb(dbString) {
+        const answers = dbString.split(',');
+        return answers.reduce((keys, e) => {
+            for (const key in this.answers) {
+                if (this.answers[key].dbString === e)
+                    keys.push(key);
+            }
+            return keys;
+        }, []);
+    }
+
+    getTypesFromKeys(keys) {
+        return keys.reduce((types, e) => {
+            const impliedTypes = this.answers[e].impliedTypes;
+            impliedTypes.forEach(e => {
+                if (!types.includes(e))
+                    types.push(e);
+            })
+            return types;
+        }, []);
+    }
 }
 
 // Holds the answer sets, along with some extra helper functions
 export const answerHelpers = {
     housing: new AnswerManager(questionIds.homeType, false, {
-        apartment: new Answer("Apartment", "APARTMENT"),
-        house: new Answer("House", "HOUSE"),
-        condo: new Answer("Condo", "CONDO"),
-        trailer: new Answer("Trailer", "TRAILER"),
-        townhouse: new Answer("Townhouse", "TOWNHOUSE")
+        apartment: new Answer("Apartment", "APARTMENT", [todoTypes.home]),
+        house: new Answer("House", "HOUSE", [todoTypes.home]),
+        condo: new Answer("Condo", "CONDO", [todoTypes.home]),
+        trailer: new Answer("Trailer", "TRAILER", [todoTypes.home]),
+        townhouse: new Answer("Townhouse", "TOWNHOUSE", [todoTypes.home])
     }),
     yard: new AnswerManager(questionIds.hasYard, false, {
-        yes: new Answer("Yes", "YES"),
+        yes: new Answer("Yes", "YES", [todoTypes.yard]),
         no: new Answer("No", "NO")
     }),
     reminders: new AnswerManager(questionIds.reminders, true, {
