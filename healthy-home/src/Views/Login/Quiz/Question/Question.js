@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { answerHelpers } from '../../../../shared/helpers/database/quizDb';
 
 function Question(props) {
-    const { questionId, questionText, onSubmit } = props;
+    const { questionId, questionText, handleUpdate } = props;
     const answerHelper = answerHelpers ? answerHelpers.findById(questionId) : null;
     // console.log(answerHelper);
     const { allowMultiple, answers } = answerHelper ? answerHelper : { allowMultiple: false, answers: {} };
@@ -17,16 +17,7 @@ function Question(props) {
     const [userAnswers, changeAnswers] = useState(setupState());
 
     const onChange = (e) => {
-        // console.log(e.target.value, e.target.name, e.target.checked);
-        const newState = {};
-        for (const key in userAnswers) {
-            if (e.target.value == key)
-                newState[key] = Boolean(e.target.checked);
-            else
-                newState[key] = allowMultiple ? userAnswers[key] : false;
-        }
-        // console.dir(newState);
-        changeAnswers(newState);
+        handleUpdate(Number(e.target.name), e.target.value);
     }
 
     const inputType = allowMultiple ? "checkbox" : "radio";
@@ -34,17 +25,16 @@ function Question(props) {
     const answerArr = [];
     for (const key in answers) {
         answerArr.push(<div>
-            <input type={inputType} name={questionId} value={key} onChange={onChange} />
+            <input key={`${questionId}_${key}`} type={inputType} name={questionId} value={key} onChange={onChange} />
             {answers[key].displayText}
         </div>)
     }
-
+    console.log(userAnswers)
     return (<div>
         <h1>{questionText}</h1>
         <div>
             {answerArr}
         </div>
-        <button>Submit</button>
     </div>);
 }
 
