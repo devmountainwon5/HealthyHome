@@ -35,7 +35,8 @@ function Tips(props) {
             <div className="all-tips">
             {loopTips}
             </div>
-            
+            <script async src="https://cse.google.com/cse.js?cx=002931683609219022148:v1bhsddafds"></script>
+            <div className="gcse-search"></div>
         </div>
     )
 }
