@@ -7,7 +7,7 @@ import * as Actions from '../../../../../Ducks/action_creator';
 import './RandomTip.css';
 
 function RandomTip(props) {
-    const [random, setRandom] = useState([{tip_type_id: 1, tip_name: "How to keep your pelican squeaky clean:", blog_link: 'https://www.youtube.com/', tip_picture: 'https://i.imgur.com/wBPorqO.jpg', active: true, date_added: '2019-07-19'}])
+    const [random, setRandom] = useState([])
     
     useEffect(() => {
         getRandomTip(); 
