@@ -10,7 +10,8 @@ import Register from './Views/Login/Register/register';
 import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
 import Tips from './Views/Tips/Tips';
 import ToDos from './Views/Home/Subviews/ToDos/ToDos';
-import Quiz from './Views/Login/Quiz/quiz'
+import Quiz from './Views/Login/Quiz/quiz';
+import ErrorPage from './Views/ErrorPage/ErrorPage';
 
 export default (
     <Switch>
@@ -21,7 +22,8 @@ export default (
         <Route path="/quiz" component={Quiz} />
         <Route path="/homehealth" component={HomeHealth} />
         <Route path="/tips" component={Tips} />
-        <Route path="/register" component={Register}/>
+        <Route path="/register" component={Register} />
         <Route exact path="/" component={Login} />
+        <Route path="/*" component={ErrorPage} />
     </Switch>
 );
