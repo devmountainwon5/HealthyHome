@@ -5,6 +5,12 @@ export const setUser = (user) => {
     }
 }
 
+export const setQuiz = (questions) => {
+    return {
+        type: 'set_quizItems',
+        payload: questions
+    }
+}
 export const setAddress = (address) => {
     return {
         type: 'set_address',
