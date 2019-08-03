@@ -1,51 +1,22 @@
-import React, { useState } from 'react';
-import { answerHelpers } from '../../../../shared/helpers/database/quizDb';
+import React, { Component } from 'react'
+import SelectAllApply from './Compnents/select_all_apply/select_all_apply'
+import MultipleChoice from './Compnents/multiple_choice/multiple_choice'
 
-function Question(props) {
-    const { questionId, questionText, onSubmit } = props;
-    const answerHelper = answerHelpers ? answerHelpers.findById(questionId) : null;
-    // console.log(answerHelper);
-    const { allowMultiple, answers } = answerHelper ? answerHelper : { allowMultiple: false, answers: {} };
-    const setupState = () => {
-        const out = {};
-        for (const key in answers) {
-            out[key] = false;
+class Question extends Component {
+    render() { 
+        let answers = ""
+        if(this.props.question.question_type_id === 1) {
+            answers = <MultipleChoice answers = {this.props.question.answers[0]}/>
+        } else if (this.props.question.question_type_id === 2){
+             answers = <SelectAllApply answers = {this.props.question.answers[0]}/>
         }
-        return out;
+        return (
+            <div>
+                <h1>{this.props.question.reg_question}</h1>
+                {answers}
+            </div>
+        )
     }
-
-    const [userAnswers, changeAnswers] = useState(setupState());
-
-    const onChange = (e) => {
-        // console.log(e.target.value, e.target.name, e.target.checked);
-        const newState = {};
-        for (const key in userAnswers) {
-            if (e.target.value == key)
-                newState[key] = Boolean(e.target.checked);
-            else
-                newState[key] = allowMultiple ? userAnswers[key] : false;
-        }
-        // console.dir(newState);
-        changeAnswers(newState);
-    }
-
-    const inputType = allowMultiple ? "checkbox" : "radio";
-
-    const answerArr = [];
-    for (const key in answers) {
-        answerArr.push(<div>
-            <input type={inputType} name={questionId} value={key} onChange={onChange} />
-            {answers[key].displayText}
-        </div>)
-    }
-
-    return (<div>
-        <h1>{questionText}</h1>
-        <div>
-            {answerArr}
-        </div>
-        <button>Submit</button>
-    </div>);
 }
 
-export default Question;
+export default Question

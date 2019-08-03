@@ -3,15 +3,17 @@ import axios from "axios"
 import { connect } from 'react-redux';
 import * as Actions from "../../../Ducks/action_creator"
 import './quiz.css';
-
+import Question from './Question/Question'
 
 class Quiz extends Component {
-
+	state = {
+		hometype: "",
+		yard: "",
+		reminders: [],
+	}
     componentDidMount(){
-		debugger
 		axios.get('/questions/retrieveAll')
 		.then(({data})=>{
-			debugger
 			if (data.success) {
 				this.props.setQuiz(data.questions);
 			} else if (!data.isLoggedIn) {
@@ -24,15 +26,16 @@ class Quiz extends Component {
 
     render() {
 		const quizItems = this.props.quizItems.map((e)=>{
-			return <div>Hello</div>
+			return <Question key={e.reg_question_id} question = {e}/>
 		})
 		return (
 			<div className="quiz">
 				{/* <Header /> */}
 				{quizItems}
+				<button onClick= {this.handleSubmit} >Submit</button>
 			</div>
 		);
 	}
 }
 
-export default Question; 
+export default connect (state => state, Actions)(Quiz); 
