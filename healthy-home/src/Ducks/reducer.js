@@ -9,6 +9,15 @@ const user = (state = {}, action) => {
     }
 }
 
+const quizItems = (state = [], action) => {
+    switch(action.type){
+        case 'set_quizItems':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 const address = (state = {}, action) => {
     switch(action.type){
         case 'set_address':
@@ -18,4 +27,4 @@ const address = (state = {}, action) => {
     }
 }
 
-export default combineReducers({user, address});
+export default combineReducers({user, address, quizItems});

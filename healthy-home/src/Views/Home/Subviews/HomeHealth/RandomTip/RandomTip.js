@@ -1,38 +1,41 @@
-import React, {Component} from 'react';
-import Axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {connect} from 'react-redux';
+import Random from './Random'; 
 import * as Actions from '../../../../../Ducks/action_creator';
 
+import './RandomTip.css';
 
-class RandomTip extends Component{
+function RandomTip(props) {
+    const [random, setRandom] = useState([])
+    
+    useEffect(() => {
+        getRandomTip(); 
+    }, []);
 
-    state = {
-        tip: {}
-    }
-
-    componentDidMount(){
-        Axios.get(`/tip/${this.props.match.params.home_tips_id}`).then(({data}) => {
-            if (data.success){
-                this.setState({
-                    tip: data.tip
-                })
-            }else{
-                alert('Oops?')
+    function getRandomTip() {
+        axios.get("/tips/getOne", getRandomTip).then(({ data }) => {
+            if (data.success) {
+                setRandom(data.random);
+            } else {
+                alert('Where is the help?')
             }
         })
     }
-    render(){
+
+    const splitRandom = random.map((e, i) => {
+        return <Random tip={e} key={i}/>
+    })
+    
     return (
-            <div className='singleTips'>
-                <a className='tip-name' href={this.state.tip.blog_link} target="_blank">
-                <img className='tipPicture' src={this.state.tip.tip_picture} alt="tip picture"/>
-                    <h2>
-                        {this.state.tip_name}
-                    </h2>
-                </a>
+        <div>
+            <div className="all-tips">
+                
+            {splitRandom}
             </div>
+        </div>
         )
     }
-}
+
 
 export default connect(null, Actions)(RandomTip);
