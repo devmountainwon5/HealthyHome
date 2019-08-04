@@ -17,3 +17,17 @@ export const setAddress = (address) => {
         payload: address
     }
 }
+
+export const setTips = (tips) => {
+    return {
+        type: 'set_tips',
+        payload: tips
+    }
+}
+
+export const setRandom = (random) => {
+    return {
+        type: 'set_random',
+        payload: random
+    }
+}
