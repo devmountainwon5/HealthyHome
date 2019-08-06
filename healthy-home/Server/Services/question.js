@@ -38,7 +38,7 @@ module.exports = {
                     user_id: 12,
                     // user_id: req.session.user.userId,
                     reg_answer: e.answer,
-                    update_date: d/1000,
+                    update_date: d/1000, 
                 }
             )
 
