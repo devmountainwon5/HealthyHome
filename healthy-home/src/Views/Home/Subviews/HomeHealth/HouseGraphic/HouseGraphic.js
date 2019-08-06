@@ -31,7 +31,7 @@ function HouseGraphic(props){
                     setPic(grossHouse)
                 }
             } else {
-                throw ('something went wrong')
+                throw new Error('Response from score retrieval is not a number')
             }
         })
     }
