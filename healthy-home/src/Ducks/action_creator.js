@@ -19,6 +19,7 @@ export const setAddress = (address) => {
     }
 }
 
+<<<<<<< HEAD
 export const setHomePic = (home) => {
     return {
         type: 'set_home_pic',
@@ -26,16 +27,28 @@ export const setHomePic = (home) => {
     }
 }
 
+=======
+>>>>>>> origin/dev
 export const setTips = (tips) => {
     return {
         type: 'set_tips',
         payload: tips
     }
+<<<<<<< HEAD
  }
 
  export const setRandom = (random) => {
+=======
+}
+
+export const setRandom = (random) => {
+>>>>>>> origin/dev
     return {
         type: 'set_random',
         payload: random
     }
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> origin/dev

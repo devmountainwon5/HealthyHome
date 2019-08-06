@@ -27,6 +27,7 @@ const address = (state = {}, action) => {
     }
 }
 
+<<<<<<< HEAD
 const homePic = (state = {}, action) => {
     switch(action.type){
         case 'set_home_pic':
@@ -36,10 +37,13 @@ const homePic = (state = {}, action) => {
     }
 }
 
+=======
+>>>>>>> origin/dev
 const tips = (state = {}, action) => {
     switch(action.type){
         case 'set_tips':
             return action.payload;
+<<<<<<< HEAD
         default:
             return state;
     }
@@ -55,3 +59,21 @@ const tips = (state = {}, action) => {
  }
 
  export default combineReducers({user, address, quizItems, tips, random, homePic});
+=======
+        default: 
+            return state;
+    }
+}
+
+const random = (state = {}, action) => {
+    switch(action.type){
+        case 'set_random':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
+
+export default combineReducers({user, address, quizItems, tips, random});
+>>>>>>> origin/dev
