@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const userService = require('../Services/emails')
+const sendMail = require('../Services/emails')
 
 router.post('/sendMail', async (req, res, next) => {
-    res.send(await emailsService.sendMail(req));
+    // handle the logic
+    let response = await sendMail(req)
+    res.send(response)
 })
 
 module.exports = router;
