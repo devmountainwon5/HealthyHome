@@ -28,4 +28,27 @@ module.exports = {
                 return { success: false, msg: err };
             });
     },
+    submit: (req, res, next) => {
+        const db = req.app.get('db');
+       const d = Date.now() 
+        const answerPromises = req.body.answers.map((e) => {
+            return db.registration_answer_table.insert(
+                {
+                    reg_question_id: e.question_id,
+                    user_id: 12,
+                    // user_id: req.session.user.userId,
+                    reg_answer: e.answer,
+                    update_date: d/1000,
+                }
+            )
+
+        })
+        return Promise.all(answerPromises)
+            .then((answers) => {
+                return { success: true, todos: []}
+            })
+            .catch(err => {
+                return { success: false, msg: err };
+            });
+    },
 }

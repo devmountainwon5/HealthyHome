@@ -43,6 +43,20 @@ class Quiz extends Component {
 			}
 		}
 	}
+	handleSubmit = () => {
+		const body = {
+			answers: this.state.answers
+		}
+		axios.post ('/questions/submit', body) 
+		.then( (response) => {
+			if(response.data.success) {
+				this.props.addSuggestedTodos(response.data.todos) 
+				this.props.history.push('/homehealth')
+			} else {
+				alert("something broke")
+			}
+		}) 
+	}
 	render() {
 		const quizItems = this.props.quizItems.map((e) => {
 			return <Question key={e.reg_question_id} handleAnswer={this.handleAnswer} question={e} />
