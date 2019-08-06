@@ -6,10 +6,9 @@ require("dotenv").config()
 const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT)
 
 const sendMail = async outgoing => {
-
 	const transporter = nodemailer.createTransport({
-		host: 'smtp.gmail.com',
-    port: 465,
+		host: "smtp.gmail.com",
+		port: 465,
 		secure: true,
 		auth: {
 			type: "OAuth2",
@@ -31,7 +30,7 @@ const sendMail = async outgoing => {
 
 	let info = await transporter.sendMail(mailOptions)
 
-	return 'ok'
+	return "ok"
 }
 
 module.exports = sendMail
