@@ -23,7 +23,7 @@ const sendMail = async outgoing => {
 
 const mailOptions = {
     from: "healthyhomesapp@gmail.com",
-    to: "nicklaus.roach@gmail.com", //process.env. who you send to 
+    to: "healthyhomesapp@gmail.com", //process.env. who you send to 
     subject: "You have stuff to do",
     generateTextFromHTML: true,
     html: "<b>test</b>"
