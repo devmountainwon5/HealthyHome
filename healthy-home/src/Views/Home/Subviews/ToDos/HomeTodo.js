@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default function HomeTodo(){
+export default function HomeTodos(){
     const [Hometodo, setHometodo] = useState("Home Todos will dislplay here")
         return (
             <div>

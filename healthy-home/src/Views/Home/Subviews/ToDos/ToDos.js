@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from './../../NavBar/NavBar';
-import HomeTodo from './HomeTodo';
-import YardTodo from './YardTodo';
+import HomeTodos from './HomeTodo';
+import YardTodos from './YardTodo';
 
 export default function Todos() {
     return (
@@ -9,11 +9,11 @@ export default function Todos() {
             <NavBar/>
             <div className='todoBox'>
                 <h2>Todos for the Home</h2>
-                {HomeTodo}
+                {HomeTodos}
             </div>
             <div className='todoBox'>
                 <h2>Todos for the Yard</h2>
-                {YardTodo}
+                {YardTodos}
             </div>
         </div>
     )

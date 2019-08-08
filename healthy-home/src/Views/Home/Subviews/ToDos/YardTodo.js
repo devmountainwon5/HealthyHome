@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default function YardTodo(){
+export default function YardTodos(){
     const [Yardtodo, setYardtodo] = useState("Yard Todos will dislplay here")
         return (
             <div>
