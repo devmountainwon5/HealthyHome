@@ -44,3 +44,31 @@ const userTodos = (state = [], action) => {
     }
 }
 export default combineReducers({user, address, quizItems, suggestedTodos, userTodos });
+const homePic = (state = {}, action) => {
+    switch(action.type){
+        case 'set_home_pic':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const tips = (state = {}, action) => {
+    switch(action.type){
+        case 'set_tips':
+            return action.payload;
+        default:
+            return state;
+    }
+ }
+
+ const random = (state = {}, action) => {
+    switch(action.type){
+        case 'set_random':
+            return action.payload;
+        default:
+            return state;
+    }
+ }
+
+ export default combineReducers({user, address, quizItems, tips, random, homePic});

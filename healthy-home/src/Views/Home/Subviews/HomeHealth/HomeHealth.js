@@ -6,8 +6,6 @@ import NavBar from './../../NavBar/NavBar';
 import RandomTip from './RandomTip/RandomTip';
 import Axios from 'axios';
 
-
-
 class HomeHealth extends Component {
 
     constructor(props){
@@ -37,5 +35,4 @@ class HomeHealth extends Component {
         )
     }
 }
-
 export default HomeHealth;
