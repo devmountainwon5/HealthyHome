@@ -17,6 +17,26 @@ function getSuggestedTypes(selectedAnswerData) {
 }
 
 module.exports = {
+    getUserTodos: (req, res, next) => {
+        const db = req.app.get('db');
+
+        const userId = req.session.user ? req.session.user.userId : null;
+
+        return db.get_user_todos( [userId] )
+            .then(todos => {
+                
+                return {
+                    success: true,
+                    userTodos: todos
+                }
+            })
+            .catch(err => {
+                return {
+                    success: false,
+                    msg: err
+                };
+            })
+    },
     getSuggested: (req, res, next) => {
         const db = req.app.get('db');
 

@@ -6,26 +6,43 @@ import {connect} from 'react-redux';
 import * as Actions from '../../../../Ducks/action_creator'
 import axios from 'axios'
 
-function Todos() {
+function Todos(props) {
     useEffect(() => {
-        axios.get ('/todos/retrieveAll') 
+        axios.get ('/todo/suggested')
+         
         .then((response) => {
             if(response.data.success) {
-                this.props.setSuggestedTodos (response.data.suggestedTodos)
-                this.props.setUserTodos (response.data.userTodos)
+                props.setSuggestedTodos (response.data.suggested)
+                return axios.get ('/todo/user')
             } else {
                 alert('something blew up')
             }
         })
-    }, [])
+        .then( (response)=> {
+            if(response.data.success) {
+                props.setUserTodos (response.data.userTodos)
+            } else {
+                alert('something blew up')
+            }
+        })
+    }, []) 
+    const user = props.userTodos.map ((e)=> {
+        return <div key= {e.id} >{e.todo_item}</div>
+    })
+    const suggested =props.suggestedTodos.map ((e)=> {
+        return <div key= {e.id}> {e.todo_item}</div>
+    })
     return (
         <div>
             <NavBar/>
             <div className='todoBox'>
-                <h2>Todos for the Home</h2>
-                {/* {HomeTodo} */}
+                <h2>User Todos</h2>
+                {user}
             </div>
-            
+            <div className='todoBox'>
+                <h2>Suggested Todos</h2>
+                {suggested}
+            </div>
         </div>
     )
 }
