@@ -17,3 +17,15 @@ export const setAddress = (address) => {
         payload: address
     }
 }
+export const addSuggestedTodos = (todos) => {
+    return {
+        type: 'suggested_todos',
+        payload: todos
+    }
+}
+export const userTodos = (todos) => {
+    return {
+        type: 'user_todos',
+        payload: todos
+    }
+}
