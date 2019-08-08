@@ -5,7 +5,7 @@ export default function HomeTodos(){
         return (
             <div>
                 <button className = 'remove'>X</button>
-                {Hometodo}
+                test
                 <button className = 'done'>Done</button>
             </div>
         )
