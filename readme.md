@@ -1,10 +1,5 @@
 # Healthy Home
-
-## Ideas:
-https://docs.google.com/document/d/1qCVqLaEN9QK-6KFv1GofUsgsayf2sI3gu0aWw4D7WVA/edit?usp=sharing
-
-## slides:
-https://docs.google.com/presentation/d/1Q4oMwDziixtM9ty8AgfUTQCrlUTga86d4C_gCIRYWqw/edit#slide=id.g5d2ec70f6a_0_21
+👋 hi there! welcome to the DevMountain class of 2019 online web immersive cohort's group project.
 
 ## Contributors:
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -20,11 +15,18 @@ https://docs.google.com/presentation/d/1Q4oMwDziixtM9ty8AgfUTQCrlUTga86d4C_gCIRY
     <td align="center"><a href="https://github.com/jbolduc11"><img src="https://avatars1.githubusercontent.com/u/43829539?s=460&v=4" width="100px;" alt="Jared Bolduc"/><br /><sub><b>Jared Bolduc</b></sub></a><br /><b title="Code">💻</b></td>
     <td align="center"><a href="https://github.com/KrisCoop"><img src="https://avatars1.githubusercontent.com/u/47994388?s=460&v=4" width="100px;" alt="Kris Cooper"/><br /><sub><b>Kris Cooper</b></sub></a><br /><b title="Code">💻</b></td>
     <td align="center"><a href="https://github.com/StyeEye"><img src="https://avatars0.githubusercontent.com/u/48033738?s=460&v=4" width="100px;" alt="Matthew Sewell"/><br /><sub><b>Matthew Sewell</b></sub></a><br /><b title="Code">💻</b></td>
-    <td align="center"><a href="https://github.com/joshsmith27"><img src="https://avatars1.githubusercontent.com/u/21051200?s=460&v=4" width="100px;" alt="Josh Smith"/><br /><sub><b>Josh Smith</b></sub></a><br /><b title="Code">💻</b><b title="CTO">😎</b></td>
+    <td align="center"><a href="http://www.joshuarichardsmith.com/"><img src="https://avatars1.githubusercontent.com/u/21051200?s=460&v=4" width="100px;" alt="Josh Smith"/><br /><sub><b>Josh Smith</b></sub></a><br /><b title="Code">💻</b><b title="CTO">😎</b></td>
   </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
+## Ideas:
+https://docs.google.com/document/d/1qCVqLaEN9QK-6KFv1GofUsgsayf2sI3gu0aWw4D7WVA/edit?usp=sharing
+
+## slides:
+https://docs.google.com/presentation/d/1Q4oMwDziixtM9ty8AgfUTQCrlUTga86d4C_gCIRYWqw/edit#slide=id.g5d2ec70f6a_0_21
 
 ## MVP
 * quiz - views/login/quiz/quiz
