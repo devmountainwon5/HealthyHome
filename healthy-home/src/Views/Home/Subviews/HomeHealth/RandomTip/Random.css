@@ -1,4 +1,4 @@
-.tipPicture {
+.randomPicture {
     width: 15vw;
     border-radius: 4px;
 }
@@ -6,4 +6,17 @@
 h2 {
     color: black;
     text-shadow: 1px 1px rgb(187, 187, 187)
+}
+.singleRandom {
+    width: 300px;
+    margin: 25px;
+    
+}
+
+.random-name{
+    text-decoration: none;
+    color: #5897a5;
+    display: block;
+    text-align: center;
+    font-size: .9em;
 }
