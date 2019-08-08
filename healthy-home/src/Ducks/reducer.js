@@ -43,7 +43,7 @@ const userTodos = (state = [], action) => {
             return state;
     }
 }
-export default combineReducers({user, address, quizItems, suggestedTodos, userTodos });
+
 const homePic = (state = {}, action) => {
     switch(action.type){
         case 'set_home_pic':
@@ -71,4 +71,4 @@ const tips = (state = {}, action) => {
     }
  }
 
- export default combineReducers({user, address, quizItems, tips, random, homePic});
+ export default combineReducers({user, address, quizItems, tips, random, homePic, suggestedTodos, userTodos});
