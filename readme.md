@@ -1,5 +1,5 @@
 # Healthy Home
-👋 hi there! welcome to the DevMountain class of 2019 online web immersive cohort's group project.
+👋 hi there! Welcome to the DevMountain class of 2019 online web immersive cohort's group project.
 
 ## Contributors:
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
