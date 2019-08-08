@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
+import axios from "axios"
+import { connect } from 'react-redux';
+import * as Actions from "../../../Ducks/action_creator"
 import './quiz.css';
-
+import Question from './Question/Question'
 
 class Quiz extends Component {
-
+	state = {
+		hometype: "",
+		yard: "",
+		reminders: [],
+	}
     componentDidMount(){
-		axios.get('/api/quiz/questions')
+		axios.get('/questions/retrieveAll')
 		.then(({data})=>{
 			if (data.success) {
-				this.props.setquiz(data.quizItems);
+				this.props.setQuiz(data.questions);
 			} else if (!data.isLoggedIn) {
 				this.props.history.push('/');
 			} else {
@@ -19,15 +26,16 @@ class Quiz extends Component {
 
     render() {
 		const quizItems = this.props.quizItems.map((e)=>{
-			return <QuizItem key={e.id} name={e.name} />
+			return <Question key={e.reg_question_id} question = {e}/>
 		})
 		return (
 			<div className="quiz">
-				<Header />
+				{/* <Header /> */}
 				{quizItems}
+				<button onClick= {this.handleSubmit} >Submit</button>
 			</div>
 		);
 	}
 }
 
-export default connect(state => state, Actions)(Quiz) ;
+export default connect (state => state, Actions)(Quiz); 

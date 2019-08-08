@@ -1,6 +1,9 @@
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
 module.exports = (app) => {
     app.use(cors());

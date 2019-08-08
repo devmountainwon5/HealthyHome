@@ -35,10 +35,7 @@ module.exports = {
 
                 return {
                     success: true,
-                    user: {
-                        firstName: catchUser.first_name,
-                        lastName: catchUser.last_name
-                         }
+                    user: catchUser
                 }
             })
             .catch(err => {

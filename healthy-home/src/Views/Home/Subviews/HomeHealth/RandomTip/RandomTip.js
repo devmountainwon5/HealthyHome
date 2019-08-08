@@ -11,12 +11,10 @@ function RandomTip(props) {
     
     useEffect(() => {
         getRandomTip(); 
-    });
+    }, []);
 
     function getRandomTip() {
-        debugger; 
         axios.get("/tips/getOne", getRandomTip).then(({ data }) => {
-            debugger; 
             if (data.success) {
                 setRandom(data.random);
             } else {
