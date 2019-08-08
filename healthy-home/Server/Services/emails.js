@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer")
-const { google } = require("googleapis")
 const ical = require("ical-generator")
 const moment = require("moment")
 require("dotenv").config()
@@ -7,11 +6,13 @@ require("dotenv").config()
 const sendMail = async outgoing => {
 	//create an ical event	
 	const cal = ical()
+	
+
 	cal.createEvent({
-		start: moment(),
-		end: moment().add(1, "days"),
-		summary: "do the dishes", //name of the event
-		description: "this is the mound of dirty stoneware in your sink"
+		start: moment().add(Number(outgoing.body.frequency), "days"),
+		end: moment().add(Number(outgoing.body.frequency), "days"),
+		summary: outgoing.body.summary, //name of the event
+		description: outgoing.body.description
 	})
 
 	const event = new Buffer.from(cal.toString())
@@ -35,8 +36,8 @@ const sendMail = async outgoing => {
 	const mailOptions = {
 		from: "healthyhomesapp@gmail.com",
 		to: "bheadwhite@gmail.com", //process.env. who you send to
-		subject: "Here is your event invite",
-		text: "come to my party",
+		subject: "Healthy Home event",
+		text: outgoing.body.text,
 		alternatives: [
 			{
 				filename: "invite.ics",
