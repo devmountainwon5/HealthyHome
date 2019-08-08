@@ -1,13 +1,17 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy979ajBlw1LIxhUUWj3zLU6k9kjBeQBQUkKAmbdI_0ktVKDeW);
+    background-image: url(http://www.mikaelahunt.com/wp-content/uploads/2015/09/Yard.jpg);
     background-repeat: no-repeat;
     background-position: center;
     height: auto;
     width: auto;
     background-size: cover;
-    color: white;
+    color: whitesmoke;
+    border-color: black;
+    border-style: solid;
+    text-shadow: black 0px 0px 20px;
+    text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
     background-size: cover;
     -moz-background-size: cover;
     

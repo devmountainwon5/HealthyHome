@@ -27,6 +27,23 @@ const address = (state = {}, action) => {
     }
 }
 
+const suggestedTodos = (state = [], action) => {
+    switch(action.type){
+        case 'suggested_todos':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+const userTodos = (state = [], action) => {
+    switch(action.type){
+        case 'user_todos':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+export default combineReducers({user, address, quizItems, suggestedTodos, userTodos });
 const homePic = (state = {}, action) => {
     switch(action.type){
         case 'set_home_pic':
