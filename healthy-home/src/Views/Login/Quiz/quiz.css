@@ -1,12 +1,17 @@
-body {
+.quiz {
     margin: 0px;
     padding: 0px;
     background-image: url(http://www.mikaelahunt.com/wp-content/uploads/2015/09/Yard.jpg);
+    /* display: none; */
     background-repeat: no-repeat;
     background-position: center;
+    position: absolute;
+    opacity: .6;
     height: auto;
     width: auto;
     background-size: cover;
+}
+body {
     color: whitesmoke;
     border-color: black;
     border-style: solid;

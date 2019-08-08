@@ -50,7 +50,7 @@ class Quiz extends Component {
 		axios.post ('/questions/submit', body) 
 		.then( (response) => {
 			if(response.data.success) {
-				this.props.addSuggestedTodos(response.data.todos) 
+				this.props.setSuggestedTodos(response.data.todos) 
 				this.props.history.push('/homehealth')
 			} else {
 				alert("something broke")
