@@ -10,10 +10,12 @@ export default function Todos() {
             <div className='todoBox'>
                 <h2>Todos for the Home</h2>
                 <HomeTodo/>
+
             </div>
             <div className='todoBox'>
                 <h2>Todos for the Yard</h2>
                 <YardTodo/>
+                
             </div>
         </div>
     )
