@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import NavBar from './../../NavBar/NavBar';
+import HomeTodo from './HomeTodo';
+import YardTodo from './YardTodo';
 
 export default function Todos() {
-    const [homeTips, setHomeTips] = useState("Home Tips will display here")
-    const [yardTips, setYardTips] = useState("Yard Tips will display here")
-
     return (
         <div>
             <NavBar/>
-            <div className='tipsBox'>
-                <h2>Tips for the Home</h2>
-                {homeTips}
+            <div className='todoBox'>
+                <h2>Todos for the Home</h2>
+                {HomeTodo}
             </div>
-            <div className='tipsBox'>
-                <h2>Tips for the Yard</h2>
-                {yardTips}
+            <div className='todoBox'>
+                <h2>Todos for the Yard</h2>
+                {YardTodo}
             </div>
         </div>
     )
