@@ -46,7 +46,7 @@ const sendMail = async outgoing => {
 		]
 	}
 
-	let info = await transporter.sendMail(mailOptions)
+	transporter.sendMail(mailOptions)
 
 	return "ok"
 }
