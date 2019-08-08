@@ -29,12 +29,15 @@ function Tips(props) {
     })
 
     return (
-        <div>
+        <div className="tips-main">
             <NavBar/>
             <h1 className="tips-title">Tips</h1>
-            <div className="all-tips">
-            {loopTips}
+            <div className="center-tips">
+                <div className="all-tips-div">
+                    {loopTips}
+                </div>
             </div>
+            
             
         </div>
     )
