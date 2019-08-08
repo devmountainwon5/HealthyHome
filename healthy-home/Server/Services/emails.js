@@ -1,15 +1,12 @@
 const nodemailer = require("nodemailer")
 const { google } = require("googleapis")
-// const OAuth2 = google.auth.OAuth2
 const ical = require("ical-generator")
 const moment = require("moment")
 require("dotenv").config()
 
-// const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT)
-
 const sendMail = async outgoing => {
+	//create an ical event	
 	const cal = ical()
-
 	cal.createEvent({
 		start: moment(),
 		end: moment().add(1, "days"),
@@ -17,6 +14,9 @@ const sendMail = async outgoing => {
 		description: "this is the mound of dirty stoneware in your sink"
 	})
 
+	const event = new Buffer.from(cal.toString())
+
+	//transport the message
 	const transporter = nodemailer.createTransport({
 		host: "smtp.gmail.com",
 		port: 465,
@@ -30,7 +30,7 @@ const sendMail = async outgoing => {
 			accessToken: process.env.ACCESS_TOKEN
 		}
 	})
-	const event = new Buffer.from(cal.toString())
+
 
 	const mailOptions = {
 		from: "healthyhomesapp@gmail.com",
