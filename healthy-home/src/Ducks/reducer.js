@@ -44,6 +44,7 @@ const userTodos = (state = [], action) => {
     }
 }
 
+
 const homePic = (state = {}, action) => {
     switch(action.type){
         case 'set_home_pic':
