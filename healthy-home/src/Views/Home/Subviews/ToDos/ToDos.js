@@ -9,11 +9,11 @@ export default function Todos() {
             <NavBar/>
             <div className='todoBox'>
                 <h2>Todos for the Home</h2>
-                {HomeTodo}
+                <HomeTodo/>
             </div>
             <div className='todoBox'>
                 <h2>Todos for the Yard</h2>
-                {YardTodo}
+                <YardTodo/>
             </div>
         </div>
     )
