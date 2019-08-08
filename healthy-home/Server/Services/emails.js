@@ -10,7 +10,7 @@ const sendMail = async outgoing => {
 	cal.createEvent({
 		start: moment(),
 		end: moment().add(1, "days"),
-		summary: "", //name of the event
+		summary: "do the dishes", //name of the event
 		description: "this is the mound of dirty stoneware in your sink"
 	})
 
