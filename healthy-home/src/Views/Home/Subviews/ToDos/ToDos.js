@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import NavBar from './../../NavBar/NavBar';
 import HomeTodo from './HomeTodo';
 import YardTodo from './YardTodo';
+import {connect} from 'react-redux';
+import * as Actions from '../../../../Ducks/action_creator'
 
-export default function Todos() {
+function Todos() {
     return (
         <div>
             <NavBar/>
@@ -19,6 +21,7 @@ export default function Todos() {
     )
 }
 
+export default connect( state => state, Actions) (Todos)
 // class ToDos extends Component {
 //     constructor(props){
 //         super(props)
