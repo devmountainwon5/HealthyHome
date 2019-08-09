@@ -1,5 +1,7 @@
-.tipPicture {
-    width: 15vw;
+.random-picture {
+    width: 25vw;
+    max-width: 350px;
+    min-width: 200px;
     border-radius: 4px;
 }
 
@@ -7,8 +9,13 @@ h2 {
     color: black;
     text-shadow: 1px 1px rgb(187, 187, 187)
 }
-.singleRandom {
-    width: 300px;
+
+.single-random {
+    width: 25vw;
+    max-width: 350px;
+    min-width: 250px;
+    min-height: 300px;
+    max-height: 400px;
     margin: 25px;
     
 }
