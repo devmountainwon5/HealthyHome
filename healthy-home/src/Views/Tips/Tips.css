@@ -11,6 +11,7 @@
 
 .all-tips-div{
     width: 80vw;
+    max-width: 1500px;
     height: 70vh;
     background-color: #5897a5;
     display: flex;

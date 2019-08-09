@@ -1,6 +1,29 @@
+.tip-picture {
+  width: 300px;
+  border-radius: 4px;
+}
+
+h2 {
+  color: black;
+  text-shadow: 1px 1px rgb(187, 187, 187)
+}
+.single-tip {
+  width: 300px;
+  margin: 25px;
+  
+}
+
+.tip-name{
+  text-decoration: none;
+  color: #5897a5;
+  display: block;
+  text-align: center;
+  font-size: .9em;
+}
+
 .singleTips {
-    width: 22vw;
-    padding: 1vw;
+    width: 310px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -31,13 +54,13 @@ a:link {
     color: white;
   }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 600px){
     .singleTips {
-        width: 30vw;
+        width: 70vw;
         padding: 2vw;
     }
 
     .singleTips img{
-        width: 25vw;
+        width: 70vw;
     }
 }
