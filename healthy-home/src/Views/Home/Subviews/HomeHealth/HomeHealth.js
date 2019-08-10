@@ -4,7 +4,6 @@ import HouseGraphic from './HouseGraphic/HouseGraphic';
 import './Homehealth.css';
 import NavBar from './../../NavBar/NavBar';
 import RandomTip from './RandomTip/RandomTip';
-import Axios from 'axios';
 
 class HomeHealth extends Component {
 
