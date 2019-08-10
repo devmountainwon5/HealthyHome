@@ -4,14 +4,14 @@ const questions = require('./questions');
 const barometer = require('./barometer')
 const emails = require('./emails');
 const todo = require('./todo');
-const { authMiddleWare } = require('../Middleware/auth');
+const { authMiddleware } = require('../Middleware/auth');
 
 
 module.exports = (app) => {
     app.use('/auth', user);
-    app.use('/tips', authMiddleWare, tips);
-    app.use('/emails', authMiddleWare, emails);
-    app.use('/barometer', authMiddleWare, barometer);
-    app.use('/questions', authMiddleWare, questions);
-    app.use('/todo', authMiddleWare, todo);
+    app.use('/tips', authMiddleware, tips);
+    app.use('/emails', authMiddleware, emails);
+    app.use('/barometer', authMiddleware, barometer);
+    app.use('/questions', authMiddleware, questions);
+    app.use('/todo', authMiddleware, todo);
 }
