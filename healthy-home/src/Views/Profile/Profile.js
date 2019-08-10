@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import NavBar from 'Views/Home/NavBar/NavBar';
-import axios from 'axios';
+import {connect} from 'react-redux';
+// import axios from 'axios';
 
-export default class Profile extends Component {
+class Profile extends Component {
     render() {
+        const firstname = this.props.user.first_name
+        const lastname = this.props.user.last_name
+        const name = firstname + ' ' + lastname
+        const email = this.props.user.email
+        const phone = this.props.user.phone_num
         return (
-            
             <div>
                 <NavBar/>
                 <div>
-                    Information
+                    User Information
+                    First name: {name} 
+                    Email: {email} 
+                    Phone Number: {phone} 
                 </div>
                 <div>
-                    User Options
-                    Username:
-                    Email:
-                    Profile Picture:
-                </div>
-                <div>
-                    Contact
+                    contact us
                 </div>
             </div>
         )
     }
 }
+
+export default connect((state)=>{return state})(Profile)
