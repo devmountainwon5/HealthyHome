@@ -1,8 +1,11 @@
 module.exports = {
 	retrieveScore: req => {
 		const db = req.app.get("db")
-		return db.get_user_todos([req.body.id]).then(res => {
+		return db.get_user_todos({id: req.body.user_id}).then(res => {
 			const frequencyKey = [1, 7, 30, 90, 180, 365]
+			if(res.length === 0){
+				return "1"
+			}
 			let totalTodos = res.length
 			//tally = todos that arent overdue
 			let tally = 0

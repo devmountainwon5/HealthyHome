@@ -19,6 +19,7 @@ function HouseGraphic(props){
 
     function getHouseGraphic() {
         const {user_id} = props.user
+        debugger
         axios.post("/barometer/retrieveScore", {user_id}).then(({data}) => {
             if(typeof data === 'number'){
                 setLoading(true)
