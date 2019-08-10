@@ -12,12 +12,14 @@ import Tips from './Views/Tips/Tips';
 import ToDos from './Views/Home/Subviews/ToDos/ToDos';
 import Quiz from './Views/Login/Quiz/quiz';
 import ErrorPage from './Views/ErrorPage/ErrorPage';
+import Profile from 'Views/Profile/Profile';
 
 export default (
     <Switch>
         {/* <NavBar /> */}
         {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
+        <Route path="/userprofile" component={Profile}/>
         <Route path="/subscribe" component={ToDos} />
         <Route path="/quiz" component={Quiz} />
         <Route path="/homehealth" component={HomeHealth} />
