@@ -5,12 +5,12 @@ import React from 'react';
 // Local components
 // import Calendar from './Views/Calendar/Calendar';
 // import NavBar from './Views/Home/NavBar/NavBar';
-import Login from './Views/Login/Login/login';
-import Register from './Views/Login/Register/register';
-import HomeHealth from './Views/Home/Subviews/HomeHealth/HomeHealth';
+import Login from './Views/Login/login';
+import Register from './Views/Register/register';
+import HomeHealth from './Views/Home/HomeHealth/HomeHealth';
 import Tips from './Views/Tips/Tips';
-import ToDos from './Views/Home/Subviews/ToDos/ToDos';
-import Quiz from './Views/Login/Quiz/quiz';
+import ToDos from 'Views/ToDos/ToDos';
+import Quiz from './Views/Quiz/quiz';
 import ErrorPage from './Views/ErrorPage/ErrorPage';
 import Profile from 'Views/Profile/Profile';
 

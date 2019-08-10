@@ -1,34 +1,29 @@
-import React, { Component } from 'react'
-import './Home.css'
+import React from "react"
+import "./Home.css"
 
-class Home extends Component {
-    constructor(props){
-        super()
-    }
-    test=()=>{
-        this.props.history.push('/loggedin')
-    }
-    profile=()=>{
-        this.props.push('/')
-    }
+export default function Home (props) {
+	const test = () => {
+		props.history.push("/loggedin")
+	}
+	const profile = () => {
+		props.push("/")
+	}
 
-    render() {
-        return (
-            <div>
-                <div className="navbar">
-                    <ul>
-                    <li onClick={this.test}><a>Quiz</a></li>
-                    <li><a>About</a></li>
-                    <li onClick={this.profile} style={{float:'right'}}><a>Profile</a></li>
-                    </ul>
-                </div>
+	return (
+		<div>
+			<div className='navbar'>
+				<ul>
+					<li onClick={test}>Quiz</li>
+					<li>About</li>
+					<li onClick={profile} style={{ float: "right" }}>
+						Profile
+					</li>
+				</ul>
+			</div>
 
-                <div className="quizBubble">
-                    <h2>Start quiz</h2>
-                </div>
-            </div>
-        )
-    }
+			<div className='quizBubble'>
+				<h2>Start quiz</h2>
+			</div>
+		</div>
+	)
 }
-
-export default Home;

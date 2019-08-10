@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import NavBar from './../../NavBar/NavBar';
-// import HomeTodo from './HomeTodo';
-// import YardTodo from './YardTodo';
+import NavBar from 'Views/NavBar/NavBar';
 import { connect } from 'react-redux';
-import * as Actions from '../../../../Ducks/action_creator'
+import * as Actions from 'Ducks/action_creator'
 import axios from 'axios'
 
 function Todos(props) {
+    const {setSuggestedTodos, setUserTodos} = props
     useEffect(() => {
         axios.get('/todo/suggested')
 
             .then((response) => {
                 if (response.data.success) {
-                    props.setSuggestedTodos(response.data.suggested)
+                    setSuggestedTodos(response.data.suggested)
                     return axios.get('/todo/user')
                 } else {
                     alert('something blew up')
@@ -20,12 +19,12 @@ function Todos(props) {
             })
             .then((response) => {
                 if (response.data.success) {
-                    props.setUserTodos(response.data.userTodos)
+                    setUserTodos(response.data.userTodos)
                 } else {
                     alert('something blew up')
                 }
             })
-    }, [])
+    }, [setSuggestedTodos, setUserTodos])
     const addTodo = (todo_id) => {
         axios.post('/todo/adduser', { todo_id })
             .then((response) => {
@@ -89,18 +88,3 @@ function Todos(props) {
 }
 
 export default connect(state => state, Actions)(Todos)
-// class ToDos extends Component {
-//     constructor(props){
-//         super(props)
-
-//         this.state={
-//             homeTips:'display home tips here',
-//             yardTips:'display yard tips here'
-//         }
-//     }
-//     render() {
-
-//     }
-// }
-
-// export default ToDos;

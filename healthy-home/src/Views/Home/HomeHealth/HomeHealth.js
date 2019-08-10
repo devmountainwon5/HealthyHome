@@ -2,7 +2,7 @@ import React from "react"
 
 import Tasks from "./Tasks/Tasks"
 import HouseGraphic from "./HouseGraphic/HouseGraphic"
-import NavBar from "./../../NavBar/NavBar"
+import NavBar from "Views/NavBar/NavBar"
 import RandomTip from "./RandomTip/RandomTip"
 
 import "./Homehealth.css"

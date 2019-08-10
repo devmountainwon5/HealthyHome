@@ -5,15 +5,17 @@ import axios from "axios"
 import "./Tasks.css"
 
 function Tasks(props) {
+	const {setUpcomingTodos} = props
+	
 	useEffect(() => {
 		axios.get("/upcomingTodos/user").then(res => {
 			if (res.data.success) {
-				props.setUpcomingTodos(res.data.upcomingTodos)
+				setUpcomingTodos(res.data.upcomingTodos)
 			} else {
 				alert("something blew up")
 			}
 		})
-	}, [])
+	}, [setUpcomingTodos])
 
 	const user = props.upcomingTodos.map(e => {
 		return <div key={e.id}>{e.todo_item}</div>

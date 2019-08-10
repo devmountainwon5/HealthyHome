@@ -13,12 +13,9 @@ import grossHouse from 'Assets/GrossHouse.png';
 function HouseGraphic(props){
     const [pic, setPic] = useState()
     const [loading, setLoading] = useState(false)
-    useEffect(() => {
-        getHouseGraphic();
-    }, []);
+    const {user_id} = props.user
 
-    function getHouseGraphic() {
-        const {user_id} = props.user
+    useEffect(() => {
         axios.post("/barometer/retrieveScore", {user_id}).then(({data}) => {
             if(typeof data === 'number'){
                 setLoading(true)
@@ -33,7 +30,7 @@ function HouseGraphic(props){
                 console.log('Response from score retrieval is not a number')
             }
         })
-    }
+    }, [user_id]);
 
     return(
         <div>
