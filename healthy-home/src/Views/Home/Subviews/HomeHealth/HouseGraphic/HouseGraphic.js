@@ -16,7 +16,7 @@ function HouseGraphic(props){
     console.log(niceHouse)
     useEffect(() => {
         getHouseGraphic();
-    }, []);
+    }, [getHouseGraphic]);
 
     function getHouseGraphic() {
         const {user_id} = props.user

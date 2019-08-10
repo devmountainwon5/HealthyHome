@@ -11,7 +11,7 @@ function RandomTip(props) {
     
     useEffect(() => {
         getRandomTip(); 
-    }, []);
+    }, [getRandomTip]);
 
     function getRandomTip() {
         axios.get("/tips/getOne", getRandomTip).then(({ data }) => {

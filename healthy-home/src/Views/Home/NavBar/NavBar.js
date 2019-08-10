@@ -26,7 +26,7 @@ function NavBar(){
                     
             <div className="dropdown">
                 <ul>
-                    <li style={{float:'right'}}><a className="dropbtn">Profile</a></li>
+                    <li style={{float:'right'}}><div className="dropbtn">Profile</div></li>
                         <div class="dropdown-content">
                             <Link to="/profile">My Profile</Link>
                             <Link to="/" onClick={logout}>Logout</Link>

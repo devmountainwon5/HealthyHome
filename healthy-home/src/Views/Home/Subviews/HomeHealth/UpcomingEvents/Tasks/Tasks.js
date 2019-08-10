@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as Actions from '../../../../../../Ducks/action_creator';
 import axios from 'axios';
