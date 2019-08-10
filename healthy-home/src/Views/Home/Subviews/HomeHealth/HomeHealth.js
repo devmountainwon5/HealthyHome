@@ -1,36 +1,24 @@
-import React, { Component } from 'react'
-import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
-import HouseGraphic from './HouseGraphic/HouseGraphic';
-import './Homehealth.css';
-import NavBar from './../../NavBar/NavBar';
-import RandomTip from './RandomTip/RandomTip';
+import React from "react"
 
-class HomeHealth extends Component {
+import Tasks from "./Tasks/Tasks"
+import HouseGraphic from "./HouseGraphic/HouseGraphic"
+import NavBar from "./../../NavBar/NavBar"
+import RandomTip from "./RandomTip/RandomTip"
 
-    constructor(props){
-        super(props);
+import "./Homehealth.css"
 
-        this.state={
-            
-        }
-    }
-
-
-    render() {
-        return (
-            <div>
-                <NavBar/> 
-                <div className="DashboardMain">
-                    <UpcomingEvents />
-                    <div className="DashboardSecondary">
-                        <RandomTip/>
-                        <HouseGraphic />
-                    </div>
-                </div>
-                
-                
-            </div>
-        )
-    }
+function HomeHealth() {
+	return (
+		<div>
+			<NavBar />
+			<div className='DashboardMain'>
+				<Tasks />
+				<div className='DashboardSecondary'>
+					<RandomTip />
+					<HouseGraphic />
+				</div>
+			</div>
+		</div>
+	)
 }
-export default HomeHealth;
+export default HomeHealth
