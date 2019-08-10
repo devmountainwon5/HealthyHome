@@ -31,6 +31,13 @@ export const setUserTodos = (todos) => {
     }
 }
 
+export const setUpcomingTodos = (todos) => {
+    return {
+        type: 'upcoming_todos',
+        payload: todos
+    }
+}
+
 export const setHomePic = (home) => {
     return {
         type: 'set_home_pic',

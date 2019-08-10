@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import * as actions from '../../../../../Ducks/action_creator';
+import * as actions from 'Ducks/action_creator';
 
 import './HouseGraphic.css';
 
-import niceHouse from '../../../../../Assets/HealthyHouse.png';
-import midHouse from '../../../../../Assets/MidHouse.png';
-import grossHouse from '../../../../../Assets/GrossHouse.png';
+import niceHouse from 'Assets/HealthyHouse.png';
+import midHouse from 'Assets/MidHouse.png';
+import grossHouse from 'Assets/GrossHouse.png';
 
 
 function HouseGraphic(props){
     const [pic, setPic] = useState()
     const [loading, setLoading] = useState(false)
-    console.log(niceHouse)
     useEffect(() => {
         getHouseGraphic();
     }, []);
@@ -21,8 +20,8 @@ function HouseGraphic(props){
     function getHouseGraphic() {
         const {user_id} = props.user
         axios.post("/barometer/retrieveScore", {user_id}).then(({data}) => {
-            setLoading(true)
             if(typeof data === 'number'){
+                setLoading(true)
                 if(data*100 >= 85){
                     setPic(niceHouse)
                 } else if (data*100 <85 && data*100 > 45){
@@ -31,7 +30,7 @@ function HouseGraphic(props){
                     setPic(grossHouse)
                 }
             } else {
-                alert('Response from score retrieval is not a number')
+                console.log('Response from score retrieval is not a number')
             }
         })
     }
