@@ -29,7 +29,7 @@ function RandomTip(props) {
     
     return (
         <div>
-            <div className="randomTips">
+            <div className="all-tips">
                 
             {splitRandom}
             </div>
