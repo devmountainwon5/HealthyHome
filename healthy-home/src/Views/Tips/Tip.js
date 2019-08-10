@@ -6,7 +6,7 @@ export default function Tip(props) {
         <div>
             <div className='singleTips'>
                 <a className='tip-name' href={props.tip.blog_link} target="_blank" rel="noopener noreferrer">
-                <img className='tipPicture' src={props.tip.tip_picture} alt="tip picture"/>
+                <img className='tip-picture' src={props.tip.tip_picture} alt="tip picture"/>
                     <h2>
                         {props.tip.tip_name}
                     </h2>

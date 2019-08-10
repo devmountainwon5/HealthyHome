@@ -7,35 +7,68 @@ import Question from './Question/Question'
 
 class Quiz extends Component {
 	state = {
-		hometype: "",
-		yard: "",
-		reminders: [],
+		answers: [],
 	}
-    componentDidMount(){
+	componentDidMount() {
 		axios.get('/questions/retrieveAll')
-		.then(({data})=>{
-			if (data.success) {
-				this.props.setQuiz(data.questions);
-			} else if (!data.isLoggedIn) {
-				this.props.history.push('/');
+			.then(({ data }) => {
+				if (data.success) {
+					this.props.setQuiz(data.questions);
+				} else if (!data.isLoggedIn) {
+					this.props.history.push('/');
+				} else {
+					alert('something blew up');
+				}
+			})
+	}
+	handleAnswer = (e, question_id, question_type_id, answer) => {
+		
+		if (question_type_id === 1) {
+			this.setState({
+				answers: [...this.state.answers.filter((e) => {
+					return e.question_id !== question_id
+				}), { question_id, answer: e.target.value }]
+			})
+		} else if (question_type_id === 2) {
+			if (e.target.checked) {
+				this.setState({
+					answers: [...this.state.answers, { question_id, answer }]
+				})
 			} else {
-				alert('something blew up');
+				this.setState({
+					answers: this.state.answers.filter( (e)=> {
+						return e.answer !== answer
+					})
+				})
 			}
-		})
-    }
-
-    render() {
-		const quizItems = this.props.quizItems.map((e)=>{
-			return <Question key={e.reg_question_id} question = {e}/>
+		}
+	}
+	handleSubmit = () => {
+		const body = {
+			answers: this.state.answers
+		}
+		axios.post ('/questions/submit', body) 
+		.then( (response) => {
+			if(response.data.success) {
+				this.props.setSuggestedTodos(response.data.todos) 
+				this.props.history.push('/homehealth')
+			} else {
+				alert("something broke")
+			}
+		}) 
+	}
+	render() {
+		const quizItems = this.props.quizItems.map((e) => {
+			return <Question key={e.reg_question_id} handleAnswer={this.handleAnswer} question={e} />
 		})
 		return (
 			<div className="quiz">
 				{/* <Header /> */}
 				{quizItems}
-				<button onClick= {this.handleSubmit} >Submit</button>
+				<button onClick={this.handleSubmit} >Submit</button>
 			</div>
 		);
 	}
 }
 
-export default connect (state => state, Actions)(Quiz); 
+export default connect(state => state, Actions)(Quiz); 
