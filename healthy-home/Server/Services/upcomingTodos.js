@@ -1,5 +1,5 @@
 module.exports = {
-    getUpcomingTodos: (req, res, next => {
+    getUpcomingTodos: (req, res, next) => {
         const db = req.app.get('db');
         const userId = req.session.user ? req.session.user.userId : null;
         
@@ -17,5 +17,5 @@ module.exports = {
                     msg: err
                 }
             })
-    })
+    }
 }

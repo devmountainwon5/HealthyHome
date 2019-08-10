@@ -14,4 +14,5 @@ module.exports = (app) => {
     app.use('/barometer', barometer);
     app.use('/questions', authMiddleware, questions);
     app.use('/todo', authMiddleware, todo);
+    app.use('/upcomingTodos', require('../Services/upcomingTodos').getUpcomingTodos)
 }
