@@ -7,9 +7,8 @@ import './Tasks.css';
 
 function Tasks(props) {
     useEffect(() => {
-        axios.get ('/todo/user')
-         
-        .then( (res)=> {
+        axios.get ('/upcomingTodos/user')
+        .then( res => {
             if(res.data.success) {
                 props.setUpcomingTodos (res.data.upcomingTodos)
             } else {
