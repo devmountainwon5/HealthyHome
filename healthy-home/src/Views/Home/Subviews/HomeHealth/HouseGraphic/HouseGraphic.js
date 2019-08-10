@@ -31,7 +31,7 @@ function HouseGraphic(props){
                     setPic(grossHouse)
                 }
             } else {
-                alert('Response from score retrieval is not a number')
+                console.log('Response from score retrieval is not a number')
             }
         })
     }
