@@ -19,7 +19,7 @@ export default (
         {/* <NavBar /> */}
         {/* <Route path="/calendar" component={Calendar} /> */}
         {/* Replace with proper component={} things later */}
-        <Route path="/userprofile" component={Profile}/>
+        <Route path="/profile" component={Profile}/>
         <Route path="/subscribe" component={ToDos} />
         <Route path="/quiz" component={Quiz} />
         <Route path="/homehealth" component={HomeHealth} />

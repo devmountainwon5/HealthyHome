@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import NavBar from 'Views/Home/NavBar/NavBar';
+import axios from 'axios';
 
 export default class Profile extends Component {
     render() {
         return (
+            
             <div>
                 <NavBar/>
                 <div>
@@ -18,8 +20,6 @@ export default class Profile extends Component {
                 <div>
                     Contact
                 </div>
-
-
             </div>
         )
     }
