@@ -2,9 +2,9 @@ import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import * as Actions from "Ducks/action_creator"
 import axios from "axios"
-import "./Tasks.css"
+import "./UpcomingTodos.css"
 
-function Tasks(props) {
+function UpcomingTodos(props) {
 	const {setUpcomingTodos} = props
 	
 	useEffect(() => {
@@ -33,4 +33,4 @@ function Tasks(props) {
 export default connect(
 	state => state,
 	Actions
-)(Tasks)
+)(UpcomingTodos)

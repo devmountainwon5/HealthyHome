@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { connect } from "react-redux"
-import * as Actions from "../../../../Ducks/action_creator"
+import * as Actions from "../../../Ducks/action_creator"
 
 import "./RandomTip.css"
 

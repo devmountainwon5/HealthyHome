@@ -44,7 +44,7 @@ module.exports = {
 
         return db.get_quiz_answer_data({ userId })
             .then(answerData => {
-                console.log(answerData);
+                // console.log(answerData);
 
                 const suggestedTypes = getSuggestedTypes(answerData);
 

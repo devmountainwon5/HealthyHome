@@ -1,6 +1,6 @@
 import React from "react"
 
-import Tasks from "./Tasks/Tasks"
+import UpcomingTodos from "./UpcomingTodos/UpcomingTodos"
 import HouseGraphic from "./HouseGraphic/HouseGraphic"
 import NavBar from "Views/NavBar/NavBar"
 import RandomTip from "./RandomTip/RandomTip"
@@ -12,7 +12,7 @@ function HomeHealth() {
 		<div>
 			<NavBar />
 			<div className='DashboardMain'>
-				<Tasks />
+				<UpcomingTodos />
 				<div className='DashboardSecondary'>
 					<RandomTip />
 					<HouseGraphic />
