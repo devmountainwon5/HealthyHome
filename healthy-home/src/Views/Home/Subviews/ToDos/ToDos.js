@@ -20,7 +20,14 @@ function Todos(props) {
             })
             .then((response) => {
                 if (response.data.success) {
-                    props.setUserTodos(response.data.userTodos)
+                    props.setUserTodos(response.data.userTodos.reduce( (r, e, i, a) => { 
+                        if(!r.some( (e2) => {
+                            return e2.real_todo_id === e.real_todo_id
+                        } )) {
+                            r.push(e)
+                        }
+                        return r 
+                    }, [] ))
                 } else {
                     alert('something blew up')
                 }
@@ -30,7 +37,14 @@ function Todos(props) {
         axios.post('/todo/adduser', { todo_id })
             .then((response) => {
                 if (response.data.success) {
-                    props.setUserTodos(response.data.userTodos)
+                    props.setUserTodos(response.data.userTodos.reduce( (r, e, i, a) => { 
+                        if(!r.some( (e2) => {
+                            return e2.real_todo_id === e.real_todo_id
+                        } )) {
+                            r.push(e)
+                        }
+                        return r 
+                    }, [] ))
                 } else {
                     alert('something blew up')
                 }
@@ -40,7 +54,14 @@ function Todos(props) {
         axios.delete(`/todo/removeuser/${todo_id}`)
             .then((response) => {
                 if (response.data.success) {
-                    props.setUserTodos(response.data.userTodos)
+                    props.setUserTodos(response.data.userTodos.reduce( (r, e, i, a) => { 
+                        if(!r.some( (e2) => {
+                            return e2.real_todo_id === e.real_todo_id
+                        } )) {
+                            r.push(e)
+                        }
+                        return r 
+                    }, [] ))
                 } else {
                     alert('something blew up')
                 }
