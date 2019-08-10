@@ -4,14 +4,18 @@ const ical = require("ical-generator")
 const moment = require("moment")
 require("dotenv").config()
 
-const sendMail = async outgoing => {
+const sendMail = async (outgoing) => {
+	//destructure the request body
+
+	const {event_name, event_description, user_email} = outgoing.body;
+	
 	//create an ical event	
 	const cal = ical()
 	cal.createEvent({
 		start: moment(),
 		end: moment().add(1, "days"),
-		summary: "do the dishes", //name of the event
-		description: "this is the mound of dirty stoneware in your sink"
+		summary: event_name, //name of the event
+		description: event_description
 	})
 
 	const event = new Buffer.from(cal.toString())
