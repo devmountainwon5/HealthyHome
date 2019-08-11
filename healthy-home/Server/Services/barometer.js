@@ -66,7 +66,8 @@ module.exports = {
 			}
 			return {
 				upcomingTodos,
-				score: String(tally / totalTodos)
+				score: String(tally / totalTodos),
+				success: true
 			}
 		})
 	}

@@ -10,20 +10,19 @@ import NavBar from 'Views/NavBar/NavBar';
 function Tips(props) {
     const [tips, setTips] = useState([])
     useEffect(() => {
-        axios.get("/tips/retrieveAll", tips).then(({ data }) => {
+        axios.get("/tips/retrieveAll").then(({ data }) => {
             if (data.success) {
                 setTips(data.tips);
             } else {
-                // props.history.push('/')
+                return props.history.push('/')
             }
         })
-    }, [tips])
+    }, [props.history])
 
 
     const loopTips = tips.map((e, i) => {
         return <Tip tip={e} key={i}/>
     })
-
     return (
         <div className="tips-main">
             <NavBar/>
