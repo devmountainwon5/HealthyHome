@@ -1,21 +1,22 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import * as Actions from "Ducks/action_creator"
-import axios from "axios"
+// import axios from "axios"
 import "./UpcomingTodos.css"
 
 function UpcomingTodos(props) {
-	const {setUpcomingTodos} = props
+	// const {setUpcomingTodos} = props
 	
-	useEffect(() => {
-		axios.get("/upcomingTodos/user").then(res => {
-			if (res.data.success) {
-				setUpcomingTodos(res.data.upcomingTodos)
-			} else {
-				alert("something blew up")
-			}
-		})
-	}, [setUpcomingTodos])
+	// useEffect(() => {
+	// 	axios.get("/upcomingTodos/user").then(({data}) => {
+	// 		if (data.success) {
+	// 			console.log('upcoming todo response', data)
+	// 			setUpcomingTodos(data.upcomingTodos)
+	// 		} else {
+	// 			alert("something blew up")
+	// 		}
+	// 	})
+	// }, [setUpcomingTodos])
 
 	const user = props.upcomingTodos.map(e => {
 		return <div key={e.id}>{e.todo_item}</div>

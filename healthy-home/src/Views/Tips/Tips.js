@@ -14,7 +14,7 @@ function Tips(props) {
             if (data.success) {
                 setTips(data.tips);
             } else {
-                alert('Where is the help?')
+                // props.history.push('/')
             }
         })
     }, [tips])

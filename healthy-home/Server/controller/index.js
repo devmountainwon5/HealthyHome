@@ -4,6 +4,7 @@ const questions = require('./questions');
 const barometer = require('./barometer')
 const emails = require('./emails');
 const todo = require('./todo');
+const upcomingtodos = require('./upcomingTodos')
 const { authMiddleware } = require('../Middleware/auth');
 
 
@@ -14,5 +15,5 @@ module.exports = (app) => {
     app.use('/barometer', barometer);
     app.use('/questions', authMiddleware, questions);
     app.use('/todo', authMiddleware, todo);
-    app.use('/upcomingTodos', require('../Services/upcomingTodos').getUpcomingTodos)
+    app.use('/upcomingTodos', upcomingtodos)
 }

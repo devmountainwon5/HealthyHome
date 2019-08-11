@@ -12,7 +12,7 @@ function RandomTip(props) {
             if (data.success) {
                 setRandom(data.random[0])
             } else {
-                alert("Where is the help?")
+                // alert("Where is the help?")
             }
         })
 	}, [])

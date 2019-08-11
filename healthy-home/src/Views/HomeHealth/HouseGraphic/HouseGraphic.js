@@ -13,24 +13,25 @@ import grossHouse from 'Assets/GrossHouse.png';
 function HouseGraphic(props){
     const [pic, setPic] = useState()
     const [loading, setLoading] = useState(false)
-    const {user_id} = props.user
+    const {user:{user_id}, setUpcomingTodos} = props
 
     useEffect(() => {
-        axios.post("/barometer/retrieveScore", {user_id}).then(({data}) => {
-            if(typeof data === 'number'){
+        axios.post("/barometer/retrieveScore", {user_id}).then(({data:{score, upcomingTodos}}) => {
+            if(score){
                 setLoading(true)
-                if(data*100 >= 85){
+                if(score*100 >= 85){
                     setPic(niceHouse)
-                } else if (data*100 <85 && data*100 > 45){
+                } else if (score*100 <85 && score*100 > 45){
                     setPic(midHouse)
-                } else if (data*100 <= 45){
+                } else if (score*100 <= 45){
                     setPic(grossHouse)
                 }
+                setUpcomingTodos(upcomingTodos)
             } else {
                 console.log('Response from score retrieval is not a number')
             }
         })
-    }, [user_id]);
+    }, [user_id, setUpcomingTodos]);
 
     return(
         <div>
