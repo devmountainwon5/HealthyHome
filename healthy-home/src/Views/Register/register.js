@@ -128,12 +128,12 @@ import './register.css';
                     onChange={e=>setPassword(e.target.value)}
                 />
                 <button type='submit' onClick={register}>Register</button>
-                
-            </div>
-            <div className='is-registered'>
+                <div className='is-registered'>
                 Already registered?
                 <Link className='link' to='/'>Login</Link>
             </div>
+            </div>
+            
         </div>
     )
 }
