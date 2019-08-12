@@ -16,6 +16,10 @@ class HomeHealth extends Component {
         }
     }
 
+    componentDidMount(){
+        axios.post('/auth/me')
+    }
+
 
     render() {
         return (
