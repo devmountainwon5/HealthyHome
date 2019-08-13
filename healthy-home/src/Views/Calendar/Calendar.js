@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import ReactCalendar from "react-calendar"
 import "./Calendar.css"
-import NavBar from "../Home/NavBar/NavBar"
+import NavBar from "Views/NavBar/NavBar"
 
 function Calendar() {
 	return (
