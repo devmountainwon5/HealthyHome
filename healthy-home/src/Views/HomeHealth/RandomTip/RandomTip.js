@@ -3,6 +3,7 @@ import axios from "axios"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
+import httpRequest from "../../../shared/services/http_request";
 
 import "./RandomTip.css"
 
@@ -12,16 +13,18 @@ function RandomTip(props) {
 	const [random, setRandom] = useState({})
 	useEffect(() => {
 		let cancelToken
-		axios
+		httpRequest
 			.get("/tips/getOne", {
 				cancelToken: new CancelToken(c => (cancelToken = c))
 			})
-			.then(({ data }) => {
-				if (data.success) {
-					setRandom(data.random[0])
-				} else {
-					return props.history.push("/")
-				}
+			.then((data) => {
+				setRandom(data.random[0])
+				// } else {
+				// 	return props.history.push("/")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
 			})
 		return () => cancelToken && cancelToken()
 	}, [props.history])
