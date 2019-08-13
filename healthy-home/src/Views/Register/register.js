@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as Actions from "../../../Ducks/action_creator";
+import * as Actions from "../../Ducks/action_creator";
 import './register.css';
 
  function Register(props) {
@@ -18,7 +18,6 @@ import './register.css';
     const [zip, setZip] = useState(''); 
 
     const register = () => {
-        // debugger; 
         const registerUser = {
             firstName: firstName,
             lastName: lastName,
@@ -32,7 +31,6 @@ import './register.css';
             zip: zip
         }
         axios.post('/auth/register', registerUser).then(({data}) => {
-            // debugger; 
             if(data.success){
                 props.setUser(data.user);
                 props.setAddress(data.address); 

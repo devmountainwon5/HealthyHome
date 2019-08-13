@@ -24,7 +24,7 @@ const sendMail = async outgoing => {
 		secure: true,
 		auth: {
 			type: "OAuth2",
-			user: process.env.nodeEmail,
+			user: process.env.EMAIL,
 			clientId: process.env.CLIENT_ID,
 			clientSecret: process.env.CLIENT_SECRET,
 			refreshToken: process.env.REFRESH_TOKEN,
@@ -35,7 +35,7 @@ const sendMail = async outgoing => {
 
 	const mailOptions = {
 		from: "healthyhomesapp@gmail.com",
-		to: "bheadwhite@gmail.com", //process.env. who you send to
+		to: process.env.SEND_TO, //process.env. who you send to
 		subject: "Healthy Home event",
 		text: outgoing.body.text,
 		alternatives: [

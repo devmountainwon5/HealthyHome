@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../Home/NavBar/NavBar';
+import NavBar from 'Views/NavBar/NavBar';
 
 import './ErrorPage.css';
 
