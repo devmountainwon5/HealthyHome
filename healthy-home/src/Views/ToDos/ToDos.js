@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
 import axios from "axios"
+import Todo from './Todo/Todo'
 
 function Todos(props) {
 	const { setSuggestedTodos, setUserTodos } = props
@@ -36,6 +37,7 @@ function Todos(props) {
 		})
 	}
 	const deleteTodo = todo_id => {
+		debugger
 		axios.delete(`/todo/removeuser/${todo_id}`).then(response => {
 			if (response.data.success) {
 				props.setUserTodos(response.data.userTodos)
@@ -67,21 +69,7 @@ function Todos(props) {
 
 	const user = props.userTodos.map(e => {
 		return (
-			<div key={e.id}>
-				{e.todo_item}
-				<button
-					onClick={() => {
-						completeTodo(e.todo_id)
-					}}>
-					Complete
-				</button>
-				<button
-					onClick={() => {
-						deleteTodo(e.real_todo_id)
-					}}>
-					Remove
-				</button>
-			</div>
+			<Todo key={e.id} todo = {e}/>
 		)
 	})
 	const suggested = props.suggestedTodos.map(e => {
