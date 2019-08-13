@@ -13,16 +13,18 @@ function RandomTip(props) {
 	const [random, setRandom] = useState({})
 	useEffect(() => {
 		let cancelToken
-		axios
+		httpRequest
 			.get("/tips/getOne", {
 				cancelToken: new CancelToken(c => (cancelToken = c))
 			})
-			.then(({ data }) => {
-				if (data.success) {
-					setRandom(data.random[0])
-				} else {
-					return props.history.push("/")
-				}
+			.then((data) => {
+				setRandom(data.random[0])
+				// } else {
+				// 	return props.history.push("/")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
 			})
 		return () => cancelToken && cancelToken()
 	}, [props.history])
