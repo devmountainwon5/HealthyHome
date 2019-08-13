@@ -4,30 +4,25 @@ import { connect } from 'react-redux';
 import * as Actions from "../../Ducks/action_creator";
 import './Tips.css';
 import Tip from './Tip'; 
-import NavBar from '../Home/NavBar/NavBar';
+import NavBar from 'Views/NavBar/NavBar';
 
 
 function Tips(props) {
     const [tips, setTips] = useState([])
-    
     useEffect(() => {
-        getTips(); 
-    });
-
-    function getTips() {
-        axios.get("/tips/retrieveAll", getTips).then(({ data }) => {
+        axios.get("/tips/retrieveAll").then(({ data }) => {
             if (data.success) {
                 setTips(data.tips);
             } else {
-                alert('Where is the help?')
+                return props.history.push('/')
             }
         })
-    }
+    }, [props.history])
+
 
     const loopTips = tips.map((e, i) => {
         return <Tip tip={e} key={i}/>
     })
-
     return (
         <div className="tips-main">
             <NavBar/>

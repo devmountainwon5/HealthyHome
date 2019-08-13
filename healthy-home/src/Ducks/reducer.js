@@ -44,6 +44,15 @@ const userTodos = (state = [], action) => {
     }
 }
 
+const upcomingTodos = (state = [], action) => {
+    switch(action.type){
+        case 'upcoming_todos':
+            return action.payload
+        default:
+            return state;
+    }
+}
+
 
 const homePic = (state = {}, action) => {
     switch(action.type){
@@ -72,4 +81,4 @@ const tips = (state = {}, action) => {
     }
  }
 
- export default combineReducers({user, address, quizItems, tips, random, homePic, suggestedTodos, userTodos});
+ export default combineReducers({user, address, quizItems, tips, random, homePic, suggestedTodos, userTodos, upcomingTodos});

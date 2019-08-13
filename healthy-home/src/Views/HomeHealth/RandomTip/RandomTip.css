@@ -1,3 +1,19 @@
+.all-tips {
+    width: 35vw;
+    max-width: 400px;
+    min-width: 300px;
+    height: 40vh;
+    max-height: 400px;
+    min-height: 300px;
+    background-color: #a8e8d7;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 1vw;
+    box-shadow: 2px 2px 5px rgb(173, 173, 173);
+    display: flex;
+    justify-content: center;
+}
+
 .random-picture {
     width: 25vw;
     max-width: 350px;
