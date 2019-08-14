@@ -8,23 +8,31 @@ import axios from "axios"
 function Todos(props) {
 	const { setSuggestedTodos, setUserTodos } = props
 	useEffect(() => {
-		axios
-			.get("/todo/suggested")
-			.then(response => {
-				if (response.data.success) {
-                    setSuggestedTodos(response.data.suggested)
-					return axios.get("/todo/user")
-				} else {
-                    return props.history.push("/")
+		axios.get('/auth/me')
+			.then((response) => {
+				if(!response.data.success){
+					props.history.push('/')
+				}else{
+					axios
+					.get("/todo/suggested")
+					.then(response => {
+						if (response.data.success) {
+							setSuggestedTodos(response.data.suggested)
+							return axios.get("/todo/user")
+						} else {
+							return props.history.push("/")
+						}
+					})
+					.then(response => {
+						if (response.data.success) {
+							setUserTodos(response.data.userTodos)
+						} else {
+							alert("something blew up")
+						}
+					})
 				}
 			})
-			.then(response => {
-				if (response.data.success) {
-					setUserTodos(response.data.userTodos)
-				} else {
-					alert("something blew up")
-				}
-			})
+		
 	}, [setSuggestedTodos, setUserTodos, props.history])
 	const addTodo = todo_id => {
 		axios.post("/todo/adduser", { todo_id }).then(response => {

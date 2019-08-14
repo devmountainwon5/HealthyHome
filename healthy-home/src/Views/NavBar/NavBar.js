@@ -1,14 +1,18 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
+import * as Actions from "Ducks/action_creator"
 import "./NavBar.css"
 
 import axios from "axios"
 
-export default function NavBar() {
+function NavBar(props) {
 	const logout = () => {
 		axios.post("/auth/logout").then(response => {
 			console.log(response.data.success)
 		})
+		props.setUser({});
+		props.setAddress({})
 	}
 
 	return (
@@ -46,3 +50,8 @@ export default function NavBar() {
 		</div>
 	)
 }
+
+export default connect(
+	state => state,
+	Actions
+)(NavBar)
