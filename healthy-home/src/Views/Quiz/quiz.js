@@ -4,22 +4,25 @@ import { connect } from 'react-redux';
 import * as Actions from 'Ducks/action_creator'
 import './quiz.css';
 import Question from './Question/Question'
+import httpRequest from "../../shared/services/http_request";
 
 class Quiz extends Component {
 	state = {
 		answers: [],
 	}
 	componentDidMount() {
-		axios.get('/questions/retrieveAll')
-			.then(({ data }) => {
-				if (data.success) {
-					this.props.setQuiz(data.questions);
-				} else if (!data.isLoggedIn) {
-					this.props.history.push('/');
-				} else {
-					alert('something blew up');
-				}
+		httpRequest.get('/questions/retrieveAll')
+			.then((data) => {
+				this.props.setQuiz(data.questions);
+				// if (!data.isLoggedIn) {
+				// 	this.props.history.push('/');
+				// } else {
+				// 	alert('something blew up');
+				// }
 			})
+			.catch(err => {
+                console.log(err);
+            })
 	}
 	handleAnswer = (e, question_id, question_type_id, answer) => {
 		
@@ -47,15 +50,17 @@ class Quiz extends Component {
 		const body = {
 			answers: this.state.answers
 		}
-		axios.post ('/questions/submit', body) 
-		.then( (response) => {
-			if(response.data.success) {
-				this.props.setSuggestedTodos(response.data.todos) 
+		httpRequest.post('/questions/submit', {}, body)
+			.then((data) => {
+				this.props.setSuggestedTodos(data.todos)
 				this.props.history.push('/homehealth')
-			} else {
-				alert("something broke")
-			}
-		}) 
+				// } else {
+				// 	alert("something broke")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 	render() {
 		const quizItems = this.props.quizItems.map((e) => {
