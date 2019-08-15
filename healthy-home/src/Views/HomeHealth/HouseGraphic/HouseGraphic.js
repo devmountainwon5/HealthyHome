@@ -60,7 +60,9 @@ function HouseGraphic(props){
                     }
                     <div className="gauge">
                         <h2>House Health:</h2> 
-                        <Gauge score={score}/>
+                        {loading &&
+                            <Gauge score={score}/>
+                        }
                     </div> 
             </div>
         </div>
