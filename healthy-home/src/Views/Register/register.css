@@ -4,7 +4,7 @@ body{
 
  .register-box{
     width: 300px;
-    height: 575px;
+    height: 610px;
     background-color: #94e0ba;
     color: white;
     border-radius: 5px;
@@ -16,12 +16,14 @@ body{
  }
 
  .register-title{
-     font-size: 2em; 
+     font-size: 1.5em; 
      text-align: center; 
      align-items: center;
+     margin-bottom: 60px;
  }
  
  .register-values{
+    font-size: .8em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -40,6 +42,7 @@ body{
     margin: 3px;
  }
  .is-registered{
+    font-size: 1em;
      display: flex;
      justify-content: space-between;
      width: 270px;
