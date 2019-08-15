@@ -30,31 +30,31 @@ function Todos(props) {
 		let suggestedTodos = []
 		httpRequest
 			.get("/todo/suggested")
-			.then(response => {
-					suggestedTodos = response.data.suggested
+			.then(data => {
+					suggestedTodos = data.suggested
 					return httpRequest.get("/todo/user")
 			})
-			.then(response => {
+			.then(data => {
 					setAllSuggestedTodos(suggestedTodos)
-					updateTodos(filterTodos(suggestedTodos, response.data.userTodos))
+					updateTodos(filterTodos(suggestedTodos, data.userTodos))
 			})
 	}, [setSuggestedTodos, setUserTodos, props.history])
 	const addTodo = todo_id => {
-		httpRequest.post("/todo/adduser", { todo_id }).then(response => {
-				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+		httpRequest.post("/todo/adduser", {}, { todo_id }).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
 				alert("Todo Added")
 		})
 	}
 	const deleteTodo = todo_id => {
 
-		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(response => {
-				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
 				alert("Todo Deleted")
 		})
 	}
 	const completeTodo = todo_id => {
-		httpRequest.post("/todo/completeuser", { todo_id }).then(response => {
-				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+		httpRequest.post("/todo/completeuser", {}, { todo_id }).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
 				alert("Todo Completed")
 		})
 	}
