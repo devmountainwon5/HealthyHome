@@ -21,7 +21,7 @@ function Profile(props) {
 
 	return (
 		<div>
-			<NavBar />
+			<NavBar activeComponent='Profile' />
 			<div>
 				User Information First name: {name}
 				Email: {email}

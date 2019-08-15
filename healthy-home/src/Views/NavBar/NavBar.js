@@ -19,13 +19,13 @@ function NavBar(props) {
 		<div className='navbar'>
 			<div className='navlinks'>
 				<ul>
-					<li>
+					<li className={props.activeComponent === 'HomeHealth' ? 'active' : ''}>
 						<Link to='/homehealth'>Healthy Home</Link>
 					</li>
-					<li>
+					<li className={props.activeComponent === 'Tips' ? 'active' : ''}>
 						<Link to='/tips'> Home Tips</Link>
 					</li>
-					<li>
+					<li className={props.activeComponent === 'ToDos' ? 'active' : ''}>
 						<Link to='/subscribe'>To Do's</Link>
 					</li>
 				</ul>
@@ -33,7 +33,7 @@ function NavBar(props) {
 
 			<div className='dropdown'>
 				<ul>
-					<li style={{ float: "right" }}>
+					<li style={{ float: "right" }} className={props.activeComponent === 'Profile' ? 'active' : ''}>
 						<div className='dropbtn'>Profile</div>
 					</li>
 					<div className='dropdown-content'>
