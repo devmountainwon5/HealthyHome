@@ -31,7 +31,7 @@ import httpRequest from "../../shared/services/http_request"
             state: state,
             zip: zip
         }
-        httpRequest.post('/auth/register', {}, registerUser).then(({data}) => {
+        httpRequest.post('/auth/register', {}, registerUser).then((data) => {
                 props.setUser(data.user);
                 props.setAddress(data.address); 
                 props.history.push('/quiz');
