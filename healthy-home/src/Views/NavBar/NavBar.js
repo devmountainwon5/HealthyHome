@@ -5,7 +5,6 @@ import * as Actions from "Ducks/action_creator"
 import "./NavBar.css"
 import httpRequest from "../../shared/services/http_request";
 
-import axios from "axios"
 
 function NavBar(props) {
 	const logout = () => {

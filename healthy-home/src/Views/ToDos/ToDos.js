@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
 import axios from "axios"
+import httpRequest from "../../shared/services/http_request";
 
 function Todos(props) {
 	const { setSuggestedTodos, setUserTodos } = props
@@ -13,50 +14,53 @@ function Todos(props) {
 				if(!response.data.success){
 					props.history.push('/')
 				}else{
-					axios
-					.get("/todo/suggested")
-					.then(response => {
-						if (response.data.success) {
-							setSuggestedTodos(response.data.suggested)
-							return axios.get("/todo/user")
-						} else {
-							return props.history.push("/")
-						}
-					})
-					.then(response => {
-						if (response.data.success) {
+					httpRequest
+						.get("/todo/suggested")
+						.then(data => {
+							setSuggestedTodos(data.suggested)
+							return httpRequest.get("/todo/user")
+							// } else {
+							//     return props.history.push("/")
+							// }
+						})
+						.then(data => {
 							setUserTodos(response.data.userTodos)
-						} else {
-							alert("something blew up")
-						}
-					})
+							// } else {
+							// 	alert("something blew up")
+							// }
+						})
+						.catch(err => {
+							console.log(err);
+						});
 				}
-			})
-		
+			});
 	}, [setSuggestedTodos, setUserTodos, props.history])
 	const addTodo = todo_id => {
-		axios.post("/todo/adduser", { todo_id }).then(response => {
-			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
-			} else {
-				alert("something blew up")
-			}
-		})
+		httpRequest.post("/todo/adduser", {}, { todo_id }).then(data => {
+				props.setUserTodos(data.userTodos)
+				// } else {
+				// 	alert("something blew up")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 	const deleteTodo = todo_id => {
-		axios.delete(`/todo/removeuser/${todo_id}`).then(response => {
-			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
-			} else {
-				alert("something blew up")
-			}
-		})
+		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(data => {
+				props.setUserTodos(data.userTodos)
+				// } else {
+				// 	alert("something blew up")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 	const completeTodo = todo_id => {
-		axios.post("/todo/completeuser", { todo_id }).then(response => {
-			if (response.data.success) {
+		httpRequest.post("/todo/completeuser", {}, { todo_id }).then(data => {
 				props.setUserTodos(
-					response.data.userTodos.reduce((r, e, i, a) => {
+					data.userTodos.reduce((r, e, i, a) => {
 						if (
 							!r.some(e2 => {
 								return e2.real_todo_id === e.real_todo_id
@@ -67,10 +71,13 @@ function Todos(props) {
 						return r
 					}, [])
 				)
-			} else {
-				alert("something blew up")
-			}
-		})
+				// } else {
+				// 	alert("something blew up")
+				// }
+			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 
 	const user = props.userTodos.map(e => {
