@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from "../../Ducks/action_creator";
 import './register.css';
+import httpRequest from "../../shared/services/http_request"
 
  function Register(props) {
     const [firstName, setFirstName] = useState('');
@@ -30,15 +31,17 @@ import './register.css';
             state: state,
             zip: zip
         }
-        axios.post('/auth/register', registerUser).then(({data}) => {
-            if(data.success){
+        httpRequest.post('/auth/register', {}, registerUser).then((data) => {
                 props.setUser(data.user);
                 props.setAddress(data.address); 
-                props.history.push('/quiz')
-            }else{
-                alert('Invalid credentials')
-            }
-        })
+                props.history.push('/quiz');
+            // else{
+            //     alert('Invalid credentials')
+            // }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
