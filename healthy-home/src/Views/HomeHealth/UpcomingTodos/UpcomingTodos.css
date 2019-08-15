@@ -18,3 +18,7 @@
 .UpcomingMaster span{
     background-color: #a8e8d7;
 }
+
+.overdue{
+    color: red;
+}
