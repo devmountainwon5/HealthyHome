@@ -17,5 +17,10 @@ router.post('/logout', (req, res, next) => {
 router.get('/me', (req, res, next) => {
     res.send(userService.me(req));
 })
-
+router.post('/info', async (req, res, next) => {
+    res.send(await userService.info(req));
+})
+// router.post('/change', (req, res, next) => {
+//     res.send(userService.change(req));
+// })
 module.exports = router;
