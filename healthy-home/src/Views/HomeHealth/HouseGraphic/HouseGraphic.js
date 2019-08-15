@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import * as actions from 'Ducks/action_creator';
+import httpRequest from "../../../shared/services/http_request";
 
 import './HouseGraphic.css';
 
@@ -16,24 +16,24 @@ function HouseGraphic(props){
     const [loading, setLoading] = useState(false)
     const {user:{user_id}, setUpcomingTodos} = props
     useEffect(() => {
-        axios.post("/barometer/retrieveScore", {user_id}).then(({data, data:{score, upcomingTodos}}) => {
-            if(!data.success){
-                return props.history.push('/')
-            }
-            if(score){
-                setLoading(true)
-                if(score*100 >= 85){
-                    setPic(niceHouse)
-                } else if (score*100 <85 && score*100 > 45){
-                    setPic(midHouse)
-                } else if (score*100 <= 45){
-                    setPic(grossHouse)
+        httpRequest.post("/barometer/retrieveScore", {}, {user_id}).then(({score, upcomingTodos}) => {
+                if(score){
+                    setLoading(true)
+                    if(score*100 >= 85){
+                        setPic(niceHouse)
+                    } else if (score*100 <85 && score*100 > 45){
+                        setPic(midHouse)
+                    } else if (score*100 <= 45){
+                        setPic(grossHouse)
+                    }
+                    setUpcomingTodos(upcomingTodos)
+                } else {
+                    console.log('Response from score retrieval is not a number')
                 }
-                setUpcomingTodos(upcomingTodos)
-            } else {
-                console.log('Response from score retrieval is not a number')
-            }
-        })
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, [user_id, setUpcomingTodos, props.history]);
 
     return(
