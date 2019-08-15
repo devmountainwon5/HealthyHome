@@ -25,7 +25,7 @@ function HomeHealth(props) {
 
 	return (
 		<div>
-			<NavBar />
+			<NavBar activeComponent='HomeHealth' />
 			<div className='DashboardMain'>
 				<UpcomingTodos />
 				<div className='DashboardSecondary'>

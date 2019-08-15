@@ -24,7 +24,7 @@ function Profile(props) {
         return (
             <div>{!edit && (
                 <>
-                <NavBar />
+                <NavBar activeComponent='Profile'/>
                 <div>
                     <p>User Information First name: {name}</p>
                     <p>Email: {email}</p>
@@ -37,7 +37,7 @@ function Profile(props) {
             )}
             {edit && (
             <>
-            <NavBar/>
+            <NavBar activeComponent='Profile'/>
             First Name:<input type="text" value = {fName} onChange = {e=> setfName(e.target.value)}/>
             Last Name:<input type="text" value = {lName} onChange = {e=> setlName(e.target.value)}/>
             Email:<input type="text" value = {nEmail} onChange = {e=> setnEmail(e.target.value)}/>

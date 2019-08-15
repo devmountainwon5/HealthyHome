@@ -1,3 +1,14 @@
 .housePic img{
     width: 35vw;
 }
+
+.gauge {
+    display: flex;
+    align-items: center;
+}
+
+.gauge h2 {
+    font-size: 1.3vw;
+    color: rgb(94, 83, 83);
+    text-shadow: 1px 1px rgb(187, 187, 187);
+}
