@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import axios from "axios"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import * as Actions from "../../Ducks/action_creator"
 import "./login.css"
+import httpRequest from "../../shared/services/http_request";
 
 function Login(props) {
 	const [email, setEmail] = useState("")
@@ -13,14 +13,15 @@ function Login(props) {
 			email,
 			password
 		}
-		axios.post("/auth/login", loginUser).then(({ data }) => {
-			if (data.success) {
-				props.setUser(data.user)
-				props.history.push("/homehealth")
-			} else {
-				alert("Username or password did not match our records")
-			}
-		})
+
+		httpRequest.post("/auth/login", {}, loginUser)
+			.then(data => {
+				props.setUser(data.user);
+				props.history.push("/homehealth");
+			})
+			.catch(err => {
+				console.log(err);
+			})
 	}
 
 	return (

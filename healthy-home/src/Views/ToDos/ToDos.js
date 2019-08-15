@@ -3,8 +3,9 @@ import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
-import axios from "axios"
 import Todo from './Todo/Todo'
+
+import httpRequest from "../../shared/services/http_request";
 
 const filterTodos = (suggestedTodos, userTodos) => {
 	suggestedTodos = suggestedTodos.filter((e) => {
@@ -27,54 +28,34 @@ function Todos(props) {
 	const { setSuggestedTodos, setUserTodos, setAllSuggestedTodos } = props
 	useEffect(() => {
 		let suggestedTodos = []
-		axios
+		httpRequest
 			.get("/todo/suggested")
 			.then(response => {
-				if (response.data.success) {
 					suggestedTodos = response.data.suggested
 					return axios.get("/todo/user")
-				} else {
-					return props.history.push("/")
-				}
 			})
 			.then(response => {
-				if (response.data.success) {
 					setAllSuggestedTodos(suggestedTodos)
 					updateTodos(filterTodos(suggestedTodos, response.data.userTodos))
-				} else {
-					alert("something blew up")
-				}
 			})
 	}, [setSuggestedTodos, setUserTodos, props.history])
 	const addTodo = todo_id => {
-		axios.post("/todo/adduser", { todo_id }).then(response => {
-			if (response.data.success) {
+		httpRequest.post("/todo/adduser", { todo_id }).then(response => {
 				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
 				alert("Todo Added")
-			} else {
-				alert("something blew up")
-			}
 		})
 	}
 	const deleteTodo = todo_id => {
 
-		axios.delete(`/todo/removeuser/${todo_id}`).then(response => {
-			if (response.data.success) {
+		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(response => {
 				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
 				alert("Todo Deleted")
-			} else {
-				alert("something blew up")
-			}
 		})
 	}
 	const completeTodo = todo_id => {
-		axios.post("/todo/completeuser", { todo_id }).then(response => {
-			if (response.data.success) {
+		httpRequest.post("/todo/completeuser", { todo_id }).then(response => {
 				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
 				alert("Todo Completed")
-			} else {
-				alert("something blew up")
-			}
 		})
 	}
 

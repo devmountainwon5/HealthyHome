@@ -1,14 +1,22 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
+import * as Actions from "Ducks/action_creator"
 import "./NavBar.css"
+import httpRequest from "../../shared/services/http_request";
 
-import axios from "axios"
 
-export default function NavBar() {
+function NavBar(props) {
 	const logout = () => {
-		axios.post("/auth/logout").then(response => {
-			console.log(response.data.success)
-		})
+		httpRequest.post("/auth/logout").then(data => {
+			console.log(data.success);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+			props.setUser({});
+			props.setAddress({});
 	}
 
 	return (
@@ -17,9 +25,6 @@ export default function NavBar() {
 				<ul>
 					<li>
 						<Link to='/homehealth'>Healthy Home</Link>
-					</li>
-					<li>
-						<Link to='/calendar'>Calendar</Link>
 					</li>
 					<li>
 						<Link to='/tips'> Home Tips</Link>
@@ -46,3 +51,8 @@ export default function NavBar() {
 		</div>
 	)
 }
+
+export default connect(
+	state => state,
+	Actions
+)(NavBar)
