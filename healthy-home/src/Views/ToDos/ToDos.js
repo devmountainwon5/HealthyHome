@@ -6,22 +6,41 @@ import * as Actions from "Ducks/action_creator"
 import axios from "axios"
 import Todo from './Todo/Todo'
 
+const filterTodos = (suggestedTodos, userTodos) => {
+	suggestedTodos = suggestedTodos.filter((e) => {
+		return !userTodos.some((e2) => {
+			return e.todo_id === e2.todo_id
+		})
+	})
+	return {
+		suggestedTodos,
+		userTodos
+	}
+}
+
+
 function Todos(props) {
-	const { setSuggestedTodos, setUserTodos } = props
+	let updateTodos = (todos) => {
+		setUserTodos(todos.userTodos)
+		setSuggestedTodos(todos.suggestedTodos)
+	}
+	const { setSuggestedTodos, setUserTodos, setAllSuggestedTodos } = props
 	useEffect(() => {
+		let suggestedTodos = []
 		axios
 			.get("/todo/suggested")
 			.then(response => {
 				if (response.data.success) {
-                    setSuggestedTodos(response.data.suggested)
+					suggestedTodos = response.data.suggested
 					return axios.get("/todo/user")
 				} else {
-                    return props.history.push("/")
+					return props.history.push("/")
 				}
 			})
 			.then(response => {
 				if (response.data.success) {
-					setUserTodos(response.data.userTodos)
+					setAllSuggestedTodos(suggestedTodos)
+					updateTodos(filterTodos(suggestedTodos, response.data.userTodos))
 				} else {
 					alert("something blew up")
 				}
@@ -30,17 +49,19 @@ function Todos(props) {
 	const addTodo = todo_id => {
 		axios.post("/todo/adduser", { todo_id }).then(response => {
 			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
+				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+				alert("Todo Added")
 			} else {
 				alert("something blew up")
 			}
 		})
 	}
 	const deleteTodo = todo_id => {
-		debugger
+
 		axios.delete(`/todo/removeuser/${todo_id}`).then(response => {
 			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
+				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+				alert("Todo Deleted")
 			} else {
 				alert("something blew up")
 			}
@@ -49,18 +70,8 @@ function Todos(props) {
 	const completeTodo = todo_id => {
 		axios.post("/todo/completeuser", { todo_id }).then(response => {
 			if (response.data.success) {
-				props.setUserTodos(
-					response.data.userTodos.reduce((r, e, i, a) => {
-						if (
-							!r.some(e2 => {
-								return e2.real_todo_id === e.real_todo_id
-							})
-						) {
-							r.push(e)
-						}
-						return r
-					}, [])
-				)
+				updateTodos(filterTodos(props.allSuggestedTodos, response.data.userTodos))
+				alert("Todo Completed")
 			} else {
 				alert("something blew up")
 			}
@@ -69,7 +80,7 @@ function Todos(props) {
 
 	const user = props.userTodos.map(e => {
 		return (
-			<Todo key={e.id} todo = {e}/>
+			<Todo key={e.id} deleteTodo={deleteTodo} completeTodo={completeTodo} todo={e} />
 		)
 	})
 	const suggested = props.suggestedTodos.map(e => {

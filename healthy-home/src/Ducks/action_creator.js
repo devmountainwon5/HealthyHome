@@ -24,6 +24,12 @@ export const setSuggestedTodos = (todos) => {
         payload: todos
     }
 }
+export const setAllSuggestedTodos = (todos) => {
+    return {
+        type: 'all_suggested_todos',
+        payload: todos
+    }
+}
 export const setUserTodos = (todos) => {
     return {
         type: 'user_todos',

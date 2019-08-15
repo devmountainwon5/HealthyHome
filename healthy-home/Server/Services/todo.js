@@ -24,14 +24,13 @@ module.exports = {
 
         return db.get_todos_for_user([userId])
             .then(  (todos) => {
-                const todoPromises = todos.map((e) => {
-                    e.completed_dates = db.completed_date_table.find({users_todos_id: e.id}) 
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
                     return e 
                 }) 
                 return Promise.all(todoPromises)
             })
             .then( (todos) => {
-                
                 return {
                     success: true,
                     userTodos: todos
@@ -92,8 +91,8 @@ module.exports = {
                 return db.get_todos_for_user([user_id])
             })
             .then(  (todos) => {
-                const todoPromises = todos.map((e) => {
-                    e.completed_dates = db.completed_date_table.find({users_todos_id: e.id}) 
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
                     return e 
                 }) 
                 return Promise.all(todoPromises)
@@ -127,8 +126,8 @@ module.exports = {
                 return db.get_todos_for_user([user_id])
             })
             .then(  (todos) => {
-                const todoPromises = todos.map((e) => {
-                    e.completed_dates = db.completed_date_table.find({users_todos_id: e.id}) 
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
                     return e 
                 }) 
                 return Promise.all(todoPromises)
@@ -170,8 +169,8 @@ module.exports = {
                 return db.get_todos_for_user([user_id])
             })
             .then(  (todos) => {
-                const todoPromises = todos.map((e) => {
-                    e.completed_dates = db.completed_date_table.find({users_todos_id: e.id}) 
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
                     return e 
                 }) 
                 return Promise.all(todoPromises)
