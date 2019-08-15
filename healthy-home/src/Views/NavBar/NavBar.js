@@ -23,9 +23,6 @@ function NavBar(props) {
 						<Link to='/homehealth'>Healthy Home</Link>
 					</li>
 					<li>
-						<Link to='/calendar'>Calendar</Link>
-					</li>
-					<li>
 						<Link to='/tips'> Home Tips</Link>
 					</li>
 					<li>
