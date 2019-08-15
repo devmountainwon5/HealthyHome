@@ -32,7 +32,7 @@ function Todos(props) {
 			.get("/todo/suggested")
 			.then(response => {
 					suggestedTodos = response.data.suggested
-					return axios.get("/todo/user")
+					return httpRequest.get("/todo/user")
 			})
 			.then(response => {
 					setAllSuggestedTodos(suggestedTodos)
