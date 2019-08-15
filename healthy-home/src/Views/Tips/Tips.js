@@ -5,18 +5,23 @@ import * as Actions from "../../Ducks/action_creator";
 import './Tips.css';
 import Tip from './Tip'; 
 import NavBar from 'Views/NavBar/NavBar';
+import httpRequest from "../../shared/services/http_request";
 
 
 function Tips(props) {
     const [tips, setTips] = useState([])
     useEffect(() => {
-        axios.get("/tips/retrieveAll").then(({ data }) => {
-            if (data.success) {
-                setTips(data.tips);
-            } else {
-                return props.history.push('/')
-            }
-        })
+        httpRequest.get("/tips/retrieveAll")
+            .then((data) => {
+                if (data.success) {
+                    setTips(data.tips);
+                } else {
+                    return props.history.push('/')
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, [props.history])
 
 
