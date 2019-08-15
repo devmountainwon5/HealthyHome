@@ -129,5 +129,27 @@ module.exports = {
             }
         else
             return { success: false, msg: "Not logged in" };
+    },
+    info: req =>{
+        const db = req.app.get('db');
+
+        const {address_line_1, address_line_2, city, state, zip, user_id}=req.body;
+
+        return db.home_address
+        .findOne({user_id})
+            .then(address => {
+                // return{
+                    // address: {
+                    //     address: address_line_1 + ' ' + address_line_2,
+                    //     city: city,
+                    //     state: state,
+                    //     zip: zip
+                    // }
+                // }
+                return address
+            })
     }
+    // change: req => {
+        
+    // }
 }
