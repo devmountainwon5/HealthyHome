@@ -138,18 +138,14 @@ module.exports = {
         return db.home_address
         .findOne({user_id})
             .then(address => {
-                // return{
-                    // address: {
-                    //     address: address_line_1 + ' ' + address_line_2,
-                    //     city: city,
-                    //     state: state,
-                    //     zip: zip
-                    // }
-                // }
                 return address
             })
+    },
+    change: req => {
+         const db = req.app.get('db');
+
+         
+
+
     }
-    // change: req => {
-        
-    // }
 }
