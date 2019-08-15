@@ -3,16 +3,21 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import * as Actions from "Ducks/action_creator"
 import "./NavBar.css"
+import httpRequest from "../../shared/services/http_request";
 
 import axios from "axios"
 
 function NavBar(props) {
 	const logout = () => {
-		axios.post("/auth/logout").then(response => {
-			console.log(response.data.success)
-		})
-		props.setUser({});
-		props.setAddress({})
+		httpRequest.post("/auth/logout").then(data => {
+			console.log(data.success);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+			props.setUser({});
+			props.setAddress({});
 	}
 
 	return (
