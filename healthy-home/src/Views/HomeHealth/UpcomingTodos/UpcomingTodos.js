@@ -6,8 +6,15 @@ import "./UpcomingTodos.css"
 function UpcomingTodos(props) {
 
 	const todos = props.upcomingTodos.map(e => {
-		return <div key={e.id}>{e.todo_item}</div>
+		let str = ''
+		if (e.overDiff > 0){
+			e.str = 'overdue'
+		}else{
+			e.str = 'due'
+		}
+		return <div className={e.str} key={e.id}>{e.todo_item}</div>
 	})
+
 	return (
 		<div className='UpcomingMaster'>
 			<span>
