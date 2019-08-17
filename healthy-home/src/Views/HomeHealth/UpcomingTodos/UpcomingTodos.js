@@ -7,12 +7,17 @@ function UpcomingTodos(props) {
 
 	const todos = props.upcomingTodos.map(e => {
 		let str = ''
-		if (e.overDiff > 0){
-			e.str = 'overdue'
+		let overdueStr = ''
+		if (e.overDiff >= 7){
+			e.str = 'very-overdue';
+			e.overdueStr = ' (overdue by ' + e.overDiff + ' days)'
+		}else if(e.overDiff > 0){
+			e.str = 'overdue';
+			e.overdueStr = ' (overdue by ' + e.overDiff + ' days)'
 		}else{
 			e.str = 'due'
 		}
-		return <div className={e.str} key={e.id}>{e.todo_item}</div>
+		return <div className={e.str} key={e.id}>{e.todo_item}{e.overdueStr}</div>
 	})
 
 	return (
