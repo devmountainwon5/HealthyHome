@@ -19,5 +19,9 @@
 }
 
 .overdue{
+    color: orange;
+}
+
+.very-overdue{
     color: red;
 }
