@@ -17,19 +17,25 @@ function getSuggestedTypes(selectedAnswerData) {
 }
 
 module.exports = {
-    getUserTodos: (req, res, next) => {
+    getUserTodos:  (req, res, next) => {
         const db = req.app.get('db');
 
         const userId = req.session.user ? req.session.user.userId : null;
 
-        return db.get_user_todos([userId])
-            .then(todos => {
-
+        return db.get_todos_for_user([userId])
+            .then(  (todos) => {
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
+                    return e 
+                }) 
+                return Promise.all(todoPromises)
+            })
+            .then( (todos) => {
                 return {
                     success: true,
                     userTodos: todos
                 }
-            })
+            } )
             .catch(err => {
                 return {
                     success: false,
@@ -82,7 +88,14 @@ module.exports = {
                 return db.user_todos_table.update({ users_todos_id: todos.users_todos_id}, {is_active: false})
             })
             .then(() => {
-                return db.get_user_todos([user_id])
+                return db.get_todos_for_user([user_id])
+            })
+            .then(  (todos) => {
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
+                    return e 
+                }) 
+                return Promise.all(todoPromises)
             })
             .then(todos => {
 
@@ -110,7 +123,14 @@ module.exports = {
                 return db.completed_date_table.insert({ user_id, users_todos_id: todos.users_todos_id, completed_date: new Date().toJSON().slice(0, 19).replace('T', ' ') })
             })
             .then(() => {
-                return db.get_user_todos([user_id])
+                return db.get_todos_for_user([user_id])
+            })
+            .then(  (todos) => {
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
+                    return e 
+                }) 
+                return Promise.all(todoPromises)
             })
             .then(todos => {
 
@@ -146,7 +166,14 @@ module.exports = {
                 return db.completed_date_table.insert({ user_id, users_todos_id: todos.users_todos_id, completed_date: todos.date_added })
             })
             .then(() => {
-                return db.get_user_todos([user_id])
+                return db.get_todos_for_user([user_id])
+            })
+            .then(  (todos) => {
+                const todoPromises = todos.map(async (e) => {
+                    e.completed_dates = await db.completed_date_table.find({users_todos_id: e.id}) 
+                    return e 
+                }) 
+                return Promise.all(todoPromises)
             })
             .then(todos => {
 

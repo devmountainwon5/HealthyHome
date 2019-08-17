@@ -9,7 +9,6 @@
 .UpcomingMaster{
     display: flex;
     flex-direction: column;
-    margin: auto;
     text-align: center;
     width: 70vw;
     border: #e5e5e5 2px solid;

@@ -8,11 +8,11 @@ module.exports = {
         const { email, password } = req.body;
 
         let catchUser = {};
-        // debugger;
+        //  ;
         return db.users
             .findOne({ email })
             .then(user => {
-                // debugger;
+                //  ;
                 if (!user)
                     throw "No user associated with email";
 
@@ -22,7 +22,7 @@ module.exports = {
             .then(isMatch => {
                 if (!isMatch)
                     throw "Incorrect password";
-                // debugger;
+                //  ;
                 delete catchUser.password;
 
                 req.session.user = {
@@ -39,7 +39,7 @@ module.exports = {
                 }
             })
             .catch(err => {
-                // debugger;
+                //  ;
                 return { success: false, msg: err };
             });
     },
@@ -55,11 +55,11 @@ module.exports = {
                 if (user)
                     throw "User already exists";
 
-                // debugger;
+                //  ;
                 return bcrypt.hash(password, saltRounds);
             })
             .then(hash => {
-                // debugger;
+                //  ;
                 return db.users.insert({
                     first_name: firstName,
                     last_name: lastName,
@@ -70,7 +70,7 @@ module.exports = {
             })
             .then(user => {
                 delete user.password;
-                // debugger;
+                //  ;
                 req.session.user = {
                     firstName: user.first_name,
                     lastName: user.last_name,
@@ -82,7 +82,7 @@ module.exports = {
                 return db.home_address.findOne({ user_id: user.user_id });
             })
             .then(address => {
-                // debugger;
+                //  ;
                 if (address)
                     return db.home_address.update({ user_id: req.session.user.userId }, {
                         address_line_1: addressLine1,
@@ -102,7 +102,7 @@ module.exports = {
                     });
             })
             .then(address => {
-                // debugger;
+                //  ;
                 return {
                     success: true,
                     address,
@@ -138,18 +138,15 @@ module.exports = {
         return db.home_address
         .findOne({user_id})
             .then(address => {
-                // return{
-                    // address: {
-                    //     address: address_line_1 + ' ' + address_line_2,
-                    //     city: city,
-                    //     state: state,
-                    //     zip: zip
-                    // }
-                // }
                 return address
             })
+    },
+    change: req => {
+         const db = req.app.get('db');
+
+         
+
+
     }
-    // change: req => {
-        
-    // }
+
 }
