@@ -1,0 +1,23 @@
+.upcomingTask{
+    display: flex;
+    justify-content: center;
+    /* background-color: #5897a5;
+    border-radius: 50%; */
+    /* working on some css tweaks, disabling them until I finish them -Kris */
+}
+
+.UpcomingMaster{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 70vw;
+    border: #e5e5e5 2px solid;
+}
+
+.UpcomingMaster span{
+    background-color: #a8e8d7;
+}
+
+.overdue{
+    color: red;
+}
