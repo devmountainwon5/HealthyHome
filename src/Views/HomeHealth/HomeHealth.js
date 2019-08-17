@@ -27,7 +27,9 @@ function HomeHealth(props) {
 		<div>
 			<NavBar activeComponent='HomeHealth' />
 			<div className='DashboardMain'>
-				<UpcomingTodos />
+				<div className='todos'>
+					<UpcomingTodos />
+				</div>
 				<div className='DashboardSecondary'>
 					<RandomTip />
 					<HouseGraphic />

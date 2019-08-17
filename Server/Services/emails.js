@@ -35,7 +35,7 @@ const sendMail = async outgoing => {
 
 	const mailOptions = {
 		from: "healthyhomesapp@gmail.com",
-		to: process.env.SEND_TO, //process.env. who you send to
+		to: outgoing.body.email || process.env.SEND_TO,
 		subject: "Healthy Home event",
 		text: outgoing.body.text,
 		alternatives: [
