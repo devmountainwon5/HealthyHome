@@ -11,7 +11,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(15, 149, 158);
+ 
 }
 li {
   float: left;
@@ -27,7 +27,7 @@ li a:hover {
   background-color: rgb(0, 195, 255);
 }
 .active{
-  background-color: rgb(121, 233, 171)
+  background-color: rgb(15, 149, 158);
 }
 
 .DashboardMain {

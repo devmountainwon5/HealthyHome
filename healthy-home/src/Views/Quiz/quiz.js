@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import axios from "axios"
 import { connect } from 'react-redux';
 import * as Actions from 'Ducks/action_creator'
 import './quiz.css';

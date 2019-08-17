@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import * as Actions from "../../Ducks/action_creator";
 import './Tips.css';
@@ -30,7 +29,7 @@ function Tips(props) {
     })
     return (
         <div className="tips-main">
-            <NavBar/>
+            <NavBar activeComponent='Tips' />
             <h1 className="tips-title">Tips</h1>
             <div className="center-tips">
                 <div className="all-tips-div">

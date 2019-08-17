@@ -3,93 +3,65 @@ import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
-import axios from "axios"
+import Todo from './Todo/Todo'
+
+import httpRequest from "../../shared/services/http_request";
+
+const filterTodos = (suggestedTodos, userTodos) => {
+	suggestedTodos = suggestedTodos.filter((e) => {
+		return !userTodos.some((e2) => {
+			return e.todo_id === e2.todo_id
+		})
+	})
+	return {
+		suggestedTodos,
+		userTodos
+	}
+}
+
 
 function Todos(props) {
-	const { setSuggestedTodos, setUserTodos } = props
+	let updateTodos = (todos) => {
+		setUserTodos(todos.userTodos)
+		setSuggestedTodos(todos.suggestedTodos)
+	}
+	const { setSuggestedTodos, setUserTodos, setAllSuggestedTodos } = props
 	useEffect(() => {
-		axios.get('/auth/me')
-			.then((response) => {
-				if(!response.data.success){
-					props.history.push('/')
-				}else{
-					axios
-					.get("/todo/suggested")
-					.then(response => {
-						if (response.data.success) {
-							setSuggestedTodos(response.data.suggested)
-							return axios.get("/todo/user")
-						} else {
-							return props.history.push("/")
-						}
-					})
-					.then(response => {
-						if (response.data.success) {
-							setUserTodos(response.data.userTodos)
-						} else {
-							alert("something blew up")
-						}
-					})
-				}
+		let suggestedTodos = []
+		httpRequest
+			.get("/todo/suggested")
+			.then(data => {
+					suggestedTodos = data.suggested
+					return httpRequest.get("/todo/user")
 			})
-		
+			.then(data => {
+					setAllSuggestedTodos(suggestedTodos)
+					updateTodos(filterTodos(suggestedTodos, data.userTodos))
+			})
 	}, [setSuggestedTodos, setUserTodos, props.history])
 	const addTodo = todo_id => {
-		axios.post("/todo/adduser", { todo_id }).then(response => {
-			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
-			} else {
-				alert("something blew up")
-			}
+		httpRequest.post("/todo/adduser", {}, { todo_id }).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
+				alert("Todo Added")
 		})
 	}
 	const deleteTodo = todo_id => {
-		axios.delete(`/todo/removeuser/${todo_id}`).then(response => {
-			if (response.data.success) {
-				props.setUserTodos(response.data.userTodos)
-			} else {
-				alert("something blew up")
-			}
+
+		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
+				alert("Todo Deleted")
 		})
 	}
 	const completeTodo = todo_id => {
-		axios.post("/todo/completeuser", { todo_id }).then(response => {
-			if (response.data.success) {
-				props.setUserTodos(
-					response.data.userTodos.reduce((r, e, i, a) => {
-						if (
-							!r.some(e2 => {
-								return e2.real_todo_id === e.real_todo_id
-							})
-						) {
-							r.push(e)
-						}
-						return r
-					}, [])
-				)
-			} else {
-				alert("something blew up")
-			}
+		httpRequest.post("/todo/completeuser", {}, { todo_id }).then(data => {
+				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
+				alert("Todo Completed")
 		})
 	}
 
 	const user = props.userTodos.map(e => {
 		return (
-			<div key={e.id}>
-				{e.todo_item}
-				<button
-					onClick={() => {
-						completeTodo(e.todo_id)
-					}}>
-					Complete
-				</button>
-				<button
-					onClick={() => {
-						deleteTodo(e.real_todo_id)
-					}}>
-					Remove
-				</button>
-			</div>
+			<Todo key={e.id} deleteTodo={deleteTodo} completeTodo={completeTodo} todo={e} />
 		)
 	})
 	const suggested = props.suggestedTodos.map(e => {
@@ -108,7 +80,7 @@ function Todos(props) {
 	})
 	return (
 		<div>
-			<NavBar />
+			<NavBar activeComponent='ToDos' />
 			<div className='todoBox'>
 				<h2>User Todos</h2>
 				{user}
