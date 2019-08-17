@@ -26,7 +26,7 @@ app.get('/*', (req, res) => {
     })
 });
 
-const port = process.env.port || 4011;
+const port = process.env.SERVER || 4011;
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
