@@ -80,7 +80,7 @@ function Todos(props) {
 	})
 	return (
 		<div>
-			<NavBar />
+			<NavBar activeComponent='ToDos' />
 			<div className='todoBox'>
 				<h2>User Todos</h2>
 				{user}
