@@ -1,8 +1,9 @@
 body{
     margin: 0;
-    padding: 0;
-    
+    padding: 0; 
 }
+
+
 .navbar{
     padding: 0;
     margin: 0;
@@ -11,6 +12,11 @@ body{
     width: 100%;
     background-color: #76b4c9;
 }
+
+.hamburger{
+  display: none;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -38,14 +44,6 @@ ul {
     padding: 14px 16px;
   }
 
-
-
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
   .dropdown-content {
     display: none;
     position: absolute;
@@ -68,25 +66,36 @@ ul {
 
   .dropdown:hover .dropbtn {background-color: #3e3f8e;}
 
+
+  /* Cell Phone Mode CSS */
+
+
   @media screen and (max-width: 800px){
-    .navbar ul{
+    
+    .navbar{
+      display: none;
+    }
+
+    .navbar ul {
       display: flex;
       flex-direction: column;
-      align-content: center;
-      font-size: 4vw;
+      justify-content: center;
     }
-    .navbar {
-      display: flex;
-      flex-direction: column;
-    }
-    .dropbtn {
+
+    .dropdown {
       display: flex;
       justify-content: center;
     }
-  
-    .dropdown-content{
-      width: 95vw;
-      margin: auto;
-      text-align: center;
+
+    .hamburger{
+      display: flex;
+      padding: 14px 16px;
+      justify-content: center;
+      background-color: #76b4c9;
     }
+
+    .MasterDiv:hover .navbar{
+      display: block;
+    }
+
   }
