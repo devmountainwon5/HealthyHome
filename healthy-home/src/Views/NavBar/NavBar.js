@@ -21,6 +21,9 @@ function NavBar(props) {
 
 	return (
 		<div className='navbar'>
+			<div className="nav-icon-container">
+				<div className="nav-icon"></div>
+			</div>
 			<div className='navlinks'>
 				<ul>
 					<li className={props.activeComponent === 'HomeHealth' ? 'active' : ''}>

@@ -1,0 +1,28 @@
+.todo {
+    border: 1px solid #2aabe2;
+    border-radius: 4px;
+    margin: 5px;
+    background-color: #eaf4f86b;
+    padding: 5px;
+}
+
+.todo button {
+    background-color: #2aabe2;
+}
+
+.todo h4 {
+    font-size: 1.3rem;
+    margin: 5px 5px;
+    text-decoration: underline;
+}
+
+.todo p {
+    font-size: 0.8em;
+    margin: 2px;
+}
+
+.todo button:hover {
+    border: 1px solid #155875;
+    background-color: #1c78a0;
+    transition: all 0.2s;
+}

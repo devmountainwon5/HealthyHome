@@ -1,0 +1,35 @@
+.ToDos {
+    width: 100%;
+    text-align: center;
+}
+
+/* .ToDos>.todoBox:first-of-type {
+    border-top: 1px solid rgba(169, 169, 169, 0.63);
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: red;
+} */
+
+.todoBox {
+    border: 1px solid rgba(169, 169, 169, 0.63);
+    /* border-top: 0px;
+    border-bottom: 1px dashed rgba(169, 169, 169, 0.63); */
+    background-color: #cfd1ddea;
+    margin: 10px;
+    color: black;
+}
+
+.todo-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid darkgrey;
+    margin: 0px 10px 10px 10px;
+    background-color: rgba(255, 255, 255, 0.89);
+    width: auto;
+}
+
+.active-todo {
+    border: 1px solid darkblue;
+}

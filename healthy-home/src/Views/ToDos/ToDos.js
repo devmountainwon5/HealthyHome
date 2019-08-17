@@ -7,6 +7,7 @@ import Todo from './Todo/Todo'
 
 import httpRequest from "../../shared/services/http_request";
 
+import './ToDos.css';
 const filterTodos = (suggestedTodos, userTodos) => {
 	suggestedTodos = suggestedTodos.filter((e) => {
 		return !userTodos.some((e2) => {
@@ -79,11 +80,13 @@ function Todos(props) {
 		)
 	})
 	return (
-		<div>
+		<div className="ToDos">
 			<NavBar activeComponent='ToDos' />
 			<div className='todoBox'>
 				<h2>User Todos</h2>
-				{user}
+				<div className="todo-items">
+					{user}
+				</div>
 			</div>
 			<div className='todoBox'>
 				<h2>Suggested Todos</h2>

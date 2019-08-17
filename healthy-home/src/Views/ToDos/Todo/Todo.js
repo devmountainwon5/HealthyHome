@@ -1,4 +1,6 @@
 import React from 'react'
+import './ToDo.css';
+
 const dateSetter = (date, props, time) => {
      
     const completedDate = new Date(date).getTime()
@@ -73,7 +75,7 @@ export default function Todo(props) {
         case 6:
             return dateSetter(props.todo.completed_dates[0].completed_date, props, 365)
         default:
-            return <div>{props.todo.todo_item} Still Time</div>
+            return <div className="active-todo">{props.todo.todo_item} Still Time</div>
 
     }
 }

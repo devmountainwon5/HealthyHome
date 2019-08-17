@@ -13,10 +13,10 @@
 }
 body {
     color: whitesmoke;
-    border-color: black;
-    border-style: solid;
-    text-shadow: black 0px 0px 20px;
-    text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
+    /* border-color: black; */
+    /* border-style: solid; */
+    /* text-shadow: black 0px 0px 20px; */
+    /* text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black; */
     background-size: cover;
     -moz-background-size: cover;
     
