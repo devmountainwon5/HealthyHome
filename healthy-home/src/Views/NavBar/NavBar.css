@@ -1,8 +1,9 @@
 body{
     margin: 0;
-    padding: 0;
-    
+    padding: 0; 
 }
+
+
 .navbar{
     padding: 0;
     margin: 0;
@@ -11,12 +12,16 @@ body{
     width: 100%;
     background-color: #76b4c9;
 }
+
+.hamburger{
+  display: none;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #76b4c9;
   }
   
   li {
@@ -35,12 +40,8 @@ ul {
     background-color: rgb(0, 195, 255);
   }
 
-
-
-
   .dropdown {
-    position: relative;
-    display: inline-block;
+    padding: 14px 16px;
   }
 
   .dropdown-content {
@@ -65,10 +66,36 @@ ul {
 
   .dropdown:hover .dropbtn {background-color: #3e3f8e;}
 
+
+  /* Cell Phone Mode CSS */
+
+
   @media screen and (max-width: 800px){
-    .navbar ul{
+    
+    .navbar{
+      display: none;
+    }
+
+    .navbar ul {
       display: flex;
       flex-direction: column;
-      font-size: 4vw;
+      justify-content: center;
     }
+
+    .dropdown {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hamburger{
+      display: flex;
+      padding: 14px 16px;
+      justify-content: center;
+      background-color: #76b4c9;
+    }
+
+    .MasterDiv:hover .navbar{
+      display: block;
+    }
+
   }
