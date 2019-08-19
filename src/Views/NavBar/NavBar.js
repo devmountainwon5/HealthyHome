@@ -25,7 +25,7 @@ function NavBar(props) {
 		<div className='MasterDiv'>
 			
 			<div className='hamburger'>
-				<img src={Menu} />
+				<img src={Menu} alt='menu'/>
 			</div>
 
 			<div className='navbar'>

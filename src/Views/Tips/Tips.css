@@ -10,9 +10,10 @@
 }
 
 .all-tips-div{
+    padding-top: 10px;
     width: 80vw;
     max-width: 1500px;
-    height: 80vh;
+    height: 100vh;
     background-color: #5897a5;
     display: flex;
     flex-direction: row;
