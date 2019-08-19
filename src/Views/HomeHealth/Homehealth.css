@@ -33,16 +33,24 @@ li a:hover {
 .DashboardMain {
   margin: 10px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
   width: 100vw;
+  min-width: 800px;
 }
 
 .todos{
-  width: 70vw;
+  width: 60vw;
+  min-width: 400px;
+  justify-content: center;
 }
 
 .DashboardSecondary {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  justify-content: center;
+  width: 40vw;
+  min-width: 400px;
 }
