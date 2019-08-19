@@ -48,7 +48,7 @@ function NavBar(props) {
 				<div className='dropdown'>
 					<ul>
 						<li style={{ float: "right" }} className={props.activeComponent === 'Profile' ? 'active' : ''}>
-							<div className='dropbtn'>Profile</div>
+							<Link to='/profile' className='dropbtn'>Profile</Link>
 						</li>
 						<div className='dropdown-content'>
 							<Link to='/profile'>My Profile</Link>
