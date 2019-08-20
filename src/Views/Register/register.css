@@ -5,7 +5,7 @@ body{
  .register-box{
     width: 300px;
     height: 610px;
-    background-color: #94e0ba;
+    background-color: #6bc5eb;
     color: white;
     border-radius: 5px;
     position: fixed;
@@ -50,8 +50,8 @@ body{
      align-items: center;
  }
  button{
-    width: 90px;
-    background-color: #4cb69f;
+    width: 100px;
+    background-color: #0d506d;
     border: none;
     color: white;
     border-radius: 3px;
@@ -61,8 +61,8 @@ body{
     margin: 3px;
  }
  .link{
-      width: 110px;
-       background-color: #4cb69f;
+      width: 100px;
+       background-color: #0d506d;
        border: none;
        color: white;
        border-radius: 3px;
