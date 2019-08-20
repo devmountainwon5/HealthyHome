@@ -63,6 +63,7 @@ class Quiz extends Component {
 	}
 	render() {
 		const quizItems = this.props.quizItems.map((e) => {
+			if(e.props.quizItems !== 3)
 			return <Question key={e.reg_question_id} handleAnswer={this.handleAnswer} question={e} />
 		})
 		return (
