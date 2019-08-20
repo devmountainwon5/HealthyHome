@@ -82,11 +82,11 @@ function Todos(props) {
 		<div>
 			<NavBar activeComponent='ToDos' />
 			<div className='todoBox'>
-				<h2>User Todos</h2>
+				<h2 align="center">User Todos</h2>
 				{user}
 			</div>
 			<div className='todoBox'>
-				<h2>Suggested Todos</h2>
+				<h2 align="center">Suggested Todos</h2>
 				{suggested}
 			</div>
 		</div>
