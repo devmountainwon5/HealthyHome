@@ -1,27 +1,26 @@
 .center-tips{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .tips-title{
-    color: #5897a5;
+    color: #0d506d;
     text-align: center;
     font-size: 2.5em;
 }
 
 .all-tips-div{
     padding-top: 10px;
-    width: 80vw;
+    width: 100vw;
     max-width: 1500px;
     height: 100vh;
-    background-color: #5897a5;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     overflow: auto;
-    border-radius: 4px;
 }
 
 
