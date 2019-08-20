@@ -9,10 +9,10 @@ const sendMail = async outgoing => {
 	
 
 	cal.createEvent({
-		start: moment().add(Number(outgoing.body.frequency), "days"),
-		end: moment().add(Number(outgoing.body.frequency), "days"),
-		summary: outgoing.body.summary, //name of the event
-		description: outgoing.body.description
+		start: moment().add(Number(outgoing.frequency), "days"),
+		end: moment().add(Number(outgoing.frequency), "days"),
+		summary: outgoing.summary, //name of the event
+		description: outgoing.description
 	})
 
 	const event = new Buffer.from(cal.toString())
@@ -35,9 +35,9 @@ const sendMail = async outgoing => {
 
 	const mailOptions = {
 		from: "healthyhomesapp@gmail.com",
-		to: outgoing.body.email || process.env.SEND_TO,
+		to: outgoing.email || process.env.SEND_TO,
 		subject: "Healthy Home event",
-		text: outgoing.body.text,
+		text: outgoing.text,
 		alternatives: [
 			{
 				filename: "invite.ics",
