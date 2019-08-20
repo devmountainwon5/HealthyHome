@@ -30,8 +30,8 @@ function Tips(props) {
     return (
         <div className="tips-main">
             <NavBar activeComponent='Tips' />
-            <h1 className="tips-title">Tips</h1>
             <div className="center-tips">
+                <h1 className="tips-title">Tips</h1>
                 <div className="all-tips-div">
                     {loopTips}
                 </div>
