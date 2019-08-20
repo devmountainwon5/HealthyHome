@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function RecipeReviewCard() {
+  export default function TodoCard() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
   
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
       <Card className={classes.card}>
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
+            <Avatar aria-label="todo item" className={classes.avatar}>
               TD
             </Avatar>
           }
@@ -61,21 +61,22 @@ const useStyles = makeStyles(theme => ({
               <MoreVertIcon />
             </IconButton>
           }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          title= {props.todo.todo_item}
+          subheader= "Due Date:"{}
+          subheader= "Date Completed:"{}
         />
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
           image="/static/images/cards/paella.jpg"
           title="Paella dish"
-        />
-        <CardContent>
+        /> */}
+        {/* <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             This impressive paella is a perfect party dish and a fun meal to cook together with your
             guests. Add 1 cup of frozen peas along with the mussels, if you like.
           </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
+        </CardContent> */}
+        {/* <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
@@ -117,7 +118,7 @@ const useStyles = makeStyles(theme => ({
             </Typography>
             <Typography>
               Set aside off of the heat to let rest for 10 minutes, and then serve.
-            </Typography>
+            </Typography> */}
           </CardContent>
         </Collapse>
       </Card>
