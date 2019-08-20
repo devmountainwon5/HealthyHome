@@ -40,10 +40,6 @@ ul {
     background-color: rgb(0, 195, 255);
   }
 
-  .dropdown {
-    padding: 14px 16px;
-  }
-
   .dropdown-content {
     display: none;
     position: absolute;
@@ -92,10 +88,12 @@ ul {
       padding: 14px 16px;
       justify-content: center;
       background-color: #76b4c9;
+      width: 100vw;
     }
 
     .MasterDiv:hover .navbar{
       display: block;
     }
+    .dropdown:onclick .dropdown-content {display: block;}
 
   }
