@@ -5,7 +5,7 @@ body{
  .register-box{
     width: 300px;
     height: 610px;
-    background-color: #94e0ba;
+    background-color: #6bc5eb;
     color: white;
     border-radius: 5px;
     position: fixed;
@@ -51,7 +51,7 @@ body{
  }
  button{
     width: 100px;
-    background-color: #4cb69f;
+    background-color: #0d506d;
     border: none;
     color: white;
     border-radius: 3px;
@@ -61,16 +61,16 @@ body{
     margin: 3px;
  }
  .link{
-    width: 100px;
-    background-color: #4cb69f;
-    border: none;
-    color: white;
-    border-radius: 3px;
-    text-decoration: none;
-    font-size: .75em;
-    height: 15px;
-    text-align: center; 
-    padding: 3px;
-    margin: 3px;
+      width: 100px;
+       background-color: #0d506d;
+       border: none;
+       color: white;
+       border-radius: 3px;
+       text-decoration: none;
+       font-size: .75em;
+       height: 17px;
+       text-align: center;
+       padding: 3px;
+       margin: 3px; 
  } 
  

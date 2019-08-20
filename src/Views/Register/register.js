@@ -43,12 +43,19 @@ import httpRequest from "../../shared/services/http_request"
             })
     }
 
+    const onSubmit = event => {
+        // Prevents the form from reloading the page
+        event.preventDefault();
+
+        register();
+    }
+
     return (
         <div className='register-box'>
             <h1 className='register-title'>
             Register
             </h1>
-            <div className='register-values'>
+            <form className='register-values' onSubmit={onSubmit}>
                 First Name
                 <input
                     type='text'
@@ -134,7 +141,7 @@ import httpRequest from "../../shared/services/http_request"
                 Already registered?
                 <Link className='link' to='/'>Login</Link>
             </div>
-            </div>
+            </form>
         </div>
     )
 }
