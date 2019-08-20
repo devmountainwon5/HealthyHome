@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import * as Actions from "Ducks/action_creator"
 import "./NavBar.css"
 import httpRequest from "../../shared/services/http_request";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 import Menu from './../../Assets/menu.svg';
 
@@ -21,11 +23,26 @@ function NavBar(props) {
 			props.setAddress({});
 	}
 
+	// The NavBar is on all pages that require authentication, so check if logged in here
+	useEffect(() => {
+		// axios used over httpRequest to access extra data
+		axios.get("/auth/me")
+			.then(({data}) => {
+				if (!data.success) {
+					console.log("Not logged in");
+					props.history.push('/');
+				}
+			})
+			.catch(err => {
+				console.log(err);
+			})
+	}, []);
+
 	return (
 		<div className='MasterDiv'>
 			
 			<div className='hamburger'>
-				<img src={Menu} />
+				<img src={Menu} alt='menu'/>
 			</div>
 
 			<div className='navbar'>
@@ -67,4 +84,4 @@ function NavBar(props) {
 export default connect(
 	state => state,
 	Actions
-)(NavBar)
+)(withRouter(NavBar))

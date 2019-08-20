@@ -52,7 +52,7 @@ class Quiz extends Component {
 		httpRequest.post('/questions/submit', {}, body)
 			.then((data) => {
 				this.props.setSuggestedTodos(data.todos)
-				this.props.history.push('/homehealth')
+				this.props.history.push('/subscribe')
 				// } else {
 				// 	alert("something broke")
 				// }
