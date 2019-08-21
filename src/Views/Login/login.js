@@ -24,10 +24,17 @@ function Login(props) {
 			})
 	}
 
+	const onSubmit = event => {
+		// Prevents the form from reloading the page
+		event.preventDefault();
+
+		logUserIn(email, password);
+	}
+
 	return (
 		<div className='login-box'>
 			<h1 className='login-title'>Healthy Homes</h1>
-			<div className='login-values'>
+			<form className='login-values' onSubmit={onSubmit}>
 				<input type='text' placeholder='Email' name='setEmail' value={email} onChange={e => setEmail(e.target.value)} />
 				<input
 					type='password'
@@ -42,7 +49,7 @@ function Login(props) {
 				<Link className='link' to='/register'>
 					Register
 				</Link>
-			</div>
+			</form>
 		</div>
 	)
 }
