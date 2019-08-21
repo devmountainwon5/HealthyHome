@@ -28,11 +28,12 @@ function HomeHealth(props) {
 			<NavBar activeComponent='HomeHealth' />
 			<div className='DashboardMain'>
 				<div className='todos'>
-					<UpcomingTodos />
+					<UpcomingTodos className="DashboardElement" />
 				</div>
 				<div className='DashboardSecondary'>
-					<RandomTip />
-					<HouseGraphic />
+					
+					<HouseGraphic className="DashboardElement"/>
+					<RandomTip className="DashboardElement"/>
 				</div>
 			</div>
 		</div>
