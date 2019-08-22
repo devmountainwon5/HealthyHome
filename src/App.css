@@ -1,4 +1,8 @@
 * {
     /* font-family: 'Vollkorn', serif; */
     font-family: 'BioRhyme', serif;
+    --main-bg: #e5e5e5;
+    --dark: #132c38;
+    --dark-light: #0d506d;
+    --blue: #6bc5eb;
 }

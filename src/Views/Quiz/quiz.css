@@ -1,29 +1,28 @@
 .quiz {
-    margin: 0px;
     padding: 0px;
-    background-image: url(http://www.mikaelahunt.com/wp-content/uploads/2015/09/Yard.jpg);
-    /* display: none; */
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    opacity: .6;
     height: auto;
     width: auto;
-    background-size: cover;
-}
-body {
-    color: whitesmoke;
-    text-shadow: black 0px 0px 20px;
-    text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
-    background-size: cover;
-    -moz-background-size: cover;
-    
+    color: black;
+    background-color: white;
+    margin: 10px 40px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    /* border: 1px solid var(--dark); */
+    border-radius: 4px;
+    padding: 10px;
 }
 
-button {
-    justify-content: center;
-    align-content: center;
-    background: rgb(175, 165, 165);
-    margin-right: 10px;
-    float: inherit;
+.quiz * {
+    box-sizing: border-box;
+}
+
+.quiz>button {
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.quiz>button:hover {
+    background-color: var(--blue);
+    border: 1px solid var(--dark-light);
 }
