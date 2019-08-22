@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="healthy-home">
       <Router>
-        {/* <NavBar /> */}
         {routes}
       </Router>
     </div>
