@@ -1,3 +1,78 @@
+/* .DashboardMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.DashboardElement {
+  margin: auto;
+  
+}
+
+@media screen and (min-width: 800px){
+      body{
+    margin: 0;
+    padding: 0;
+  }
+  .navbar{
+    padding: 0;
+    margin: 0;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  
+  }
+  li {
+    float: left;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: rgb(0, 195, 255);
+  }
+  .active{
+    background-color: rgb(15, 149, 158);
+  }
+
+  .DashboardMain {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+    width: 100vw;
+    min-width: 800px;
+  }
+
+  .todos{
+    width: 60vw;
+    min-width: 400px;
+    justify-content: center;
+  }
+
+  .DashboardSecondary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+    min-width: 400px;
+  }
+  
+} */
+
+/* Original: */
+
 body{
   margin: 0;
   padding: 0;
@@ -53,4 +128,17 @@ li a:hover {
   justify-content: center;
   width: 40vw;
   min-width: 400px;
+} 
+
+@media screen and (max-width: 800px){
+  .DashboardMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .DashboardElement {
+    margin: auto;
+    
+  }
 }
