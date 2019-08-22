@@ -1,27 +1,27 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import * as Actions from "../../Ducks/action_creator"
 import Snackbar from "../Snackbar/Snackbar"
 import "./login.css"
-import httpRequest from "../../shared/services/http_request";
+import httpRequest from "../../shared/services/http_request"
 
 function Login(props) {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [isErr, setIsErr] = useState(false)
-	const errMsg = 'Credentials did not match'
-
+	const errMsg = "Credentials did not match"
 	const logUserIn = (email, password) => {
 		const loginUser = {
 			email,
 			password
 		}
-
-		httpRequest.post("/auth/login", {}, loginUser)
+		setIsErr(false)
+		httpRequest
+			.post("/auth/login", {}, loginUser)
 			.then(data => {
-				props.setUser(data.user);
-				props.history.push("/homehealth");
+				props.setUser(data.user)
+				props.history.push("/homehealth")
 			})
 			.catch(() => {
 				setIsErr(true)
@@ -30,11 +30,10 @@ function Login(props) {
 
 	const onSubmit = event => {
 		// Prevents the form from reloading the page
-		event.preventDefault();
+		event.preventDefault()
 
-		logUserIn(email, password);
+		logUserIn(email, password)
 	}
-
 	return (
 		<>
 			<div className='login-box'>
@@ -56,7 +55,7 @@ function Login(props) {
 					</Link>
 				</form>
 			</div>
-			<Snackbar message={errMsg} isErr={isErr} />
+			{isErr ? <Snackbar message={errMsg} isActive={isErr} setIsActive={setIsErr} /> : null}
 		</>
 	)
 }
