@@ -12,3 +12,28 @@
     color: rgb(94, 83, 83);
     text-shadow: 1px 1px rgb(187, 187, 187);
 }
+
+
+@media screen and (max-width: 800px){
+    .housePic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .housePic img{
+        margin: auto;
+        width: 80vw;
+        
+    }
+
+    .gauge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gauge h2 {
+        font-size: 20px;
+    }
+}
