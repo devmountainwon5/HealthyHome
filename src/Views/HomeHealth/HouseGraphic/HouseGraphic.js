@@ -58,7 +58,7 @@ function HouseGraphic(props){
                         <img src={pic} alt="house-score"/>
                     }
                     <div className="gauge">
-                        <h2>House Health:</h2> 
+                        <h2>House Health</h2> 
                         {loading &&
                             <Gauge score={score}/>
                         }
