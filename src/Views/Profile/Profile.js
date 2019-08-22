@@ -9,6 +9,7 @@ function Profile({
 	address: { address_line_1, city, state, zip },
 	setAddress
 }) {
+	const [ID, setID] = useState(id)
 	const [edit, setedit] = useState(false)
 	const [fName, setfName] = useState(firstname)
 	const [lName, setlName] = useState(lastname)
@@ -19,7 +20,7 @@ function Profile({
 		setnum(phone)
 	}
 	const updateInfo = (first, last, number) => {
-		axios.post("/change", { first, last, number })
+		axios.post("/auth/change", { first, last, number, id })
 	}
 
 	useEffect(() => {
@@ -50,7 +51,6 @@ function Profile({
 						<p>State: {state}</p>
 						<button onClick={() => setedit(true)}>edit</button>
 					</div>
-					<div>contact us</div>
 				</>
 			)}
 			{edit && (
@@ -64,8 +64,8 @@ function Profile({
 					<input type='text' value={num} onChange={e => setnum(e.target.value)} />
 					<button
 						onClick={() => {
+							updateInfo(fName, lName, num, ID)
 							setedit(false)
-							updateInfo(fName, lName, num)
 						}}>
 						Submit
 					</button>

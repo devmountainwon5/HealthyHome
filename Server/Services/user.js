@@ -140,9 +140,9 @@ module.exports = {
 	change: req => {
 		const db = req.app.get("db")
 
-		const { first, last, number, user_id } = req.body
+		const { first, last, number, id } = req.body
 
-		return db.user.change_user_data({ id: user_id, fname: first, lname: last, num: number }).then(user => {
+		return db.change_user_data({ id: id, fname: first, lname: last, num: number }).then(user => {
 			return user
 		})
 	}
