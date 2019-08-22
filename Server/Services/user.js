@@ -1,5 +1,5 @@
-const bcrypt = require('bcryptjs');
-const saltRounds = 10;
+const bcrypt = require("bcryptjs")
+const saltRounds = 10
 
 module.exports = {
     login: req => {
@@ -144,11 +144,13 @@ module.exports = {
             })
     },
     change: req => {
-         const db = req.app.get('db');
+        const db = req.app.get("db");
 
-         
+        const { first, last, number, id } = req.body;
 
-
+        return db.change_user_data({ id: id, fname: first, lname: last, num: number }).then(user => {
+            return user
+        });
     }
 
 }
