@@ -1,6 +1,6 @@
 SELECT distinct on (list.todo_id) list.todo_id as real_todo_id, 
 ut.users_todos_id as todosid, 
-u.user_id as userid, 
+u.user_id as user_id, 
 cd.completed_date_id as id, 
 list.todo_item, 
 cd.completed_date as last_completed_date, 

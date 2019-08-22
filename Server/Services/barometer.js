@@ -4,7 +4,7 @@ module.exports = {
 		return db.get_user_todos({id: req.body.user_id}).then(res => {
 			const frequencyKey = [1, 7, 30, 90, 180, 365]
 			if(res.length === 0){
-				return {score: "1"}
+				return {success: true, score: "1"}
 			}
 			let totalTodos = res.length
 			//tally = todos that arent overdue

@@ -40,9 +40,9 @@ module.exports = {
     getUserTodos: (req, res, next) => {
         const db = req.app.get('db');
 
-        const userId = req.session.user ? req.session.user.userId : null;
+        const user_id = req.session.user ? req.session.user.user_id : null;
 
-        return db.get_todos_for_user([userId])
+        return db.get_todos_for_user([user_id])
             .then((todos) => {
                 const todoPromises = todos.map(async (e) => {
                     e.completed_dates = await db.completed_date_table.find({ users_todos_id: e.id })
@@ -66,9 +66,9 @@ module.exports = {
     getSuggested: (req, res, next) => {
         const db = req.app.get('db');
 
-        const userId = req.session.user ? req.session.user.userId : null;
+        const user_id = req.session.user ? req.session.user.user_id : null;
 
-        return db.get_quiz_answer_data({ userId })
+        return db.get_quiz_answer_data({ user_id })
             .then(answerData => {
                 // console.log(answerData);
 
@@ -98,7 +98,7 @@ module.exports = {
     },
     romoveUserTodo: (req, res, next) => {
         const db = req.app.get('db');
-        const user_id = req.session.user ? req.session.user.userId : null;
+        const user_id = req.session.user ? req.session.user.user_id : null;
         const { todo_id } = req.params;
         return db.user_todos_table.findOne({ user_id, todo_id })
             .then((todos) => {
@@ -133,7 +133,7 @@ module.exports = {
     },
     completeUserTodo: (req, res, next) => {
         const db = req.app.get('db');
-        const user_id = req.session.user ? req.session.user.userId : null;
+        const user_id = req.session.user ? req.session.user.user_id : null;
         const { todo_id } = req.body;
         let currentTodo = {}; 
         return db.user_todos_table.findOne({ users_todos_id: todo_id })
@@ -182,7 +182,7 @@ module.exports = {
     },
     addUserTodos: (req, res, next) => {
         const db = req.app.get('db');
-        const user_id = req.session.user ? req.session.user.userId : null;
+        const user_id = req.session.user ? req.session.user.user_id : null;
         const { todo_id } = req.body;
         let currentTodo = {};
         return db.user_todos_table.findOne({ user_id, todo_id })

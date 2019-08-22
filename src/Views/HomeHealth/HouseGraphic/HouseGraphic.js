@@ -23,6 +23,7 @@ function HouseGraphic(props){
 
     useEffect(() => {
         httpRequest.post("/barometer/retrieveScore", {}, {user_id}).then(({score, upcomingTodos}) => {
+                console.log(score)
                 if(score){
                     setLoading(true)
                     if(score*100 >= 85){
