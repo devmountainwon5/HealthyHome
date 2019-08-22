@@ -1,11 +1,12 @@
-const bcrypt = require('bcryptjs');
-const saltRounds = 10;
+const bcrypt = require("bcryptjs")
+const saltRounds = 10
 
 module.exports = {
     login: req => {
         const db = req.app.get('db');
 
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.toLowerCase();
 
         let catchUser = {};
         //  ;
@@ -46,8 +47,9 @@ module.exports = {
     register: req => {
         const db = req.app.get('db');
 
-        const { firstName, lastName, email, password, phoneNum,
+        let { firstName, lastName, email, password, phoneNum,
             addressLine1, addressLine2, city, state, zip } = req.body;
+        email = email.toLowerCase();
 
         return db.users
             .findOne({ email })
@@ -63,7 +65,7 @@ module.exports = {
                 return db.users.insert({
                     first_name: firstName,
                     last_name: lastName,
-                    email: email,
+                    email: lowerCaseEmail,
                     password: hash,
                     phone_num: phoneNum
                 });
@@ -142,11 +144,13 @@ module.exports = {
             })
     },
     change: req => {
-         const db = req.app.get('db');
+        const db = req.app.get("db");
 
-         
+        const { first, last, number, id } = req.body;
 
-
+        return db.change_user_data({ id: id, fname: first, lname: last, num: number }).then(user => {
+            return user
+        });
     }
 
 }

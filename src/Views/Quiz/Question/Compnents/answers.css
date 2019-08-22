@@ -1,0 +1,17 @@
+.answers>div>*{
+    vertical-align: middle;
+}
+
+.answers>div>input {
+    width: auto;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.answers>div>input:checked + label {
+    color: var(--dark-light);
+}
+
+.answers>div>label:hover {
+    color: var(--blue);
+}
