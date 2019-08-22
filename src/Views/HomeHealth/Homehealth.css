@@ -99,7 +99,7 @@ li a {
   text-decoration: none;
 }
 li a:hover {
-  background-color: rgb(0, 195, 255);
+  background-color: #6bc5eb;
 }
 .active{
   background-color: rgb(15, 149, 158);
@@ -117,9 +117,11 @@ li a:hover {
 }
 
 .todos{
-  width: 60vw;
+  width: 50vw;
   min-width: 400px;
   justify-content: center;
+  padding: 2rem; 
+  border: solid #132c38 .5rem;
 }
 
 .DashboardSecondary {
@@ -128,6 +130,7 @@ li a:hover {
   justify-content: center;
   width: 40vw;
   min-width: 400px;
+  padding: 2rem; 
 } 
 
 @media screen and (max-width: 800px){
@@ -142,3 +145,4 @@ li a:hover {
     
   }
 }
+
