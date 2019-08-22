@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
 import Todo from './Todo/Todo'
+import './ToDos.css'
 
 import httpRequest from "../../shared/services/http_request";
 
@@ -66,10 +67,10 @@ function Todos(props) {
 	})
 	const suggested = props.suggestedTodos.map(e => {
 		return (
-			<div key={e.todo_id}>
+			<div class= "todo" key={e.todo_id}>
 				{" "}
-				{e.todo_item}{" "}
-				<button
+				<div className="title">{e.todo_item}{" "}</div>
+				<button className="addButton"
 					onClick={() => {
 						addTodo(e.todo_id)
 					}}>
@@ -81,12 +82,12 @@ function Todos(props) {
 	return (
 		<div>
 			<NavBar activeComponent='ToDos' />
+				<h2 align="center">User Todos</h2>
 			<div className='todoBox'>
-				<h2>User Todos</h2>
 				{user}
 			</div>
+				<h2 align="center">Suggested Todos</h2>
 			<div className='todoBox'>
-				<h2>Suggested Todos</h2>
 				{suggested}
 			</div>
 		</div>
