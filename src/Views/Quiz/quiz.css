@@ -16,7 +16,7 @@ body {
     color: whitesmoke;
     background-size: cover;
     -moz-background-size: cover;
-    
+}    
 
 .quiz * {
     box-sizing: border-box;
