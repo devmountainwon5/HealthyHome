@@ -3,6 +3,7 @@ import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import axios from "axios"
 import * as Action from "../../Ducks/action_creator"
+import "./Profile.css"
 
 function Profile({
 	user: { first_name: firstname, last_name: lastname, email, phone_num: phone, user_id: id },
@@ -35,12 +36,12 @@ function Profile({
 	}, [edit])
 
 	return (
-		<div>
+		<div className="profile">
 			{!edit && (
 				<>
 					<NavBar activeComponent='Profile' />
-					<div>
-						<p>User Information</p>
+					<div className="profile-center">
+						<h1>User Information</h1>
 						<p>First name: {firstname}</p>
 						<p>Last name: {lastname}</p>
 						<p>Email: {email}</p>
@@ -56,20 +57,24 @@ function Profile({
 			{edit && (
 				<>
 					<NavBar activeComponent='Profile' />
-					First Name:
-					<input type='text' value={fName} onChange={e => setfName(e.target.value)} />
-					Last Name:
-					<input type='text' value={lName} onChange={e => setlName(e.target.value)} />
-					Phone Number:
-					<input type='text' value={num} onChange={e => setnum(e.target.value)} />
-					<button
-						onClick={() => {
-							updateInfo(fName, lName, num, ID)
-							setedit(false)
-						}}>
-						Submit
-					</button>
-					<button onClick={() => setedit(false)}>Cancel</button>
+					<div className="profile-center">
+						First Name:
+						<input type='text' value={fName} onChange={e => setfName(e.target.value)} />
+						Last Name:
+						<input type='text' value={lName} onChange={e => setlName(e.target.value)} />
+						Phone Number:
+						<input type='text' value={num} onChange={e => setnum(e.target.value)} />
+						<div>
+							<button
+								onClick={() => {
+									updateInfo(fName, lName, num, ID)
+									setedit(false)
+								}}>
+								Submit
+							</button>
+							<button onClick={() => setedit(false)}>Cancel</button>
+						</div>
+					</div>
 				</>
 			)}
 		</div>
