@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from "../../Ducks/action_creator";
+import Snackbar from "../Snackbar/Snackbar";
 import './register.css';
 import httpRequest from "../../shared/services/http_request"
 
@@ -16,6 +17,7 @@ import httpRequest from "../../shared/services/http_request"
     const [city, setCity] = useState(''); 
     const [state, setState] = useState(''); 
     const [zip, setZip] = useState(''); 
+    const errMsg = "Email already registered. Please login."
 
     const register = () => {
         const registerUser = {
