@@ -21,7 +21,6 @@ const filterTodos = (suggestedTodos, userTodos) => {
 	}
 }
 
-
 function Todos(props) {
 	const [isErr, setIsErr] = useState(false)
 	const [msg, setMsg] = useState()
