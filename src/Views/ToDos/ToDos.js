@@ -25,9 +25,6 @@ const filterTodos = (suggestedTodos, userTodos) => {
 function Todos(props) {
 	const [isErr, setIsErr] = useState(false)
 	const [msg, setMsg] = useState()
-	// const addMsg = "Todo Added"
-	// const deleteMsg = "Todo Deleted"
-    // const completeMsg = "Todo Completed"
 
 	let updateTodos = (todos) => {
 		setUserTodos(todos.userTodos)
