@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
+import Snackbar from "../Snackbar/Snackbar"
 import Todo from './Todo/Todo'
 import './ToDos.css'
 
@@ -22,6 +23,12 @@ const filterTodos = (suggestedTodos, userTodos) => {
 
 
 function Todos(props) {
+	const [isErr, setIsErr] = useState(false)
+	const [msg, setMsg] = useState()
+	// const addMsg = "Todo Added"
+	// const deleteMsg = "Todo Deleted"
+    // const completeMsg = "Todo Completed"
+
 	let updateTodos = (todos) => {
 		setUserTodos(todos.userTodos)
 		setSuggestedTodos(todos.suggestedTodos)
@@ -43,20 +50,23 @@ function Todos(props) {
 	const addTodo = todo_id => {
 		httpRequest.post("/todo/adduser", {}, { todo_id }).then(data => {
 				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				alert("Todo Added")
+				setIsErr(true)
+				setMsg("Todo Added")
 		})
 	}
 	const deleteTodo = todo_id => {
 
 		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(data => {
 				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				alert("Todo Deleted")
+				setIsErr(true)
+				setMsg("Todo Deleted")
 		})
 	}
 	const completeTodo = todo_id => {
 		httpRequest.post("/todo/completeuser", {}, { todo_id }).then(data => {
 				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				alert("Todo Completed")
+				setIsErr(true)
+				setMsg("Todo Completed")
 		})
 	}
 
@@ -67,16 +77,20 @@ function Todos(props) {
 	})
 	const suggested = props.suggestedTodos.map(e => {
 		return (
-			<div class= "todo" key={e.todo_id}>
-				{" "}
-				<div className="title">{e.todo_item}{" "}</div>
-				<button className="addButton"
-					onClick={() => {
-						addTodo(e.todo_id)
-					}}>
-					Add
-				</button>{" "}
-			</div>
+			<>
+				<div class= "todo" key={e.todo_id}>
+					{" "}
+					<div className="title">{e.todo_item}{" "}</div>
+					<button className="addButton"
+						onClick={() => {
+							addTodo(e.todo_id)
+						}}>
+						Add
+					</button>
+					{" "}
+				</div>
+				{isErr ? <Snackbar message={msg} isActive={isErr} setIsActive={setIsErr} /> : null}
+			</>
 		)
 	})
 	return (

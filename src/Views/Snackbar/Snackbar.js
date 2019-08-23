@@ -6,7 +6,7 @@ export default function Snackbar({ isActive, setIsActive, message }) {
     const setTimer = useCallback(() => {
         const timer = setTimeout(() => {
             setIsActive(false)
-        }, 4500)
+        }, 3000)
         timerRef.current = timer
     }, [setIsActive])
     useEffect(() => {
