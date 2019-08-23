@@ -63,12 +63,12 @@ class Quiz extends Component {
 	}
 	render() {
 		const quizItems = this.props.quizItems.map((e) => {
-			if(e.reg_question_id !== 3)
-			return <Question key={e.reg_question_id} handleAnswer={this.handleAnswer} question={e} />
+			if(e.reg_question_id !== 3){
+				return <Question key={e.reg_question_id} handleAnswer={this.handleAnswer} question={e} />
+			} else return null
 		})
 		return (
 			<div className="quiz">
-				{/* <Header /> */}
 				{quizItems}
 				<button onClick={this.handleSubmit} >Submit</button>
 			</div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import * as Actions from "../../Ducks/action_creator"
@@ -39,8 +39,16 @@ function Login(props) {
 			<div className='login-box'>
 				<h1 className='login-title'>Healthy Homes</h1>
 				<form className='login-values' onSubmit={onSubmit}>
-					<input type='text' placeholder='Email' name='setEmail' value={email} onChange={e => setEmail(e.target.value)} />
 					<input
+						autoComplete='on'
+						type='text'
+						placeholder='Email'
+						name='setEmail'
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+					/>
+					<input
+						autoComplete='on'
 						type='password'
 						placeholder='Password'
 						name='setPassword'

@@ -6,8 +6,6 @@ import "./UpcomingTodos.css"
 function UpcomingTodos(props) {
 
 	const todos = props.upcomingTodos.map(e => {
-		let str = ''
-		let overdueStr = ''
 		if (e.overDiff >= 7){
 			e.str = 'very-overdue';
 			e.overdueStr = ' (overdue by ' + e.overDiff + ' days)'

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import axios from "axios"
@@ -10,37 +10,36 @@ function Profile({
 	address: { address_line_1, city, state, zip },
 	setAddress
 }) {
-	const [ID, setID] = useState(id)
+	// const [ID, setID] = useState(id)
 	const [edit, setedit] = useState(false)
 	const [fName, setfName] = useState(firstname)
 	const [lName, setlName] = useState(lastname)
 	const [num, setnum] = useState(phone)
-	const reset = () => {
+	const reset = useCallback(() => {
 		setfName(firstname)
 		setlName(lastname)
 		setnum(phone)
-	}
+	}, [firstname, lastname, phone])
 	const updateInfo = (first, last, number) => {
 		axios.post("/auth/change", { first, last, number, id })
 	}
 
 	useEffect(() => {
 		axios.post("/auth/info", { user_id: id }).then(({ data }) => {
-			console.log(data)
 			setAddress(data)
 		})
-	}, [])
+	}, [id, setAddress])
 
 	useEffect(() => {
 		reset()
-	}, [edit])
+	}, [edit, reset])
 
 	return (
-		<div className="profile">
+		<div className='profile'>
 			{!edit && (
 				<>
 					<NavBar activeComponent='Profile' />
-					<div className="profile-center">
+					<div className='profile-center'>
 						<h1>User Information</h1>
 						<p>First name: {firstname}</p>
 						<p>Last name: {lastname}</p>
@@ -57,17 +56,17 @@ function Profile({
 			{edit && (
 				<>
 					<NavBar activeComponent='Profile' />
-					<div className="profile-center">
+					<div className='profile-center'>
 						First Name:
-						<input type='text' value={fName} onChange={e => setfName(e.target.value)} />
+						<input autoComplete='on' type='text' value={fName} onChange={e => setfName(e.target.value)} />
 						Last Name:
-						<input type='text' value={lName} onChange={e => setlName(e.target.value)} />
+						<input autoComplete='on' type='text' value={lName} onChange={e => setlName(e.target.value)} />
 						Phone Number:
-						<input type='text' value={num} onChange={e => setnum(e.target.value)} />
+						<input autoComplete='on' type='text' value={num} onChange={e => setnum(e.target.value)} />
 						<div>
 							<button
 								onClick={() => {
-									updateInfo(fName, lName, num, ID)
+									updateInfo(fName, lName, num)
 									setedit(false)
 								}}>
 								Submit
