@@ -35,7 +35,7 @@ module.exports = {
             return db.registration_answer_table.insert(
                 {
                     reg_question_id: e.question_id,
-                    user_id: req.session.user.userId,
+                    user_id: req.session.user.user_id,
                     reg_answer: e.answer,
                     date: new Date().toJSON().slice(0, 19).replace('T', ' '), 
                 }

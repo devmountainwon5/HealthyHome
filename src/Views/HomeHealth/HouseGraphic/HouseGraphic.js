@@ -23,6 +23,7 @@ function HouseGraphic(props){
 
     useEffect(() => {
         httpRequest.post("/barometer/retrieveScore", {}, {user_id}).then(({score, upcomingTodos}) => {
+                console.log(score)
                 if(score){
                     setLoading(true)
                     if(score*100 >= 85){
@@ -52,7 +53,6 @@ function HouseGraphic(props){
     }, [user_id, setUpcomingTodos, props.history]);
 
     return(
-        <div>
             <div className="housePic">
                     {loading && 
                         <img src={pic} alt="house-score"/>
@@ -64,7 +64,6 @@ function HouseGraphic(props){
                         }
                     </div> 
             </div>
-        </div>
     )
 
 }

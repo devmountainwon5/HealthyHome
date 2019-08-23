@@ -10,7 +10,11 @@ function Login(props) {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [isErr, setIsErr] = useState(false)
+<<<<<<< HEAD
 	const errMsg = 'Username or password do not match our records'
+=======
+	const errMsg = 'Credentials did not match'
+>>>>>>> dev
 
 	const logUserIn = (email, password) => {
 		const loginUser = {

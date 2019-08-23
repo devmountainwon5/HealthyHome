@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: space-around;
     width: 100%;
-    background-color: #76b4c9;
+    background-color: #132c38;
 }
 
 .hamburger{
@@ -37,7 +37,7 @@ ul {
   }
 
   li a:hover {
-    background-color: rgb(0, 195, 255);
+    background-color: #0d506d;
   }
 
   .dropdown-content {

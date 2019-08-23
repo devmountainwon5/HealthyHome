@@ -8,4 +8,4 @@ WHERE
   answer_data.question_answers_id = answers.question_answers_id
   AND user_answers.reg_answer = answers.answer
   AND user_answers.reg_question_id = answers.registration_question_table_id
-  AND user_answers.user_id = ${userId};
+  AND user_answers.user_id = ${user_id};

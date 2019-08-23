@@ -1,5 +1,5 @@
-const bcrypt = require('bcryptjs');
-const saltRounds = 10;
+const bcrypt = require("bcryptjs")
+const saltRounds = 10
 
 module.exports = {
     login: req => {
@@ -31,7 +31,7 @@ module.exports = {
                     lastName: catchUser.last_name,
                     email: catchUser.email,
                     phoneNum: catchUser.phone_num,
-                    userId: catchUser.user_id
+                    user_id: catchUser.user_id
                 };
 
                 return {
@@ -65,7 +65,7 @@ module.exports = {
                 return db.users.insert({
                     first_name: firstName,
                     last_name: lastName,
-                    email: lowerCaseEmail,
+                    email: email,
                     password: hash,
                     phone_num: phoneNum
                 });
@@ -73,20 +73,14 @@ module.exports = {
             .then(user => {
                 delete user.password;
                 //  ;
-                req.session.user = {
-                    firstName: user.first_name,
-                    lastName: user.last_name,
-                    email: user.email,
-                    phoneNum: user.phone_num,
-                    userId: user.user_id
-                };
+                req.session.user = user;
 
                 return db.home_address.findOne({ user_id: user.user_id });
             })
             .then(address => {
                 //  ;
                 if (address)
-                    return db.home_address.update({ user_id: req.session.user.userId }, {
+                    return db.home_address.update({ user_id: req.session.user.user_id }, {
                         address_line_1: addressLine1,
                         address_line_2: addressLine2,
                         city,
@@ -95,7 +89,7 @@ module.exports = {
                     });
                 else
                     return db.home_address.insert({
-                        user_id: req.session.user.userId,
+                        user_id: req.session.user.user_id,
                         address_line_1: addressLine1,
                         address_line_2: addressLine2,
                         city,
@@ -108,10 +102,7 @@ module.exports = {
                 return {
                     success: true,
                     address,
-                    user: {
-                        firstName: req.session.user.firstName,
-                        lastName: req.session.user.lastName
-                    }
+                    user: req.session.user
                 }
             })
             .catch(err => {
@@ -144,11 +135,13 @@ module.exports = {
             })
     },
     change: req => {
-         const db = req.app.get('db');
+        const db = req.app.get("db");
 
-         
+        const { first, last, number, id } = req.body;
 
-
+        return db.change_user_data({ id: id, fname: first, lname: last, num: number }).then(user => {
+            return user
+        });
     }
 
 }

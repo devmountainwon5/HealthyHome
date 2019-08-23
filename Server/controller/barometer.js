@@ -4,7 +4,8 @@ const barometerService = require('../Services/barometer')
 
 
 router.post('/retrieveScore', async (req, res, next) => {
-    res.send(await barometerService.retrieveScore(req));
+    let response = await barometerService.retrieveScore(req)
+    res.send(response);
 })
 
 module.exports = router;

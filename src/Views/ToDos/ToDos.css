@@ -1,0 +1,93 @@
+.todo {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin: 30px 0px;
+    border-radius: 4px;
+    position: relative;
+}
+.todoBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+}
+.good-todo{
+    font-family: sans-serif;
+    
+}
+.circleInfoContainer{
+    display: flex;
+}
+.info{
+    padding: 0px 15px;
+}
+.date{
+    font-size: 10px;
+    color: gray;
+}
+.title{
+    font-size: 12px
+}
+.circle{
+    color: white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 40px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+.goodTodo{
+    background: rgb(48, 249, 48);
+}
+.badTodo{
+    background: rgb(245, 66, 66);
+}
+.hiddenDrawer{
+    box-sizing: border-box;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    display: none;
+    background: rgba(62, 61, 61,.8);
+    top: 35px;
+    right: 23px;
+    text-align: right;
+    padding: 10px;
+    border-radius: 4px 0px 4px 4px;
+    transition: width 1s;
+}
+.hiddenDrawerShow{
+    height: auto;
+    width: 38%; 
+    display: block;
+}
+.hiddenDrawer button{
+
+    display: none;
+}
+.hiddenDrawerShow button{
+    display: block;
+}
+
+.todo button{
+    background: white;
+    color: black;
+}
+.addButton{
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: rgb(101, 130, 249)!important;
+    color: white !important;
+    
+    
+}

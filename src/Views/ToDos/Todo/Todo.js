@@ -1,53 +1,19 @@
 import React from 'react'
+import TodoCard from './TodoCard/TodoCard'
 const dateSetter = (date, props, time) => {
-     
+
     const completedDate = new Date(date).getTime()
     const today = Date.now()
     const timeInterval = time * 24 * 60 * 60 * 1000
     if (completedDate < today + timeInterval) {
-        return (
-            <div className="todo good-todo">
-                <h4>{props.todo.todo_item}</h4>
-                <p>Complete by:<span> {new Date(completedDate + timeInterval).toLocaleDateString()}</span></p>
-                <p>Last Completed Date:<span> {new Date(completedDate).toLocaleDateString()}</span></p>
-                <button
-                    onClick={() => {
-                        props.completeTodo(props.todo.id)
-                    }}>
-                    Complete
-            </button>
-                <button
-                    onClick={() => {
-                        props.deleteTodo(props.todo.todo_id)
-                    }}>
-                    Remove
-            </button>
-            </div>
+        return ( <TodoCard good={true} timeInterval={timeInterval} completeTodo={props.completeTodo} deleteTodo={props.deleteTodo} completedDate={completedDate} todo={props.todo}></TodoCard>
         )
     } else {
-        return (
-            <div className="todo bad-todo">
-                <h4>{props.todo.todo_item}</h4>
-                <p>Complete by:<span> {new Date(completedDate + timeInterval).toLocaleDateString()}</span></p>
-                <p>Last Completed Date:<span> {new Date(completedDate).toLocaleDateString()}</span></p>
-                <button
-                    onClick={() => {
-                        props.completeTodo(props.todo.id)
-                    }}>
-                    Complete
-            </button>
-                <button
-                    onClick={() => {
-                        props.deleteTodo(props.todo.todo_id)
-                    }}>
-                    Remove
-            </button>
-            </div>
-        )
+        return ( <TodoCard good={false} timeInterval={timeInterval} completeTodo={props.completeTodo} deleteTodo={props.deleteTodo} completedDate={completedDate} todo={props.todo}></TodoCard>)
     }
 }
 export default function Todo(props) {
-     
+
     function compare(a, b) {
         if (a.completed_date_id > b.completed_date_id) {
             return -1;

@@ -18,10 +18,19 @@ export default function Snackbar({isErr, message}){
             setIsActive(true)
         }
     }
+<<<<<<< HEAD
 
     return (
         <div className = {isActive ? [Styles.snackbar, Styles.open].join(" ") : Styles.snackbar} id="snackbar">
             {message}
         </div>
+=======
+    console.log(isActive)
+        return (
+            
+            <div className = {isActive ? [Styles.snackbar, Styles.open].join(" ") : Styles.snackbar} id="snackbar">
+                {message}
+            </div>
+>>>>>>> dev
     )
 }
