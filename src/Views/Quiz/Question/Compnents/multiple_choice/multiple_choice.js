@@ -4,7 +4,7 @@ import "../answers.css"
 export default function multiple_choice(props) {
 	const answers = props.answers.map((e, i) => {
 		return (
-			<div>
+			<div key={i}>
 				<input
 					autoComplete='on'
 					type='radio'

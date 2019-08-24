@@ -147,7 +147,7 @@ import httpRequest from "../../shared/services/http_request"
                         value={password}
                         onChange={e=>setPassword(e.target.value)}
                     />
-                    <button type='submit' onClick={register}>Register</button>
+                    <button type='submit'>Register</button>
                     <div className='is-registered'>
                     Already registered?
                     <Link className='link' to='/'>Login</Link>
