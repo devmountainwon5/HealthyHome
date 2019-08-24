@@ -12,6 +12,9 @@
     text-align: center;
     border: #e5e5e5 2px solid;
 }
+.mytodo {
+    color: black;
+}
 
 .UpcomingMaster span{
     background-color: #6bc5eb;

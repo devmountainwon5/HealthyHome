@@ -59,6 +59,7 @@ import httpRequest from "../../shared/services/http_request"
                 <form className='register-values' onSubmit={onSubmit}>
                     First Name
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='First Name'
                         name='setFirstName'
@@ -67,6 +68,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Last Name
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='Last Name'
                         name='setLastName'
@@ -75,6 +77,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Email
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='Email'
                         name='setEmail'
@@ -83,6 +86,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Phone Number
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='Phone Number'
                         name='setPhoneNum'
@@ -91,6 +95,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Address Line 1 
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='Address Line 1'
                         name='setAddressLine1'
@@ -99,6 +104,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Address Line 2 
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='Address Line 2'
                         name='setAddressLine2'
@@ -107,6 +113,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     City 
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='City'
                         name='setCity'
@@ -115,6 +122,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     State 
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='State'
                         name='setState'
@@ -123,6 +131,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     ZIP Code 
                     <input
+                        autoComplete='on'
                         type='text'
                         placeholder='ZIP Code'
                         name='setZip'
@@ -131,6 +140,7 @@ import httpRequest from "../../shared/services/http_request"
                     />
                     Password
                     <input
+                        autoComplete='on'
                         type='password'
                         placeholder='Password'
                         name='setPassword'

@@ -18,9 +18,6 @@
 .housePic {
 	position: relative;
 }
-.GaugeMain {
-	position: absolute;
-}
 
 @media screen and (max-width: 800px) {
 	.housePic {

@@ -15,7 +15,7 @@ function UpcomingTodos(props) {
 		}else{
 			e.str = 'due'
 		}
-		return <div className={e.str} key={e.id}>{e.todo_item}{e.overdueStr}</div>
+		return <div className={[e.str, 'mytodo'].join(' ')} key={e.id}>{e.todo_item}{e.overdueStr}</div>
 	})
 
 	return (

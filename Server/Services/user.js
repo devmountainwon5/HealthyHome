@@ -121,15 +121,15 @@ module.exports = {
                 lastName: req.session.user.lastName
             }
         else
-            return { success: false, msg: "Not logged in" };
+            return { success: false, msg: "Not logged in testttt" };
     },
     info: req =>{
         const db = req.app.get('db');
 
         const {address_line_1, address_line_2, city, state, zip, user_id}=req.body;
-
+        const id = req.session.user.user_id || user_id
         return db.home_address
-        .findOne({user_id})
+        .findOne({user_id: id})
             .then(address => {
                 return address
             })

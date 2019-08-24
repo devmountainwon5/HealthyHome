@@ -1,12 +1,8 @@
 .GaugeMain{
-    display: inline;
     position: absolute;
-    color: #FF5F6D;
-    background-color: rgb(135, 255, 23);
+    top: -29px;
+    right: 2px;
 }
-
-/* .GaugeMain{
-    display: block;
-    color: #FF5F6D;
-    background-color: rgb(135, 255, 23);
-} */
+#gauge-chart3 svg{
+    transform: scale(.7)
+}
