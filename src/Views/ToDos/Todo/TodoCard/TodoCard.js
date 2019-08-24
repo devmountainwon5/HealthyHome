@@ -23,13 +23,13 @@ export default function TodoCard(props) {
                         props.completeTodo(props.todo.id)
                     }}>
                     Complete
-            </button>
+                </button>
                 <button
                     onClick={() => {
                         props.deleteTodo(props.todo.todo_id)
                     }}>
                     Remove
-            </button>
+                </button>
             </div>
         </div>
     )
