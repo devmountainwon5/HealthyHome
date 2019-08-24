@@ -14,7 +14,7 @@ export default function TodoCard(props) {
                     <div className="date">Last<span> {new Date(props.completedDate).toLocaleDateString()}</span></div>
                 </div></div>
             <div className="menu" onClick={handleShow}>
-                <i class="material-icons">
+                <i className="material-icons">
                     more_vert</i>
             </div>
             <div className={`hiddenDrawer ${show ? 'hiddenDrawerShow' : ''}`}>

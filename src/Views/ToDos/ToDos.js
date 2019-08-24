@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import NavBar from "Views/NavBar/NavBar"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import * as Actions from "Ducks/action_creator"
 import Snackbar from "../Snackbar/Snackbar"
-import Todo from './Todo/Todo'
-import './ToDos.css'
+import Todo from "./Todo/Todo"
+import "./ToDos.css"
 
 import httpRequest from "../../shared/services/http_request"
 
@@ -21,19 +21,14 @@ const filterTodos = (suggestedTodos, userTodos) => {
 	}
 }
 
-
-function Todos(props) {
+function Todos({ suggestedTodos, setSuggestedTodos, userTodos, setUserTodos, allSuggestedTodos, setAllSuggestedTodos, history }) {
 	const [isErr, setIsErr] = useState(false)
 	const [msg, setMsg] = useState()
-	// const addMsg = "Todo Added"
-	// const deleteMsg = "Todo Deleted"
-    // const completeMsg = "Todo Completed"
 
-	let updateTodos = (todos) => {
+	let updateTodos = useCallback(todos => {
 		setUserTodos(todos.userTodos)
 		setSuggestedTodos(todos.suggestedTodos)
-	}
-	const { setSuggestedTodos, setUserTodos, setAllSuggestedTodos } = props
+	}, [setUserTodos, setSuggestedTodos])
 	useEffect(() => {
 		let suggestedTodos = []
 		httpRequest
@@ -46,26 +41,26 @@ function Todos(props) {
 				setAllSuggestedTodos(suggestedTodos)
 				updateTodos(filterTodos(suggestedTodos, data.userTodos))
 			})
-	}, [setAllSuggestedTodos, updateTodos, setSuggestedTodos, setUserTodos, history])
+		}, [setAllSuggestedTodos, updateTodos, setSuggestedTodos, setUserTodos, history])
 	const addTodo = todo_id => {
 		httpRequest.post("/todo/adduser", {}, { todo_id }).then(data => {
-				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				setIsErr(true)
-				setMsg("Todo Added")
+			updateTodos(filterTodos(allSuggestedTodos, data.userTodos))
+			setIsErr(true)
+			setMsg("Todo Added")
 		})
 	}
 	const deleteTodo = todo_id => {
 		httpRequest.delete(`/todo/removeuser/${todo_id}`).then(data => {
-				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				setIsErr(true)
-				setMsg("Todo Deleted")
+			updateTodos(filterTodos(allSuggestedTodos, data.userTodos))
+			setIsErr(true)
+			setMsg("Todo Deleted")
 		})
 	}
 	const completeTodo = todo_id => {
 		httpRequest.post("/todo/completeuser", {}, { todo_id }).then(data => {
-				updateTodos(filterTodos(props.allSuggestedTodos, data.userTodos))
-				setIsErr(true)
-				setMsg("Todo Completed")
+			updateTodos(filterTodos(allSuggestedTodos, data.userTodos))
+			setIsErr(true)
+			setMsg("Todo Completed")
 		})
 	}
 
@@ -74,20 +69,16 @@ function Todos(props) {
 	})
 	const suggested = suggestedTodos.map(e => {
 		return (
-			<>
-				<div class= "todo" key={e.todo_id}>
-					{" "}
-					<div className="title">{e.todo_item}{" "}</div>
-					<button className="addButton"
+				<div className='todo' key={e.todo_id}>
+					<div className='title'>{e.todo_item} </div>
+					<button
+						className='addButton'
 						onClick={() => {
 							addTodo(e.todo_id)
 						}}>
 						Add
 					</button>
-					{" "}
 				</div>
-				{isErr ? <Snackbar message={msg} isActive={isErr} setIsActive={setIsErr} /> : null}
-			</>
 		)
 	})
 	return (
@@ -97,6 +88,7 @@ function Todos(props) {
 			<div className='todoBox'>{user}</div>
 			<h2 align='center'>Suggested Todos</h2>
 			<div className='todoBox'>{suggested}</div>
+			{isErr ? <Snackbar message={msg} isActive={isErr} setIsActive={setIsErr} /> : null}
 		</div>
 	)
 }

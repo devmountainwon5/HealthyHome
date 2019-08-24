@@ -8,10 +8,8 @@ import './quiz.css';
 class Quiz extends Component {
 
     componentDidMount(){
-		debugger
 		axios.get('/questions/retrieveAll')
 		.then(({data})=>{
-			debugger
 			if (data.success) {
 				this.props.setQuiz(data.questions);
 			} else if (!data.isLoggedIn) {
@@ -28,7 +26,6 @@ class Quiz extends Component {
 		})
 		return (
 			<div className="quiz">
-				{/* <Header /> */}
 				{quizItems}
 			</div>
 		);

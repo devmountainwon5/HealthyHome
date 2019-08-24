@@ -1,32 +1,24 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
-import './Tip.css'; 
+import React, { useEffect } from "react"
+import axios from "axios"
+import "./Tip.css"
 
-export default function Tip(props) {
+export default function Tip({ history, tip: { tip_picture, tip_name, blog_link } }) {
+	useEffect(() => {
+		axios.get("/auth/me").then(({ data: { success } }) => {
+			if (!success) {
+				history.push("/")
+			}
+		})
+	})
 
-    useEffect(() => {
-		// Auth: Is there a current user session?
-		axios.get('/auth/me')
-			.then((response) => {
-				console.log(response.data.success)
-				if(!response.data.success){
-					props.history.push('/')
-				}
-			})
-    })
-
-
-    return (
-        <div>
-            <div className='singleTips'>
-                <a className='tip-name' href={props.tip.blog_link} target="_blank" rel="noopener noreferrer">
-                <img className='tip-picture' src={props.tip.tip_picture} alt="tip"/>
-                    <h2>
-                        {props.tip.tip_name}
-                    </h2>
-                </a>
-            </div>
-        </div>
-    )
+	return (
+		<div>
+			<div className='singleTips'>
+				<a className='tip-name' href={blog_link} target='_blank' rel='noopener noreferrer'>
+					<img className='tip-picture' src={tip_picture} alt='tip' />
+					<h2>{tip_name}</h2>
+				</a>
+			</div>
+		</div>
+	)
 }
-

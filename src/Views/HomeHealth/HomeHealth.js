@@ -10,17 +10,17 @@ import RandomTip from "./RandomTip/RandomTip"
 
 import "./Homehealth.css"
 
-function HomeHealth(props) {
+function HomeHealth({history}) {
 
 	useEffect(() => {
 		// Auth: Is there a current user session?
 		axios.get('/auth/me')
 			.then((response) => {
 				if(!response.data.success){
-					props.history.push('/')
+					history.push('/')
 				}
 			})
-	})
+	}, [history])
 
 
 	return (
